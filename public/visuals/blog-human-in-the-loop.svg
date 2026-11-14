@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" fill="none">
+  <rect width="900" height="600" fill="#101428"/>
+  <circle cx="450" cy="300" r="200" fill="#387BFA" fill-opacity="0.1"/>
+  <rect x="150" y="130" width="600" height="340" rx="24" fill="#161F42" stroke="#2D3D75"/>
+  <circle cx="330" cy="300" r="75" fill="#635BFF" fill-opacity="0.22" stroke="#635BFF" stroke-width="3"/>
+  <circle cx="570" cy="300" r="75" fill="#387BFA" fill-opacity="0.22" stroke="#387BFA" stroke-width="3"/>
+  <line x1="405" y1="300" x2="495" y2="300" stroke="#A78BFA" stroke-width="4" stroke-dasharray="6 6"/>
+  <text x="282" y="305" fill="#FAFBFF" font-family="Inter, sans-serif" font-size="16" font-weight="700">Educator</text>
+  <text x="518" y="305" fill="#FAFBFF" font-family="Inter, sans-serif" font-size="16" font-weight="700">AI Co-Pilot</text>
+</svg>

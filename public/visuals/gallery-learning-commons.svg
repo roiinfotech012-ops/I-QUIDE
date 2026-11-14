@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" fill="none">
+  <rect width="900" height="600" fill="#EAF5FF"/>
+  <circle cx="750" cy="120" r="220" fill="#635BFF" fill-opacity="0.1"/>
+  <circle cx="150" cy="480" r="240" fill="#387BFA" fill-opacity="0.12"/>
+  <rect x="90" y="90" width="720" height="420" rx="28" fill="#FAFBFF" stroke="#E5EAF4" stroke-width="2"/>
+  <rect x="140" y="140" width="380" height="320" rx="20" fill="#0B1026"/>
+  <path d="M180 390 C250 370, 290 250, 360 250 C430 250, 445 190, 485 180" stroke="#635BFF" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="180" cy="390" r="7" fill="#387BFA"/>
+  <circle cx="360" cy="250" r="9" fill="#635BFF"/>
+  <circle cx="485" cy="180" r="8" fill="#A78BFA"/>
+  <text x="180" y="200" fill="#FAFBFF" font-family="Inter, sans-serif" font-size="18" font-weight="700">Collaborative Learning Studio</text>
+  <text x="180" y="226" fill="#94A3B8" font-family="Inter, sans-serif" font-size="13">Interactive Concept Mapping Environment</text>
+  <rect x="550" y="140" width="210" height="145" rx="18" fill="#F3F9FF" stroke="#D8E6F8"/>
+  <text x="576" y="185" fill="#635BFF" font-family="Inter, sans-serif" font-size="12" font-weight="700">SEMINAR PODS</text>
+  <text x="576" y="215" fill="#101428" font-family="Inter, sans-serif" font-size="17" font-weight="700">Peer Inquiry &amp; AI Guidance</text>
+  <rect x="550" y="315" width="210" height="145" rx="18" fill="#F3EFFE" stroke="#E2D9F9"/>
+  <text x="576" y="360" fill="#101428" font-family="Inter, sans-serif" font-size="17" font-weight="700">Human-Led Mentorship</text>
+  <text x="576" y="390" fill="#626A80" font-family="Inter, sans-serif" font-size="13">Supported by formative telemetry</text>
+</svg>

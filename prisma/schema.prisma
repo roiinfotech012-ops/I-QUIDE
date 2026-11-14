@@ -1,0 +1,346 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PublicationStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum EnquiryStatus {
+  NEW
+  IN_REVIEW
+  RESPONDED
+  ARCHIVED
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+  EDITOR
+}
+
+model AdminUser {
+  id           String     @id @default(cuid())
+  email        String     @unique
+  name         String
+  passwordHash String
+  role         String     @default("SUPER_ADMIN")
+  enabled      Boolean    @default(true)
+  lastLoginAt  DateTime?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  sessions     AuthSession[]
+  auditLogs    AuditLog[]
+
+  @@index([email, enabled])
+}
+
+model AuthSession {
+  id           String    @id @default(cuid())
+  sessionToken String    @unique
+  userId       String
+  expires      DateTime
+  createdAt    DateTime  @default(now())
+  user         AdminUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model SiteSettings {
+  id                    String   @id @default("global")
+  brandName             String   @default("iGUIDE")
+  tagline               String   @default("Learning, Reimagined by Intelligence.")
+  visionStatement       String   @default("Make learning adaptive, engaging, and accessible through intelligent technology.")
+  missionStatement      String   @db.Text
+  logoUrl               String   @default("/brand/iguide-logo.svg")
+  logoDarkUrl           String   @default("/brand/iguide-logo.svg")
+  faviconUrl            String   @default("/favicon.svg")
+  defaultOgImage        String   @default("/visuals/gallery-learning-commons.svg")
+  analyticsMeasurementId String  @default("")
+  primaryEmail          String   @default("admin@advaita1.com")
+  primaryPhone          String   @default("+91 8247654106")
+  whatsappNumber        String   @default("")
+  whatsappVerified      Boolean  @default(false)
+  whatsappDefaultMessage String  @default("Hello iGUIDE Team, I would like to enquire about your intelligent educational solutions.")
+  googleMapsUrl         String   @default("https://www.google.com/maps/search/?api=1&query=Aspire+Co-works,+Koramangala,+Bengaluru,+Karnataka,+India")
+  address               String   @default("Aspire Co-works, Koramangala, Bengaluru, Karnataka, India")
+  officeHours           String   @default("Monday – Saturday, 9:30 AM – 6:30 PM IST")
+  footerDescription     String   @db.Text
+  copyrightText         String   @default("© 2026 iGUIDE Education Technology. All rights reserved.")
+  socialLinks           Json     @default("{}")
+  defaultSeoTitle       String   @default("iGUIDE — Where Human Potential Meets Intelligence | AI-Powered EdTech")
+  defaultSeoDescription String   @db.Text
+  updatedAt             DateTime @updatedAt
+}
+
+model SocialLink {
+  id           String   @id @default(cuid())
+  platform     String
+  label        String
+  url          String
+  enabled      Boolean  @default(true)
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([enabled, displayOrder])
+}
+
+model HeroBanner {
+  id                String   @id @default(cuid())
+  pageSlug          String
+  eyebrow           String
+  headline          String
+  highlightedText   String?
+  subheadline       String   @db.Text
+  desktopImage      String?
+  mobileImage       String?
+  primaryCtaLabel   String
+  primaryCtaHref    String
+  secondaryCtaLabel String?
+  secondaryCtaHref  String?
+  visualCaption     String?
+  published         Boolean  @default(true)
+  displayOrder      Int      @default(0)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([pageSlug, published, displayOrder])
+}
+
+model PageContent {
+  id             String        @id @default(cuid())
+  pageSlug       String        @unique
+  eyebrow        String
+  title          String
+  subtitle       String        @db.Text
+  sectionsJson   Json
+  seoTitle       String
+  seoDescription String        @db.Text
+  published      Boolean       @default(true)
+  updatedAt      DateTime      @updatedAt
+  sections       PageSection[]
+}
+
+model PageSection {
+  id           String      @id @default(cuid())
+  pageId       String
+  sectionKey   String
+  sectionType  String      @default("content")
+  heading      String
+  description  String?     @db.Text
+  richContent  String?     @db.Text
+  mediaUrl     String?
+  dataJson     Json?
+  visible      Boolean     @default(true)
+  displayOrder Int         @default(0)
+  updatedAt    DateTime    @updatedAt
+  page         PageContent @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  @@unique([pageId, sectionKey])
+  @@index([pageId, visible, displayOrder])
+}
+
+model Solution {
+  id                String            @id @default(cuid())
+  slug              String            @unique
+  title             String
+  shortTitle        String
+  subtitle          String?           @db.Text
+  tagline           String
+  category          String
+  summary           String            @db.Text
+  heroDescription   String?           @db.Text
+  description       String            @db.Text
+  overviewHeading   String?
+  overviewLead      String?           @db.Text
+  overviewPillars   Json?
+  challengeText     String            @db.Text
+  approachText      String            @db.Text
+  outcomeText       String            @db.Text
+  iconName          String
+  heroImage         String
+  mobileHeroImage   String?
+  accentColor       String            @default("#635BFF")
+  keyCapabilities   Json
+  benefits          Json?
+  useCases          Json
+  architectureSteps Json
+  faqs              Json
+  sectionOrder      Json?
+  relatedSlugs      Json?
+  ctaText           String?
+  isCoreSolution    Boolean           @default(true)
+  displayOrder      Int               @default(0)
+  featured          Boolean           @default(true)
+  published         Boolean           @default(true)
+  seoTitle          String
+  seoDescription    String            @db.Text
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+  features          SolutionFeature[]
+
+  @@index([published, displayOrder])
+}
+
+model SolutionFeature {
+  id           String   @id @default(cuid())
+  solutionId   String
+  title        String
+  description  String   @db.Text
+  iconName     String?
+  imageUrl     String?
+  displayOrder Int      @default(0)
+  solution     Solution @relation(fields: [solutionId], references: [id], onDelete: Cascade)
+
+  @@index([solutionId, displayOrder])
+}
+
+model GalleryCategory {
+  id           String        @id @default(cuid())
+  name         String        @unique
+  slug         String        @unique
+  description  String?
+  displayOrder Int           @default(0)
+  published    Boolean       @default(true)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  images       GalleryItem[]
+
+  @@index([published, displayOrder])
+}
+
+model GalleryItem {
+  id           String           @id @default(cuid())
+  title        String
+  caption      String           @db.Text
+  category     String
+  categoryId   String?
+  imageUrl     String
+  altText      String
+  location     String?
+  aspect       String           @default("landscape")
+  featured     Boolean          @default(false)
+  published    Boolean          @default(true)
+  displayOrder Int              @default(0)
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+  categoryRel  GalleryCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  @@index([category, published, displayOrder])
+}
+
+model Testimonial {
+  id           String   @id @default(cuid())
+  quote        String   @db.Text
+  authorName   String
+  authorRole   String
+  institution  String
+  category     String
+  avatarUrl    String?
+  rating       Int?
+  contextNote  String?
+  isVerified   Boolean  @default(false)
+  isFeatured   Boolean  @default(true)
+  published    Boolean  @default(true)
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([published, isFeatured, displayOrder])
+}
+
+model BlogCategory {
+  id           String     @id @default(cuid())
+  name         String     @unique
+  slug         String     @unique
+  description  String?
+  displayOrder Int        @default(0)
+  published    Boolean    @default(true)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  posts        BlogPost[]
+
+  @@index([published, displayOrder])
+}
+
+model BlogPost {
+  id              String        @id @default(cuid())
+  slug            String        @unique
+  title           String
+  excerpt         String        @db.Text
+  content         String        @db.Text
+  category        String
+  categoryId      String?
+  readTimeMinutes Int           @default(6)
+  authorName      String
+  authorRole      String
+  coverImage      String
+  tags            Json
+  relatedSlugs    Json?
+  featured        Boolean       @default(false)
+  published       Boolean       @default(true)
+  publishedAt     DateTime      @default(now())
+  seoTitle        String
+  seoDescription  String        @db.Text
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  categoryRel     BlogCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  @@index([published, category, publishedAt])
+}
+
+model Enquiry {
+  id               String        @id @default(cuid())
+  fullName         String
+  email            String
+  phone            String
+  institutionName  String
+  roleType         String
+  solutionInterest String
+  subject          String
+  message          String        @db.Text
+  consentAccepted  Boolean       @default(true)
+  status           EnquiryStatus @default(NEW)
+  adminNotes       String?       @db.Text
+  notificationSent Boolean       @default(false)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  @@index([status, createdAt])
+}
+
+model MediaAsset {
+  id           String   @id @default(cuid())
+  fileName     String
+  originalName String
+  mimeType     String
+  sizeBytes    Int
+  url          String
+  altText      String
+  category     String   @default("General")
+  createdAt    DateTime @default(now())
+}
+
+model AuditLog {
+  id         String     @id @default(cuid())
+  actorId    String?
+  actorEmail String
+  actorRole  String     @default("SUPER_ADMIN")
+  action     String
+  entityType String
+  entityId   String
+  summary    String     @db.Text
+  createdAt  DateTime   @default(now())
+  actor      AdminUser? @relation(fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([entityType, createdAt])
+  @@index([actorEmail, createdAt])
+}

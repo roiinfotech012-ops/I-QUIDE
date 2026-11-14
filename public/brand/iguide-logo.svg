@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 52" fill="none">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#635BFF"/>
+      <stop offset="55%" stop-color="#387BFA"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="4" width="44" height="44" rx="13" fill="#0B1026"/>
+  <path d="M13 35C18.5 35 19.5 17 26 17C32.5 17 31 28 37 17" stroke="url(#logoGrad)" stroke-width="3.2" stroke-linecap="round"/>
+  <circle cx="13" cy="35" r="3.2" fill="#387BFA"/>
+  <circle cx="26" cy="17" r="3.2" fill="#635BFF"/>
+  <circle cx="37" cy="17" r="3.6" fill="#A78BFA"/>
+  <text x="58" y="34" font-family="Plus Jakarta Sans, Inter, sans-serif" font-weight="700" font-size="25" letter-spacing="-0.03em" fill="#101428">iGUIDE</text>
+</svg>

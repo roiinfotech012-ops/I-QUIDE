@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" fill="none">
+  <rect width="800" height="520" rx="28" fill="#0B1026"/>
+  <path d="M160 150 H340 M460 150 H640 M250 260 H550 M180 370 H620" stroke="#2A396E" stroke-width="2"/>
+  <rect x="90" y="110" width="190" height="80" rx="16" fill="#162044" stroke="#387BFA"/>
+  <text x="116" y="145" fill="#387BFA" font-family="Inter, sans-serif" font-size="11" font-weight="600">MODULE NODE 01</text>
+  <text x="116" y="168" fill="#FAFBFF" font-family="Inter, sans-serif" font-size="15" font-weight="700">Foundational Inquiry</text>
+  <rect x="305" y="220" width="190" height="80" rx="16" fill="#1A2550" stroke="#635BFF" stroke-width="2"/>
+  <text x="331" y="255" fill="#A78BFA" font-family="Inter, sans-serif" font-size="11" font-weight="600">MODULE NODE 02</text>
+  <text x="331" y="278" fill="#FAFBFF" font-family="Inter, sans-serif" font-size="15" font-weight="700">Conceptual Synthesis</text>
+  <rect x="520" y="330" width="190" height="80" rx="16" fill="#162044" stroke="#16A085"/>
+  <text x="546" y="365" fill="#16A085" font-family="Inter, sans-serif" font-size="11" font-weight="600">MODULE NODE 03</text>
+  <text x="546" y="388" fill="#FAFBFF" font-family="Inter, sans-serif" font-size="15" font-weight="700">Applied Studio Project</text>
+  <path d="M280 150 C340 150, 340 220, 400 220 M400 300 C400 350, 470 370, 520 370" stroke="#635BFF" stroke-width="3" fill="none"/>
+</svg>
