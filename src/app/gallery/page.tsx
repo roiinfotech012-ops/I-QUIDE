@@ -92,7 +92,7 @@ export default async function GalleryPage() {
         >
           <path
             d="M 0 180 C 320 160, 480 40, 780 95 C 980 130, 1090 45, 1200 30"
-            stroke="#A78BFA"
+            stroke="#F0C32A"
             strokeWidth="2"
             fill="none"
           />

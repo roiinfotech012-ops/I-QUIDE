@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" fill="none">
   <rect width="900" height="600" fill="#FAFBFF"/>
   <rect x="90" y="90" width="720" height="420" rx="28" fill="#121B3A"/>
-  <rect x="150" y="150" width="180" height="300" rx="18" fill="#1A2652" stroke="#387BFA"/>
-  <rect x="360" y="150" width="180" height="300" rx="18" fill="#1A2652" stroke="#635BFF"/>
+  <rect x="150" y="150" width="180" height="300" rx="18" fill="#1A2652" stroke="#2B64B0"/>
+  <rect x="360" y="150" width="180" height="300" rx="18" fill="#1A2652" stroke="#1E4883"/>
   <rect x="570" y="150" width="180" height="300" rx="18" fill="#1A2652" stroke="#16A085"/>
-  <text x="180" y="210" fill="#387BFA" font-family="Inter, sans-serif" font-size="14" font-weight="700">Visual Modality</text>
-  <text x="390" y="210" fill="#A78BFA" font-family="Inter, sans-serif" font-size="14" font-weight="700">Auditory Synthesis</text>
+  <text x="180" y="210" fill="#2B64B0" font-family="Inter, sans-serif" font-size="14" font-weight="700">Visual Modality</text>
+  <text x="390" y="210" fill="#F0C32A" font-family="Inter, sans-serif" font-size="14" font-weight="700">Auditory Synthesis</text>
   <text x="600" y="210" fill="#16A085" font-family="Inter, sans-serif" font-size="14" font-weight="700">Interactive Guided</text>
 </svg>

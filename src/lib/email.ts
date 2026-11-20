@@ -65,7 +65,7 @@ export async function sendEnquiryNotification(
       subject: `[iGUIDE Enquiry] ${enquiry.subject} — ${enquiry.fullName}`,
       html: `
         <div style="font-family: Inter, Arial, sans-serif; color: #0F172A; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #E5EAF4; border-radius: 16px;">
-          <p style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #635BFF; font-weight: 700; margin: 0 0 8px;">iGUIDE Website Enquiry</p>
+          <p style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #1E4883; font-weight: 700; margin: 0 0 8px;">iGUIDE Website Enquiry</p>
           <h2 style="margin: 0 0 16px; font-size: 20px;">${safeSubject}</h2>
           <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 16px;">
             <tr><td style="padding: 8px 0; color: #475569;">Full Name:</td><td style="padding: 8px 0; font-weight: 600;">${safeName}</td></tr>

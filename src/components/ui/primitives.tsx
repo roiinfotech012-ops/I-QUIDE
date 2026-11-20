@@ -61,8 +61,8 @@ export function EyebrowLabel({
     >
       <span
         className={cn(
-          "h-1.5 w-1.5 rounded-full",
-          variant === "light" ? "bg-iris" : "bg-lavender"
+          "h-2 w-2 rounded-full",
+          variant === "light" ? "bg-gold ring-2 ring-gold/30" : "bg-gold"
         )}
         aria-hidden="true"
       />
@@ -163,7 +163,7 @@ export function PrimaryButton({
   showArrow?: boolean;
 }) {
   const baseStyles = cn(
-    "group inline-flex items-center justify-center gap-2 rounded-full bg-iris px-6 py-3.5 text-sm font-semibold text-white shadow-elevated transition-all duration-200 hover:-translate-y-0.5 hover:bg-iris-hover hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-iris focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60",
+    "group inline-flex items-center justify-center gap-2 rounded-full border border-gold/25 bg-iris px-6 py-3.5 text-sm font-semibold text-white shadow-elevated transition-all duration-200 hover:-translate-y-0.5 hover:border-gold hover:bg-iris-hover hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60",
     className
   );
 

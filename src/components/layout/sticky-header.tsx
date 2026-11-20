@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import type { SiteSettingsRecord, SolutionRecord } from "@/lib/seed-data";
 import { cn } from "@/lib/utils";
@@ -16,6 +18,7 @@ export function StickyHeader({
   solutions: SolutionRecord[];
 }) {
   const pathname = usePathname();
+  const prefersReducedMotion = useReducedMotion();
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -63,7 +66,7 @@ export function StickyHeader({
 
   if (isAdminRoute) return null;
 
-  // Homepage hero has a light editorial background with radial glow, while subpages use dark hero headers
+  // Homepage hero has a bright, airy light editorial background; subpages use dark maritime navy hero headers
   const isHomeTop = pathname === "/" && !scrolled && !mobileMenuOpen;
   const isDarkHeroTop = pathname !== "/" && !scrolled && !mobileMenuOpen;
 
@@ -85,73 +88,79 @@ export function StickyHeader({
       )}
     >
       <Container>
-        <div
-          className={cn(
-            "flex items-center justify-between gap-4 rounded-full px-4 py-2.5 transition-all duration-300 sm:px-6",
-            scrolled || mobileMenuOpen
-              ? "border border-border/90 bg-white/95 shadow-elevated backdrop-blur-xl"
-              : isHomeTop
-              ? "border border-border/75 bg-white/80 shadow-subtle backdrop-blur-md"
-              : "border border-white/15 bg-navy/60 backdrop-blur-md"
-          )}
-        >
-          {/* Brand Logo */}
+        <div className="flex items-center justify-between gap-4">
+          {/* Standalone Bigger Brand Logo with Repeated Every-5-Second Kite/Plane Flying Animation */}
           <Link
             href="/"
-            className="group flex items-center gap-3 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-iris"
+            className="group relative shrink-0 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-iris"
             aria-label={`${settings.brandName} Home`}
           >
-            <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-navy shadow-subtle transition-transform group-hover:scale-105">
-              <svg
-                viewBox="0 0 44 44"
-                className="h-7 w-7"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M9 31C14.5 31 15.5 13 22 13C28.5 13 27 24 35 13"
-                  stroke="url(#hdrGrad)"
-                  strokeWidth="3.2"
-                  strokeLinecap="round"
+            <div
+              className={cn(
+                "relative flex items-center justify-center rounded-2xl px-3.5 py-2 transition-all duration-300 group-hover:scale-[1.03]",
+                scrolled || mobileMenuOpen || isDarkHeroTop
+                  ? "border border-border/80 bg-white/95 shadow-elevated backdrop-blur-xl ring-1 ring-gold/30"
+                  : "border border-border/60 bg-white/90 shadow-subtle backdrop-blur-md"
+              )}
+            >
+              <div className="relative flex w-[92px] flex-col items-center sm:w-[114px]">
+                {/* Kite / Paper Airplane flies a graceful loop every 5 seconds and lands cleanly back on the logo */}
+                <motion.div
+                  animate={
+                    prefersReducedMotion
+                      ? undefined
+                      : {
+                          x: [0, 18, 30, 10, -14, -4, 0, 0],
+                          y: [0, -14, -22, -16, -6, -2, 0, 0],
+                          rotate: [0, -16, -8, 12, 6, -3, 0, 0],
+                          scale: [1, 1.08, 1.04, 0.96, 1.02, 1, 1, 1],
+                        }
+                  }
+                  transition={{
+                    duration: 5,
+                    times: [0, 0.06, 0.13, 0.2, 0.27, 0.33, 0.38, 1],
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="relative z-10 w-full"
+                  style={{ willChange: "transform" }}
+                >
+                  <Image
+                    src="/brand/iguide-plane.png"
+                    alt="iGUIDE flying paper airplane"
+                    width={114}
+                    height={55}
+                    priority
+                    unoptimized
+                    className="h-auto w-full object-contain drop-shadow-[0_4px_8px_rgba(30,72,131,0.20)]"
+                  />
+                </motion.div>
+
+                {/* Anchored Horizon Lines + iGUIDE Wordmark */}
+                <Image
+                  src="/brand/iguide-wordmark.png"
+                  alt={settings.brandName || "iGUIDE"}
+                  width={114}
+                  height={45}
+                  priority
+                  unoptimized
+                  className="-mt-1.5 h-auto w-full object-contain"
                 />
-                <circle cx="9" cy="31" r="3" fill="#387BFA" />
-                <circle cx="22" cy="13" r="3" fill="#635BFF" />
-                <circle cx="35" cy="13" r="3.4" fill="#A78BFA" />
-                <defs>
-                  <linearGradient
-                    id="hdrGrad"
-                    x1="9"
-                    y1="31"
-                    x2="35"
-                    y2="13"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop offset="0%" stopColor="#635BFF" />
-                    <stop offset="50%" stopColor="#387BFA" />
-                    <stop offset="100%" stopColor="#A78BFA" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
-            <div className="flex flex-col">
-              <span
-                className={cn(
-                  "font-heading text-lg font-extrabold tracking-tight transition-colors sm:text-xl",
-                  isDarkHeroTop ? "text-white" : "text-ink"
-                )}
-              >
-                {settings.brandName}
-              </span>
-              <span
-                className={cn(
-                  "text-[9px] font-semibold tracking-[0.14em] uppercase",
-                  isDarkHeroTop ? "text-lavender" : "text-ink-muted"
-                )}
-              >
-                Intelligent EdTech
-              </span>
+              </div>
             </div>
           </Link>
+
+          {/* Separate Floating Navigation Pill */}
+          <div
+            className={cn(
+              "flex items-center justify-between gap-3 rounded-full px-4 py-2 transition-all duration-300 sm:px-5 lg:gap-4",
+              scrolled || mobileMenuOpen
+                ? "border border-border/90 bg-white/95 shadow-elevated backdrop-blur-xl"
+                : isHomeTop
+                ? "border border-border/75 bg-white/85 shadow-subtle backdrop-blur-md"
+                : "border border-white/15 bg-navy/65 backdrop-blur-md"
+            )}
+          >
 
           {/* Desktop Navigation */}
           <nav
@@ -299,7 +308,7 @@ export function StickyHeader({
                         ? "bg-white/15 text-white font-semibold"
                         : "text-slate-200 hover:bg-white/10 hover:text-white"
                       : isActive
-                      ? "bg-iris-light/70 text-iris font-semibold"
+                      ? "bg-gold-light text-navy font-semibold"
                       : "text-ink-secondary hover:bg-cloud hover:text-ink"
                   )}
                 >
@@ -341,6 +350,7 @@ export function StickyHeader({
                 <Menu className="h-5 w-5" aria-hidden="true" />
               )}
             </button>
+          </div>
           </div>
         </div>
 

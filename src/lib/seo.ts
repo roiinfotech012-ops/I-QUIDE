@@ -97,7 +97,7 @@ export function buildArticleJsonLd({
   category,
   tags,
   brandName = "iGUIDE",
-  logoUrl = "/brand/iguide-logo.svg",
+  logoUrl = "/brand/iguide-logo.png",
 }: {
   title: string;
   description: string;

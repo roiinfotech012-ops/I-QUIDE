@@ -89,7 +89,7 @@ export default async function BlogsPage() {
         >
           <path
             d="M 0 140 C 340 130, 520 35, 840 85 C 1020 112, 1120 40, 1200 24"
-            stroke="#A78BFA"
+            stroke="#F0C32A"
             strokeWidth="1.5"
             fill="none"
           />

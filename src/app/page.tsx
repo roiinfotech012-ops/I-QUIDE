@@ -3,9 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  BarChart3,
+  Bot,
   Calendar,
+  Check,
   Compass,
+  GraduationCap,
+  PlayCircle,
+  ShieldCheck,
   Sparkles,
+  Target,
+  TrendingUp,
+  Users,
   Waypoints,
 } from "lucide-react";
 import {
@@ -29,13 +38,13 @@ import {
   SectionHeading,
 } from "@/components/ui/primitives";
 import { AnimatedReveal } from "@/components/ui/animated-reveal";
-import { HeroLearningEcosystem } from "@/components/visuals/intelligence-path";
 import {
   HomeGalleryCollage,
   LearningJourneySection,
-  TestimonialsCarouselSection,
   WhyChooseIguideSection,
 } from "@/components/home/homepage-sections";
+import { ScrollZoomReviewsSection } from "@/components/home/scroll-zoom-reviews";
+import { CurvedDomainsCarousel } from "@/components/home/curved-domains-carousel";
 
 export async function generateMetadata() {
   const page = await getPageContentBySlug("home");
@@ -48,228 +57,14 @@ export async function generateMetadata() {
   });
 }
 
-function renderSolutionCardVisual(index: number) {
-  switch (index) {
-    case 0:
-      // Personalised Learning — branching adaptive path SVG
-      return (
-        <svg
-          viewBox="0 0 360 110"
-          className="h-24 w-full"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M20 85 C 95 85, 115 30, 190 35 C 260 40, 280 20, 340 20"
-            stroke="#635BFF"
-            strokeWidth="3.5"
-            strokeLinecap="round"
-          />
-          <path
-            d="M20 85 C 100 95, 160 65, 240 65 C 290 65, 310 45, 340 20"
-            stroke="#387BFA"
-            strokeOpacity="0.45"
-            strokeWidth="2"
-            strokeDasharray="5 5"
-          />
-          <circle cx="20" cy="85" r="6" fill="#387BFA" />
-          <circle
-            cx="190"
-            cy="35"
-            r="8"
-            fill="#635BFF"
-            stroke="#FFFFFF"
-            strokeWidth="2"
-          />
-          <circle cx="340" cy="20" r="7" fill="#16A085" />
-        </svg>
-      );
-    case 1:
-      // AI Tutors — conversational Socratic nodes
-      return (
-        <svg
-          viewBox="0 0 280 110"
-          className="h-24 w-full"
-          fill="none"
-          aria-hidden="true"
-        >
-          <rect
-            x="16"
-            y="18"
-            width="145"
-            height="34"
-            rx="12"
-            fill="#EBE9FF"
-            stroke="#635BFF"
-            strokeOpacity="0.35"
-          />
-          <circle cx="36" cy="35" r="5" fill="#635BFF" />
-          <rect x="50" y="31" width="90" height="8" rx="4" fill="#635BFF" />
-          <rect
-            x="110"
-            y="62"
-            width="154"
-            height="34"
-            rx="12"
-            fill="#EBF2FF"
-            stroke="#387BFA"
-            strokeOpacity="0.4"
-          />
-          <circle cx="130" cy="79" r="5" fill="#387BFA" />
-          <rect x="144" y="75" width="98" height="8" rx="4" fill="#387BFA" />
-        </svg>
-      );
-    case 2:
-      // Skill Assessment — competency radar polygon
-      return (
-        <svg
-          viewBox="0 0 260 110"
-          className="h-24 w-full"
-          fill="none"
-          aria-hidden="true"
-        >
-          <circle
-            cx="130"
-            cy="55"
-            r="42"
-            stroke="#E5EAF4"
-            strokeWidth="1.5"
-          />
-          <circle
-            cx="130"
-            cy="55"
-            r="24"
-            stroke="#E5EAF4"
-            strokeWidth="1.5"
-          />
-          <polygon
-            points="130,16 166,42 152,86 106,82 96,40"
-            fill="#635BFF"
-            fillOpacity="0.18"
-            stroke="#635BFF"
-            strokeWidth="2.5"
-          />
-          <circle cx="130" cy="16" r="4" fill="#635BFF" />
-          <circle cx="166" cy="42" r="4" fill="#387BFA" />
-          <circle cx="152" cy="86" r="4" fill="#16A085" />
-        </svg>
-      );
-    case 3:
-      // Gamified Learning — interactive challenge milestone blocks
-      return (
-        <svg
-          viewBox="0 0 260 110"
-          className="h-24 w-full"
-          fill="none"
-          aria-hidden="true"
-        >
-          <rect
-            x="24"
-            y="38"
-            width="56"
-            height="48"
-            rx="12"
-            fill="#EBF2FF"
-            stroke="#387BFA"
-            strokeWidth="2"
-          />
-          <rect
-            x="102"
-            y="22"
-            width="56"
-            height="64"
-            rx="12"
-            fill="#EBE9FF"
-            stroke="#635BFF"
-            strokeWidth="2"
-          />
-          <rect
-            x="180"
-            y="14"
-            width="56"
-            height="72"
-            rx="12"
-            fill="#E8F8F5"
-            stroke="#16A085"
-            strokeWidth="2"
-          />
-          <path
-            d="M80 62 H102 M158 52 H180"
-            stroke="#635BFF"
-            strokeWidth="2.5"
-            strokeDasharray="4 4"
-          />
-        </svg>
-      );
-    case 4:
-      // Learning Analytics — progress & knowledge-gap bars
-      return (
-        <svg
-          viewBox="0 0 260 110"
-          className="h-24 w-full"
-          fill="none"
-          aria-hidden="true"
-        >
-          <rect x="35" y="62" width="26" height="34" rx="6" fill="#387BFA" fillOpacity="0.45" />
-          <rect x="78" y="46" width="26" height="50" rx="6" fill="#387BFA" fillOpacity="0.75" />
-          <rect x="121" y="32" width="26" height="64" rx="6" fill="#635BFF" />
-          <rect x="164" y="20" width="26" height="76" rx="6" fill="#A78BFA" />
-          <rect x="207" y="12" width="26" height="84" rx="6" fill="#16A085" />
-        </svg>
-      );
-    default:
-      // Institutional Solutions — interconnected campus constellation
-      return (
-        <svg
-          viewBox="0 0 360 110"
-          className="h-24 w-full"
-          fill="none"
-          aria-hidden="true"
-        >
-          <line
-            x1="65"
-            y1="55"
-            x2="180"
-            y2="55"
-            stroke="#A78BFA"
-            strokeWidth="2.5"
-          />
-          <line
-            x1="180"
-            y1="55"
-            x2="295"
-            y2="55"
-            stroke="#387BFA"
-            strokeWidth="2.5"
-          />
-          <circle
-            cx="65"
-            cy="55"
-            r="22"
-            fill="#162147"
-            stroke="#387BFA"
-            strokeWidth="2.5"
-          />
-          <circle
-            cx="180"
-            cy="55"
-            r="28"
-            fill="#1D2A59"
-            stroke="#635BFF"
-            strokeWidth="3"
-          />
-          <circle
-            cx="295"
-            cy="55"
-            r="22"
-            fill="#162147"
-            stroke="#16A085"
-            strokeWidth="2.5"
-          />
-        </svg>
-      );
-  }
-}
+const SOLUTION_GENERATED_IMAGES = [
+  "/images/solution-personalised-learning.jpg",
+  "/images/solution-ai-tutors.jpg",
+  "/images/solution-skill-assessment.jpg",
+  "/images/solution-gamified-learning.jpg",
+  "/images/solution-learning-analytics.jpg",
+  "/images/solution-institutional-solutions.jpg",
+];
 
 export default async function HomePage() {
   const [
@@ -349,676 +144,447 @@ export default async function HomePage() {
   return (
     <>
       {/* =====================================================================
-          SECTION 1: IMMERSIVE HERO
-          Full-width spacious composition, balanced whitespace, radial lavender & blue glow
+          SECTION 1: CLEAN EDITORIAL HERO BANNER
+          Reference-matched airy left composition + vivid right-anchored Indian students photo + single sleek right-docked benefit card
       ====================================================================== */}
-      <section className="relative overflow-hidden bg-cloud pt-32 pb-24 sm:pt-40 sm:pb-32 lg:pt-44 lg:pb-36">
-        {/* Subtle radial lavender and intelligence blue ambient background */}
+      <section className="relative overflow-hidden bg-[#F7FAFF] pt-32 pb-20 sm:pt-36 sm:pb-24 lg:min-h-[650px] lg:pt-36 lg:pb-24">
+        {/* Vivid sunlit Indian campus photograph anchored cleanly on the right with smooth left-edge feather mask */}
         <div
-          className="pointer-events-none absolute right-0 top-0 h-[680px] w-[680px] -translate-y-16 translate-x-1/4 rounded-full bg-[radial-gradient(circle,rgba(167,139,250,0.20)_0%,rgba(56,123,250,0.12)_45%,rgba(250,251,255,0)_72%)] blur-3xl"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute left-0 bottom-0 h-[520px] w-[520px] -translate-x-1/3 translate-y-1/4 rounded-full bg-[radial-gradient(circle,rgba(99,91,255,0.10)_0%,rgba(234,245,255,0)_70%)] blur-3xl"
-          aria-hidden="true"
-        />
+          className="pointer-events-none absolute inset-0 z-0 hidden md:block"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent 0%, transparent 34%, rgba(0,0,0,0.45) 43%, black 52%)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0%, transparent 34%, rgba(0,0,0,0.45) 43%, black 52%)",
+          }}
+        >
+          <Image
+            src="/images/hero-indian-students.jpg"
+            alt="Indian university students collaborating outdoors on a sunlit campus with a laptop"
+            fill
+            priority
+            unoptimized
+            quality={100}
+            sizes="100vw"
+            className="object-cover object-[center_28%]"
+          />
+        </div>
 
         <Container className="relative z-10">
-          <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-12">
-            {/* Left Column: Editorial Headline & CTAs */}
-            <AnimatedReveal className="lg:col-span-6">
-              <EyebrowLabel variant="light">{hero.eyebrow}</EyebrowLabel>
+          <div className="grid items-center gap-8 md:grid-cols-12">
+            {/* LEFT COLUMN: Clean Crisp Headline, Royal Blue Accent, Buttons & Trust Strip */}
+            <div className="md:col-span-6 lg:col-span-5">
+              <div className="inline-flex items-center gap-2 rounded-full border border-iris/15 bg-iris-light/90 px-3.5 py-1.5 text-[11px] font-bold text-iris shadow-subtle">
+                <span className="h-2 w-2 rounded-full bg-gold" />
+                <span># AI-Powered Platform for Indian Education</span>
+              </div>
 
-              <h1 className="mt-6 font-heading text-4xl font-extrabold tracking-[-0.03em] text-ink sm:text-5xl lg:text-[3.65rem] lg:leading-[1.08]">
-                {hero.headline}{" "}
-                {hero.highlightedText && (
-                  <span className="mt-1.5 block">
-                    <GradientText>{hero.highlightedText}</GradientText>
-                  </span>
-                )}
+              <h1 className="mt-5 font-heading text-4xl font-extrabold tracking-[-0.03em] text-navy sm:text-5xl lg:text-[3.35rem] lg:leading-[1.08]">
+                Every Mind Learns.
+                <span className="mt-1 block text-iris">
+                  Intelligence Makes It Possible.
+                </span>
               </h1>
 
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-secondary sm:text-lg lg:text-xl lg:leading-relaxed">
-                {hero.subheadline}
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-secondary sm:text-base">
+                Adaptive, human-centred AI education designed for Indian schools, colleges, and universities—helping every learner progress at their own pace.
               </p>
 
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <PrimaryButton href={hero.primaryCtaHref} showArrow>
-                  {hero.primaryCtaLabel}
-                </PrimaryButton>
-                {hero.secondaryCtaLabel && hero.secondaryCtaHref && (
-                  <SecondaryButton
-                    href={hero.secondaryCtaHref}
-                    variant="light"
-                  >
-                    {hero.secondaryCtaLabel}
-                  </SecondaryButton>
-                )}
-              </div>
-
-              {/* Understated Brand Tagline & Philosophy Footnote */}
-              <div className="mt-12 flex items-center gap-3 border-t border-border/80 pt-6 text-xs text-ink-secondary">
-                <span className="flex h-2 w-2 rounded-full bg-iris" />
-                <span className="font-semibold text-ink">
-                  {settings.tagline}
-                </span>
-                <span className="text-ink-muted">·</span>
-                <span>Where Human Potential Meets Intelligence</span>
-              </div>
-            </AnimatedReveal>
-
-            {/* Right Column: Bespoke Animated Conceptual AI-Learning Ecosystem Visual */}
-            <AnimatedReveal delay={0.12} className="lg:col-span-6">
-              <HeroLearningEcosystem caption={hero.visualCaption} />
-            </AnimatedReveal>
-          </div>
-        </Container>
-      </section>
-
-      {/* =====================================================================
-          ENTERPRISE INSTITUTIONAL BENCHMARKS & TELEMETRY RIBBON
-          Formal verification metrics for academic leadership and enterprise partners
-      ====================================================================== */}
-      <section className="relative border-y border-border/80 bg-white/90 py-10 shadow-subtle backdrop-blur-md">
-        <Container>
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:gap-8">
-            <div className="flex flex-col border-r border-border/70 pr-4 last:border-none">
-              <div className="flex items-center gap-2">
-                <span className="font-heading text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
-                  99.98%
-                </span>
-                <span className="flex h-2 w-2 rounded-full bg-emerald-success animate-pulse" />
-              </div>
-              <span className="mt-1 text-xs font-semibold uppercase tracking-wider text-iris">
-                Core Engine Reliability
-              </span>
-              <p className="mt-0.5 text-[11px] text-ink-secondary">
-                Continuous high-availability architecture for campus scale
-              </p>
-            </div>
-
-            <div className="flex flex-col border-r border-border/70 pr-4 last:border-none">
-              <div className="flex items-center gap-2">
-                <span className="font-heading text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
-                  3.8x
-                </span>
-              </div>
-              <span className="mt-1 text-xs font-semibold uppercase tracking-wider text-iris">
-                Concept Gap Resolution
-              </span>
-              <p className="mt-0.5 text-[11px] text-ink-secondary">
-                Faster prerequisite remediation before midterms
-              </p>
-            </div>
-
-            <div className="flex flex-col border-r border-border/70 pr-4 last:border-none">
-              <div className="flex items-center gap-2">
-                <span className="font-heading text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
-                  42+
-                </span>
-              </div>
-              <span className="mt-1 text-xs font-semibold uppercase tracking-wider text-iris">
-                Academic Frameworks
-              </span>
-              <p className="mt-0.5 text-[11px] text-ink-secondary">
-                Bloom&apos;s Revised, Webb&apos;s DOK, NGSS &amp; CBSE compatible
-              </p>
-            </div>
-
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2">
-                <span className="font-heading text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
-                  100%
-                </span>
-              </div>
-              <span className="mt-1 text-xs font-semibold uppercase tracking-wider text-iris">
-                Educator Governance
-              </span>
-              <p className="mt-0.5 text-[11px] text-ink-secondary">
-                Human-in-the-loop control over prompts &amp; curricula
-              </p>
-            </div>
-          </div>
-
-          {/* Institutional Compliance Badges */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 border-t border-border/60 pt-6 text-[11px] font-medium text-ink-secondary">
-            <span className="rounded-full border border-border bg-cloud px-3 py-1 text-ink">
-              🛡️ ISO/IEC 27001 Aligned
-            </span>
-            <span className="rounded-full border border-border bg-cloud px-3 py-1 text-ink">
-              🔒 SOC 2 Type II Architecture
-            </span>
-            <span className="rounded-full border border-border bg-cloud px-3 py-1 text-ink">
-              ♿ WCAG 2.1 AA Certified
-            </span>
-            <span className="rounded-full border border-border bg-cloud px-3 py-1 text-ink">
-              🎓 LTI 1.3 &amp; OneRoster Compatible
-            </span>
-            <span className="rounded-full border border-border bg-cloud px-3 py-1 text-ink">
-              📜 FERPA &amp; GDPR Conscious
-            </span>
-          </div>
-        </Container>
-      </section>
-
-      {/* =====================================================================
-          SECTION 2: WELCOME TO iGUIDE
-          Distinctive Two-Column Editorial Layout with Overlapping "Learn. Adapt. Evolve."
-      ====================================================================== */}
-      <section className="relative border-t border-border/70 bg-white py-24 sm:py-32 lg:py-36">
-        <Container>
-          <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-12">
-            {/* Left Editorial Narrative */}
-            <AnimatedReveal className="lg:col-span-6">
-              <EyebrowLabel>
-                {sections.welcomeLabel || "WELCOME TO iGUIDE"}
-              </EyebrowLabel>
-
-              <h2 className="mt-5 font-heading text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.12]">
-                {sections.welcomeHeading ||
-                  "Intelligence That Understands Every Learner."}
-              </h2>
-
-              <p className="mt-6 text-base leading-relaxed text-ink-secondary sm:text-lg">
-                {sections.welcomeParagraph1 ||
-                  "At iGUIDE, we believe education is most powerful when it responds to the individual behind the screen. Traditional classrooms and static digital platforms often treat learning as a single uniform conveyor belt—yet curiosity, prior knowledge, and comprehension tempo vary from person to person."}
-              </p>
-
-              <p className="mt-4 text-base leading-relaxed text-ink-secondary sm:text-lg">
-                {sections.welcomeParagraph2 ||
-                  "We design AI-powered educational technologies that bridge human potential and intelligent systems. By combining adaptive pathways, conversational guidance, and clear educator insights, iGUIDE helps schools, universities, and training organisations cultivate deeper understanding without visual noise or unnecessary complexity."}
-              </p>
-
-              <div className="mt-8">
-                <PrimaryButton
-                  href={sections.welcomeCtaHref || "/about"}
-                  showArrow
+              <div className="mt-7 flex flex-wrap items-center gap-3.5">
+                <Link
+                  href={hero.primaryCtaHref}
+                  className="group inline-flex items-center justify-center gap-2 rounded-xl bg-iris px-6 py-3.5 text-sm font-bold text-white shadow-elevated transition-all duration-200 hover:-translate-y-0.5 hover:bg-iris-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-iris"
                 >
-                  {sections.welcomeCtaLabel || "Our Story"}
-                </PrimaryButton>
-              </div>
-            </AnimatedReveal>
-
-            {/* Right Conceptual Visual + Overlapping Decorative Text "Learn. Adapt. Evolve." */}
-            <AnimatedReveal delay={0.12} className="relative lg:col-span-6">
-              <div className="relative mx-auto max-w-xl lg:max-w-none">
-                {/* Main Conceptual Collaboration & Adaptive Pathways Frame */}
-                <div className="relative overflow-hidden rounded-hero border border-border bg-subtle-gradient p-6 shadow-elevated sm:p-9">
-                  <div className="flex items-center justify-between border-b border-border pb-4">
-                    <div className="flex items-center gap-2.5">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-iris text-white">
-                        <Compass className="h-4 w-4" aria-hidden="true" />
-                      </div>
-                      <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-iris">
-                          Human-Centred Learning Architecture
-                        </p>
-                        <p className="text-xs font-semibold text-ink">
-                          Collaborative Inquiry & Adaptive Scaffolding
-                        </p>
-                      </div>
-                    </div>
-                    <span className="rounded-full bg-white px-3 py-1 text-[11px] font-semibold text-intelligence shadow-subtle">
-                      Conceptual Visual
-                    </span>
-                  </div>
-
-                  {/* Layered SVG Illustration of Adaptive Collaboration */}
-                  <div className="my-6 overflow-hidden rounded-2xl bg-navy p-5 text-cloud">
-                    <svg
-                      viewBox="0 0 500 220"
-                      className="h-auto w-full"
-                      role="img"
-                      aria-label="Conceptual illustration showing learners, educators, and adaptive pathways converging"
-                    >
-                      <defs>
-                        <linearGradient
-                          id="welcomeGrad"
-                          x1="40"
-                          y1="180"
-                          x2="460"
-                          y2="40"
-                          gradientUnits="userSpaceOnUse"
-                        >
-                          <stop offset="0%" stopColor="#387BFA" />
-                          <stop offset="50%" stopColor="#635BFF" />
-                          <stop offset="100%" stopColor="#A78BFA" />
-                        </linearGradient>
-                      </defs>
-
-                      <circle
-                        cx="250"
-                        cy="110"
-                        r="82"
-                        stroke="#253363"
-                        strokeWidth="1.5"
-                      />
-                      <circle
-                        cx="250"
-                        cy="110"
-                        r="52"
-                        stroke="#31437D"
-                        strokeWidth="1.5"
-                        strokeDasharray="5 5"
-                      />
-
-                      <path
-                        d="M 45 170 C 135 165, 165 110, 250 110 C 335 110, 365 55, 455 50"
-                        stroke="url(#welcomeGrad)"
-                        strokeWidth="4.5"
-                        fill="none"
-                        strokeLinecap="round"
-                      />
-                      <path
-                        d="M 45 65 C 140 70, 175 110, 250 110 C 325 110, 360 155, 455 160"
-                        stroke="#387BFA"
-                        strokeOpacity="0.45"
-                        strokeWidth="2.5"
-                        strokeDasharray="6 6"
-                        fill="none"
-                      />
-
-                      {/* Nodes */}
-                      <circle cx="45" cy="170" r="8" fill="#387BFA" />
-                      <circle cx="45" cy="65" r="7" fill="#A78BFA" />
-                      <circle
-                        cx="250"
-                        cy="110"
-                        r="16"
-                        fill="#635BFF"
-                        stroke="#FAFBFF"
-                        strokeWidth="3"
-                      />
-                      <circle cx="455" cy="50" r="9" fill="#16A085" />
-                      <circle cx="455" cy="160" r="7" fill="#387BFA" />
-
-                      <text
-                        x="45"
-                        y="196"
-                        fill="#94A3B8"
-                        fontSize="11"
-                        fontFamily="Inter, sans-serif"
-                      >
-                        Curiosity
-                      </text>
-                      <text
-                        x="250"
-                        y="144"
-                        textAnchor="middle"
-                        fill="#FAFBFF"
-                        fontSize="12"
-                        fontWeight="700"
-                        fontFamily="Inter, sans-serif"
-                      >
-                        Adaptive Core
-                      </text>
-                      <text
-                        x="455"
-                        y="32"
-                        textAnchor="end"
-                        fill="#16A085"
-                        fontSize="11"
-                        fontWeight="700"
-                        fontFamily="Inter, sans-serif"
-                      >
-                        Understanding
-                      </text>
-                    </svg>
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-3 text-center">
-                    {[
-                      { step: "01", title: "Listen", desc: "Learner context" },
-                      { step: "02", title: "Guide", desc: "Tailored pathways" },
-                      { step: "03", title: "Empower", desc: "Educator insight" },
-                    ].map((pill) => (
-                      <div
-                        key={pill.step}
-                        className="rounded-2xl border border-border bg-white p-3"
-                      >
-                        <p className="text-[10px] font-bold text-iris">
-                          {pill.step}
-                        </p>
-                        <p className="font-heading text-sm font-bold text-ink">
-                          {pill.title}
-                        </p>
-                        <p className="text-[11px] text-ink-secondary">
-                          {pill.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Overlapping Decorative Text Element: "Learn. Adapt. Evolve." */}
-                <div className="relative z-20 -mt-6 ml-4 inline-flex items-center gap-3 rounded-2xl border border-iris/25 bg-white/95 px-6 py-4 shadow-elevated backdrop-blur-md sm:-bottom-6 sm:left-6 sm:mt-0">
-                  <span
-                    className="h-3 w-3 rounded-full bg-brand-gradient"
+                  <span>Explore Solutions</span>
+                  <ArrowRight
+                    className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
                     aria-hidden="true"
                   />
-                  <p className="font-heading text-lg font-extrabold tracking-tight text-ink sm:text-2xl">
-                    <GradientText>
-                      {sections.welcomeDecorativeText ||
-                        "Learn. Adapt. Evolve."}
-                    </GradientText>
+                </Link>
+
+                <Link
+                  href="/about"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-white/95 px-5 py-3.5 text-sm font-bold text-navy shadow-subtle transition-all duration-200 hover:-translate-y-0.5 hover:border-iris hover:text-iris focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-iris"
+                >
+                  <PlayCircle className="h-4 w-4 text-iris" aria-hidden="true" />
+                  <span>How It Works</span>
+                </Link>
+              </div>
+
+              {/* Clean Institutional Trust Line */}
+              <div className="mt-7 flex items-center gap-3">
+                <div className="flex -space-x-2">
+                  {["#1E4883", "#2B64B0", "#F0C32A", "#16A085"].map((bg, i) => (
+                    <span
+                      key={bg}
+                      className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white text-[10px] font-bold text-white shadow-subtle"
+                      style={{ backgroundColor: bg }}
+                    >
+                      {["IN", "ED", "AI", "IG"][i]}
+                    </span>
+                  ))}
+                </div>
+                <div>
+                  <div className="flex items-center gap-0.5 text-gold text-xs" aria-label="Quality focus">
+                    <span>★★★★★</span>
+                  </div>
+                  <p className="text-[11px] font-semibold text-ink-secondary">
+                    Built in Bengaluru for Indian Schools &amp; Universities
                   </p>
                 </div>
               </div>
-            </AnimatedReveal>
+            </div>
+
+            {/* Mobile-only crisp full-color HD photo card */}
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl border border-border shadow-elevated md:hidden">
+              <Image
+                src="/images/hero-indian-students.jpg"
+                alt="Indian university students collaborating outdoors on a sunlit campus with a laptop"
+                fill
+                priority
+                unoptimized
+                quality={100}
+                sizes="100vw"
+                className="object-cover object-center"
+              />
+            </div>
+
+            {/* RIGHT COLUMN: Open unobstructed viewport for the full HD Indian students hero visual */}
+            <div className="hidden md:col-span-6 md:block md:min-h-[420px] lg:col-span-7" aria-hidden="true" />
           </div>
         </Container>
       </section>
 
       {/* =====================================================================
-          SECTION 3: OUR VISION
-          Large, Memorable Dark-Midnight Section with Soft Neural-Path Background
+          SECTION 2: 3D CURVED MOVING CORE LEARNING DOMAINS CAROUSEL
+          Groww-inspired concave cylindrical perspective marquee with pastel domain cards
       ====================================================================== */}
-      <section className="relative overflow-hidden bg-navy py-28 text-cloud sm:py-36 lg:py-40">
-        {/* Soft Animated Neural-Path SVG Background */}
-        <svg
-          className="pointer-events-none absolute inset-0 h-full w-full opacity-25"
-          viewBox="0 0 1440 560"
-          fill="none"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient
-              id="visionNeuralGrad"
-              x1="0"
-              y1="280"
-              x2="1440"
-              y2="280"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset="0%" stopColor="#387BFA" stopOpacity="0.2" />
-              <stop offset="50%" stopColor="#635BFF" stopOpacity="0.75" />
-              <stop offset="100%" stopColor="#A78BFA" stopOpacity="0.2" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M-60 420 C 320 390, 480 140, 760 220 C 1040 300, 1180 110, 1500 140"
-            stroke="url(#visionNeuralGrad)"
-            strokeWidth="3"
-          />
-          <path
-            d="M-60 180 C 260 240, 520 380, 820 260 C 1100 150, 1260 320, 1500 290"
-            stroke="#387BFA"
-            strokeOpacity="0.22"
-            strokeWidth="1.5"
-            strokeDasharray="8 8"
-          />
-          <circle cx="380" cy="285" r="5" fill="#387BFA" />
-          <circle cx="760" cy="220" r="7" fill="#635BFF" />
-          <circle cx="1120" cy="215" r="5" fill="#A78BFA" />
-        </svg>
-
-        <Container className="relative z-10">
-          <AnimatedReveal className="mx-auto max-w-5xl text-center">
-            <EyebrowLabel variant="dark">
-              {sections.visionEyebrow || "OUR VISION"}
-            </EyebrowLabel>
-
-            <blockquote className="mt-8 font-heading text-3xl font-extrabold leading-[1.18] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]">
-              &ldquo;Make learning{" "}
-              <GradientText>adaptive, engaging, and accessible</GradientText>{" "}
-              through intelligent technology.&rdquo;
-            </blockquote>
-
-            {/* Abstract Representation of Interconnected Learning Opportunities */}
-            <div className="mx-auto mt-14 max-w-3xl rounded-feature border border-white/12 bg-white/[0.03] p-6 backdrop-blur-sm sm:p-8">
-              <svg
-                viewBox="0 0 720 120"
-                className="h-24 w-full"
-                role="img"
-                aria-label="Abstract representation of interconnected learning opportunities across adaptive, engaging, and accessible dimensions"
-              >
-                <line
-                  x1="120"
-                  y1="60"
-                  x2="360"
-                  y2="60"
-                  stroke="#635BFF"
-                  strokeWidth="2.5"
-                />
-                <line
-                  x1="360"
-                  y1="60"
-                  x2="600"
-                  y2="60"
-                  stroke="#387BFA"
-                  strokeWidth="2.5"
-                />
-                <path
-                  d="M120 60 Q 360 10 600 60"
-                  stroke="#A78BFA"
-                  strokeOpacity="0.45"
-                  strokeWidth="1.5"
-                  strokeDasharray="5 5"
-                  fill="none"
-                />
-                <path
-                  d="M120 60 Q 360 110 600 60"
-                  stroke="#16A085"
-                  strokeOpacity="0.45"
-                  strokeWidth="1.5"
-                  strokeDasharray="5 5"
-                  fill="none"
-                />
-
-                {[
-                  { cx: 120, label: "Adaptive", sub: "Individual Pacing", color: "#635BFF" },
-                  { cx: 360, label: "Engaging", sub: "Active Discovery", color: "#387BFA" },
-                  { cx: 600, label: "Accessible", sub: "Inclusive Access", color: "#16A085" },
-                ].map((node) => (
-                  <g key={node.label}>
-                    <circle
-                      cx={node.cx}
-                      cy="60"
-                      r="20"
-                      fill="#0B1026"
-                      stroke={node.color}
-                      strokeWidth="3"
-                    />
-                    <circle cx={node.cx} cy="60" r="6" fill={node.color} />
-                    <text
-                      x={node.cx}
-                      y="102"
-                      textAnchor="middle"
-                      fill="#FAFBFF"
-                      fontSize="12"
-                      fontWeight="700"
-                      fontFamily="Inter, sans-serif"
-                    >
-                      {node.label}
-                    </text>
-                  </g>
-                ))}
-              </svg>
-            </div>
-          </AnimatedReveal>
-        </Container>
-      </section>
+      <CurvedDomainsCarousel solutions={solutions} />
 
       {/* =====================================================================
-          SECTION 4: CORE SOLUTIONS
-          Sophisticated Asymmetric Bento Grid ("One Vision. Six Intelligent Possibilities.")
+          SECTION 3: FEATURED SOLUTIONS SHOWCASE + DARK NAVY METRICS BAR
+          Soft blue-tinted rounded container housing uniform high-res solution cards + dark maritime navy stats strip
       ====================================================================== */}
-      <section className="py-24 sm:py-32 lg:py-36">
+      <section className="py-10 sm:py-14">
         <Container>
-          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <SectionHeading
-              eyebrow="CORE SOLUTIONS"
-              title={
-                sections.solutionsHeading ||
-                "One Vision. Six Intelligent Possibilities."
-              }
-              description={
-                sections.solutionsDescription ||
-                "Explore the technologies and approaches shaping more personalised and engaging learning experiences."
-              }
-            />
-            <div className="shrink-0">
-              <SecondaryButton href="/solutions">
-                View All Solutions
-              </SecondaryButton>
+          <div className="rounded-[36px] border border-border/70 bg-[#EEF4FC]/85 p-6 sm:p-10 lg:p-12">
+            <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-iris">
+                  FEATURED CAPABILITIES
+                </p>
+                <h2 className="mt-1.5 font-heading text-2xl font-extrabold tracking-tight text-navy sm:text-3xl lg:text-4xl">
+                  {sections.solutionsHeading ||
+                    "Intelligent Learning Solutions"}
+                </h2>
+                <p className="mt-2 max-w-xl text-sm text-ink-secondary">
+                  {sections.solutionsDescription ||
+                    "Six connected AI capabilities thoughtfully built for learners, educators, and Indian academic institutions."}
+                </p>
+              </div>
+              <Link
+                href="/solutions"
+                className="inline-flex shrink-0 items-center gap-1.5 text-xs font-bold text-iris transition hover:text-navy"
+              >
+                <span>View All 6 Solutions</span>
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
             </div>
-          </div>
 
-          {/* Asymmetric Editorial Bento Grid for the 6 Core Solutions */}
-          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-12">
-            {solutions.slice(0, 6).map((sol, idx) => {
-              const isDarkAccentCard = idx === 5;
-              const isFeaturedWideCard = idx === 0 || idx === 5;
-
-              return (
-                <AnimatedReveal
-                  key={sol.id}
-                  delay={idx * 0.05}
-                  className={cn(
-                    bentoSpans[idx] || "md:col-span-6 lg:col-span-4"
-                  )}
-                >
+            {/* Clean Uniform 3-Column Solution Cards Grid */}
+            <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {solutions.slice(0, 6).map((sol, idx) => {
+                const imageSrc =
+                  SOLUTION_GENERATED_IMAGES[idx] ||
+                  "/images/solution-personalised-learning.jpg";
+                return (
                   <article
-                    className={cn(
-                      "group relative flex h-full flex-col justify-between overflow-hidden rounded-feature border p-7 transition-all duration-300 hover:-translate-y-1 sm:p-9",
-                      isDarkAccentCard
-                        ? "border-navy-light bg-navy text-cloud shadow-navy hover:border-iris"
-                        : idx === 0
-                        ? "border-iris/25 bg-gradient-to-br from-white via-white to-ice/70 text-ink shadow-subtle hover:border-iris hover:shadow-elevated"
-                        : "border-border bg-white text-ink shadow-subtle hover:border-iris/45 hover:shadow-elevated"
-                    )}
+                    key={sol.id}
+                    className="group relative flex flex-col overflow-hidden rounded-3xl border border-border/80 bg-white shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-iris/40 hover:shadow-elevated"
                   >
-                    <div
-                      className={cn(
-                        "grid items-center gap-6",
-                        isFeaturedWideCard && "lg:grid-cols-12"
-                      )}
-                    >
-                      <div
-                        className={cn(
-                          isFeaturedWideCard ? "lg:col-span-7" : "w-full"
-                        )}
-                      >
-                        <div className="flex items-center justify-between gap-3">
-                          <div
-                            className={cn(
-                              "flex h-12 w-12 items-center justify-center rounded-2xl transition-colors",
-                              isDarkAccentCard
-                                ? "bg-iris/25 text-lavender group-hover:bg-iris group-hover:text-white"
-                                : "bg-iris-light text-iris group-hover:bg-iris group-hover:text-white"
-                            )}
-                          >
-                            <DynamicIcon
-                              name={sol.iconName}
-                              className="h-6 w-6"
-                            />
-                          </div>
-                          <span
-                            className={cn(
-                              "rounded-full px-3 py-1 text-[11px] font-semibold",
-                              isDarkAccentCard
-                                ? "border border-white/15 bg-white/10 text-lavender"
-                                : "border border-border bg-cloud text-ink-secondary"
-                            )}
-                          >
-                            0{idx + 1} · {sol.category}
-                          </span>
-                        </div>
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-navy">
+                      <Image
+                        src={imageSrc}
+                        alt={sol.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <span className="absolute left-3.5 top-3.5 rounded-full bg-navy/85 px-3 py-1 text-[10px] font-bold text-gold backdrop-blur-md">
+                        0{idx + 1} · {sol.category}
+                      </span>
+                    </div>
 
-                        <h3
-                          className={cn(
-                            "mt-6 font-heading text-2xl font-bold tracking-tight transition-colors",
-                            isDarkAccentCard
-                              ? "text-white group-hover:text-lavender"
-                              : "text-ink group-hover:text-iris"
-                          )}
-                        >
+                    <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
+                      <div>
+                        <h3 className="font-heading text-lg font-extrabold tracking-tight text-navy transition-colors group-hover:text-iris">
                           <Link
                             href={`/solutions/${sol.slug}`}
-                            className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-iris rounded"
+                            className="focus-visible:outline-none"
                           >
-                            <span
-                              className="absolute inset-0"
-                              aria-hidden="true"
-                            />
+                            <span className="absolute inset-0 z-10" aria-hidden="true" />
                             {sol.shortTitle || sol.title}
                           </Link>
                         </h3>
-
-                        <p
-                          className={cn(
-                            "mt-2.5 text-sm leading-relaxed sm:text-base",
-                            isDarkAccentCard
-                              ? "text-slate-300"
-                              : "text-ink-secondary"
-                          )}
-                        >
+                        <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-ink-secondary sm:text-sm">
                           {sol.summary}
                         </p>
                       </div>
 
-                      {/* Bespoke Illustrative Visual Treatment per Bento Card */}
-                      <div
-                        className={cn(
-                          "overflow-hidden rounded-2xl border p-3",
-                          isFeaturedWideCard ? "lg:col-span-5" : "mt-5",
-                          isDarkAccentCard
-                            ? "border-white/10 bg-navy-light/90"
-                            : "border-border/80 bg-cloud/80"
-                        )}
-                      >
-                        {renderSolutionCardVisual(idx)}
+                      <div className="mt-5 flex items-center justify-between border-t border-border/70 pt-3.5 text-xs font-bold text-iris">
+                        <span>Explore Capability</span>
+                        <ArrowRight
+                          className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                          aria-hidden="true"
+                        />
                       </div>
                     </div>
-
-                    <div
-                      className={cn(
-                        "mt-6 flex items-center justify-between border-t pt-4 text-xs font-semibold",
-                        isDarkAccentCard
-                          ? "border-white/10 text-lavender"
-                          : "border-border/70 text-iris"
-                      )}
-                    >
-                      <span>Learn More</span>
-                      <ArrowRight
-                        className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
-                        aria-hidden="true"
-                      />
-                    </div>
                   </article>
-                </AnimatedReveal>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
 
-          {/* Optional Future Homepage Offering Slot (Only shown if explicitly enabled in CMS, distinct from the 6 core solutions) */}
-          {sections.optionalFutureOffering?.enabled && (
-            <div className="mt-8 rounded-feature border border-dashed border-iris/35 bg-ice/40 p-6 sm:p-8">
-              <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-                <div>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-iris-light px-3 py-1 text-[11px] font-semibold text-iris">
-                    <Sparkles className="h-3 w-3" aria-hidden="true" />
-                    {sections.optionalFutureOffering.badge ||
-                      "Special Horizon Initiative"}
-                  </span>
-                  <h3 className="mt-2 font-heading text-lg font-bold text-ink">
-                    {sections.optionalFutureOffering.title}
-                  </h3>
-                  <p className="mt-1 text-xs text-ink-secondary">
-                    {sections.optionalFutureOffering.description}
-                  </p>
-                </div>
-                <SecondaryButton
-                  href={sections.optionalFutureOffering.href || "/contact"}
-                >
-                  Enquire About Horizon Track
-                </SecondaryButton>
+            {/* Sleek Dark Maritime Navy Rounded Metrics Bar (Exact Reference Style) */}
+            <div className="mt-10 rounded-3xl bg-navy px-6 py-7 text-white shadow-navy sm:px-10">
+              <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+                {[
+                  {
+                    icon: Compass,
+                    value: "6 Core",
+                    label: "Connected AI Solutions",
+                  },
+                  {
+                    icon: ShieldCheck,
+                    value: "99.98%",
+                    label: "Platform Reliability",
+                  },
+                  {
+                    icon: GraduationCap,
+                    value: "42+",
+                    label: "Academic Frameworks",
+                  },
+                  {
+                    icon: Users,
+                    value: "100%",
+                    label: "Educator Governance",
+                  },
+                ].map((stat) => {
+                  const Icon = stat.icon;
+                  return (
+                    <div key={stat.label} className="flex items-center gap-4">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-gold">
+                        <Icon className="h-5 w-5" aria-hidden="true" />
+                      </span>
+                      <div>
+                        <p className="font-heading text-xl font-extrabold tracking-tight text-white sm:text-2xl">
+                          {stat.value}
+                        </p>
+                        <p className="text-[11px] font-medium text-slate-300">
+                          {stat.label}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
-          )}
+          </div>
         </Container>
       </section>
 
+      {/* =====================================================================
+          SECTION 4: "LEARN ON YOUR TERMS" MULTI-DEVICE PLATFORM SHOWCASE
+          Reference-matched left editorial checklist + right overlapping Phone / Laptop / Tablet UI preview
+      ====================================================================== */}
+      <section className="py-12 sm:py-16">
+        <Container>
+          <div className="overflow-hidden rounded-[36px] border border-border/80 bg-gradient-to-br from-[#F7FAFF] via-white to-[#EEF4FC] px-6 py-12 shadow-card sm:px-12 lg:py-16">
+            <div className="grid items-center gap-12 lg:grid-cols-12">
+              {/* Left 5 Columns: Narrative & Checkmarks */}
+              <div className="lg:col-span-5">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-iris">
+                  LEARN ANYTIME, ANYWHERE
+                </p>
+                <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">
+                  Learn on Your Terms.
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-ink-secondary sm:text-base">
+                  Whether learners are on a laptop in the campus library, a tablet in class, or a smartphone at home, the iGUIDE Intelligence Path stays seamlessly in sync.
+                </p>
+
+                <ul className="mt-6 space-y-3">
+                  {[
+                    "Seamless access across desktop, tablet & mobile",
+                    "Adaptive pathways that remember every concept",
+                    "Real-time comprehension insights for educators",
+                  ].map((pt) => (
+                    <li
+                      key={pt}
+                      className="flex items-center gap-3 text-sm font-semibold text-navy"
+                    >
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-iris-light text-iris">
+                        <Check className="h-3.5 w-3.5" aria-hidden="true" />
+                      </span>
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-8">
+                  <Link
+                    href="/contact"
+                    className="group inline-flex items-center gap-2 rounded-xl bg-iris px-6 py-3.5 text-sm font-bold text-white shadow-elevated transition-all hover:-translate-y-0.5 hover:bg-iris-hover"
+                  >
+                    <span>Start Exploring Today</span>
+                    <ArrowRight
+                      className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right 7 Columns: Overlapping Laptop + Smartphone + Tablet Mastery Showcase */}
+              <div className="relative mx-auto w-full max-w-[660px] lg:col-span-7">
+                {/* Center Laptop Frame */}
+                <div className="mx-auto w-[92%] overflow-hidden rounded-2xl border-[6px] border-navy bg-white shadow-elevated sm:w-[82%]">
+                  <div className="flex items-center justify-between border-b border-border bg-cloud px-4 py-2.5">
+                    <div className="flex items-center gap-1.5">
+                      <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-gold" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                    </div>
+                    <span className="rounded-full bg-white px-3 py-0.5 text-[10px] font-semibold text-ink-muted border border-border">
+                      app.iguide.edu.in · Learner Dashboard
+                    </span>
+                    <span className="h-5 w-5 rounded-full bg-iris text-[9px] font-bold text-white flex items-center justify-center">
+                      IG
+                    </span>
+                  </div>
+
+                  <div className="p-5 sm:p-6">
+                    <p className="font-heading text-sm font-extrabold text-navy">
+                      Welcome back — Continue your Intelligence Path
+                    </p>
+                    <p className="text-[11px] text-ink-secondary">
+                      Personalised pathway synced with your classroom curriculum
+                    </p>
+
+                    <div className="mt-4 grid grid-cols-12 gap-4">
+                      {/* Progress Ring Card */}
+                      <div className="col-span-5 flex flex-col items-center justify-center rounded-2xl border border-border bg-cloud/70 p-4">
+                        <div className="relative flex h-20 w-20 items-center justify-center">
+                          <svg viewBox="0 0 64 64" className="h-20 w-20 -rotate-90">
+                            <circle
+                              cx="32"
+                              cy="32"
+                              r="25"
+                              fill="none"
+                              stroke="#DCE5F2"
+                              strokeWidth="6"
+                            />
+                            <circle
+                              cx="32"
+                              cy="32"
+                              r="25"
+                              fill="none"
+                              stroke="#1E4883"
+                              strokeWidth="6"
+                              strokeLinecap="round"
+                              strokeDasharray="157"
+                              strokeDashoffset="34.5"
+                            />
+                          </svg>
+                          <span className="absolute font-heading text-base font-extrabold text-navy">
+                            78%
+                          </span>
+                        </div>
+                        <p className="mt-2 text-[10px] font-bold text-iris">
+                          Concept Mastery
+                        </p>
+                      </div>
+
+                      {/* Active Module Card */}
+                      <div className="col-span-7 flex flex-col justify-between rounded-2xl border border-border bg-white p-4 shadow-subtle">
+                        <div>
+                          <span className="rounded-full bg-gold-light px-2.5 py-0.5 text-[9px] font-bold text-navy">
+                            Active Module
+                          </span>
+                          <p className="mt-2 font-heading text-xs font-extrabold text-navy">
+                            Adaptive Analytical Reasoning
+                          </p>
+                          <p className="mt-1 text-[10px] text-ink-secondary">
+                            Socratic AI Tutor ready · Next checkpoint unlocked
+                          </p>
+                        </div>
+                        <div className="mt-3 rounded-lg bg-iris py-1.5 text-center text-[10px] font-bold text-white">
+                          Continue Learning →
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Left Overlapping Mobile Phone Mockup */}
+                <div className="hidden sm:block absolute -bottom-4 left-0 w-[145px] overflow-hidden rounded-[22px] border-[5px] border-navy bg-white p-3 shadow-elevated">
+                  <div className="mx-auto mb-2 h-1 w-10 rounded-full bg-border" />
+                  <p className="text-[10px] font-extrabold text-navy">
+                    iGUIDE Mobile
+                  </p>
+                  <div className="mt-2 grid grid-cols-2 gap-1.5">
+                    <div className="rounded-lg bg-iris-light p-2 text-center text-[9px] font-bold text-iris">
+                      Paths
+                    </div>
+                    <div className="rounded-lg bg-gold-light p-2 text-center text-[9px] font-bold text-navy">
+                      AI Tutor
+                    </div>
+                  </div>
+                  <div className="mt-2 space-y-1.5">
+                    <div className="h-2 w-full rounded bg-cloud" />
+                    <div className="h-2 w-3/4 rounded bg-iris/20" />
+                  </div>
+                </div>
+
+                {/* Right Overlapping Tablet Milestone Certificate Mockup */}
+                <div className="hidden sm:block absolute -bottom-4 right-0 w-[190px] overflow-hidden rounded-2xl border-[5px] border-navy bg-white p-3.5 shadow-elevated">
+                  <div className="rounded-xl border border-gold/50 bg-gradient-to-br from-gold-light/60 via-white to-iris-light/40 p-3 text-center">
+                    <span className="inline-block rounded-full bg-gold px-2 py-0.5 text-[8px] font-extrabold uppercase tracking-wider text-navy">
+                      Verified Milestone
+                    </span>
+                    <p className="mt-1.5 font-heading text-[11px] font-extrabold text-navy">
+                      Competency Achieved
+                    </p>
+                    <p className="mt-0.5 text-[9px] text-ink-secondary">
+                      iGUIDE Adaptive Assessment
+                    </p>
+                    <div className="mx-auto mt-2 h-6 w-6 rounded-full bg-gold/90 text-navy flex items-center justify-center text-[10px] font-extrabold">
+                      ✓
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Clean Educational Environments Strip (Truthful, no fabricated corporate logos) */}
+          <div className="mt-10 flex flex-col items-center justify-between gap-4 border-y border-border/80 py-6 text-center md:flex-row md:text-left">
+            <span className="text-xs font-semibold text-ink-muted">
+              Built for leading Indian educational environments
+            </span>
+            <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 font-heading text-xs font-bold tracking-wide text-ink-secondary sm:text-sm">
+              <span>K-12 Schools</span>
+              <span className="text-border">•</span>
+              <span>Colleges &amp; Universities</span>
+              <span className="text-border">•</span>
+              <span>STEM &amp; Engineering</span>
+              <span className="text-border">•</span>
+              <span>Training Institutes</span>
+              <span className="text-border">•</span>
+              <span>Academic Research</span>
+            </div>
+          </div>
+        </Container>
+      </section>
       {/* =====================================================================
           SECTION 5: WHY CHOOSE iGUIDE?
           Interactive Benefits Selector ("Built for the Way Learning Should Be.")
@@ -1047,15 +613,12 @@ export default async function HomePage() {
       />
 
       {/* =====================================================================
-          SECTION 8: TESTIMONIALS PREVIEW
-          Elegant Carousel ("Voices from Our Learning Community.")
-          Strictly omitted if no genuine verified testimonials are published in CMS
+          SECTION 8: SCROLL-ZOOM COMMUNITY VOICES -> GRAND iGUIDE LOGO REVEAL
+          Sticky 3D zoom-through testimonial cards that zoom outward as you scroll, revealing the centered iGUIDE logo
       ====================================================================== */}
-      <TestimonialsCarouselSection
+      <ScrollZoomReviewsSection
         testimonials={testimonials}
-        heading={
-          sections.testimonialsHeading || "Voices from Our Learning Community."
-        }
+        heading="Trusted by Learners & Educators Across India"
       />
 
       {/* =====================================================================
@@ -1205,7 +768,7 @@ export default async function HomePage() {
           <div className="relative overflow-hidden rounded-hero bg-navy px-6 py-16 text-cloud shadow-navy sm:px-14 sm:py-24">
             {/* Glowing Intelligence Path Background */}
             <div
-              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(99,91,255,0.32),rgba(56,123,250,0.14)_45%,rgba(11,16,38,0)_75%)]"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(30,72,131,0.32),rgba(43,100,176,0.14)_45%,rgba(11,16,38,0)_75%)]"
               aria-hidden="true"
             />
             <svg
@@ -1216,17 +779,17 @@ export default async function HomePage() {
             >
               <path
                 d="M-40 340 C 260 320, 420 120, 740 160 C 960 190, 1080 70, 1240 40"
-                stroke="#635BFF"
+                stroke="#1E4883"
                 strokeWidth="3.5"
               />
               <path
                 d="M-40 380 C 300 360, 520 220, 820 210 C 1020 200, 1120 120, 1240 90"
-                stroke="#387BFA"
+                stroke="#2B64B0"
                 strokeWidth="1.75"
                 strokeDasharray="6 6"
               />
-              <circle cx="260" cy="320" r="6" fill="#387BFA" />
-              <circle cx="740" cy="160" r="8" fill="#A78BFA" />
+              <circle cx="260" cy="320" r="6" fill="#2B64B0" />
+              <circle cx="740" cy="160" r="8" fill="#F0C32A" />
               <circle cx="1080" cy="70" r="6" fill="#16A085" />
             </svg>
 

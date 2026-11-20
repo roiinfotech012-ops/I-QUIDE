@@ -158,7 +158,7 @@ export function ArticleTableOfContents({
         </div>
 
         {/* Subtle Intelligence Path Note Card */}
-        <div className="rounded-3xl border border-lavender/35 bg-gradient-to-br from-[#F6F5FF] via-white to-[#EEF4FF] p-5 shadow-subtle">
+        <div className="rounded-3xl border border-lavender/35 bg-gradient-to-br from-[#F4F8FD] via-white to-[#EEF4FF] p-5 shadow-subtle">
           <div className="flex items-center gap-2 text-xs font-bold text-iris">
             <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
             <span>Exploring iGUIDE Solutions?</span>
@@ -239,7 +239,7 @@ export function ArticleShareBar({
   const emailHref = `mailto:?subject=${encodedTitle}&body=${encodedSummary}%0A%0ARead%20more:%20${encodedUrl}`;
 
   return (
-    <div className="rounded-3xl border border-border bg-gradient-to-r from-cloud via-white to-[#F6F5FF] p-6 sm:p-8 shadow-subtle">
+    <div className="rounded-3xl border border-border bg-gradient-to-r from-cloud via-white to-[#F4F8FD] p-6 sm:p-8 shadow-subtle">
       <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
         <div>
           <span className="font-mono text-[10px] font-semibold tracking-[0.2em] text-iris uppercase">

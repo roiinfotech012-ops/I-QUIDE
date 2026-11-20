@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" fill="none">
   <rect width="900" height="600" fill="#EAF5FF"/>
-  <rect x="85" y="85" width="730" height="430" rx="28" fill="#0B1026"/>
-  <circle cx="310" cy="300" r="115" stroke="#635BFF" stroke-width="4" fill="#151F42"/>
-  <circle cx="590" cy="300" r="115" stroke="#387BFA" stroke-width="4" fill="#151F42"/>
-  <path d="M425 300 H475" stroke="#A78BFA" stroke-width="4"/>
+  <rect x="85" y="85" width="730" height="430" rx="28" fill="#0B1D3A"/>
+  <circle cx="310" cy="300" r="115" stroke="#1E4883" stroke-width="4" fill="#151F42"/>
+  <circle cx="590" cy="300" r="115" stroke="#2B64B0" stroke-width="4" fill="#151F42"/>
+  <path d="M425 300 H475" stroke="#F0C32A" stroke-width="4"/>
   <text x="242" y="305" fill="#FAFBFF" font-family="Inter, sans-serif" font-size="16" font-weight="700">Cognitive Pacing</text>
   <text x="520" y="305" fill="#FAFBFF" font-family="Inter, sans-serif" font-size="16" font-weight="700">Mastery Synthesis</text>
 </svg>

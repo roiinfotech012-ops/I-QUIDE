@@ -27,7 +27,7 @@ export function HeroLearningEcosystem({ caption }: { caption?: string }) {
       progress: 32,
       detail:
         "Identifies prior knowledge and preferred conceptual framing through low-stress diagnostic exploration.",
-      color: "#387BFA",
+      color: "#2B64B0",
     },
     {
       id: 1,
@@ -37,7 +37,7 @@ export function HeroLearningEcosystem({ caption }: { caption?: string }) {
       progress: 64,
       detail:
         "Dynamically sequences visual analogies, prerequisite refreshers, and worked examples around the learner.",
-      color: "#635BFF",
+      color: "#1E4883",
     },
     {
       id: 2,
@@ -47,7 +47,7 @@ export function HeroLearningEcosystem({ caption }: { caption?: string }) {
       progress: 84,
       detail:
         "Supports active problem-solving through AI tutor guidance, conceptual challenges, and formative feedback.",
-      color: "#A78BFA",
+      color: "#F0C32A",
     },
     {
       id: 3,
@@ -91,7 +91,7 @@ export function HeroLearningEcosystem({ caption }: { caption?: string }) {
     <div className="relative mx-auto w-full max-w-[640px] lg:max-w-none">
       {/* Subtle radial lavender and intelligence-blue glow behind the visual */}
       <div
-        className="pointer-events-none absolute -inset-8 rounded-[44px] bg-[radial-gradient(circle_at_60%_40%,rgba(167,139,250,0.34),rgba(56,123,250,0.22)_45%,rgba(99,91,255,0)_75%)] blur-2xl"
+        className="pointer-events-none absolute -inset-8 rounded-[44px] bg-[radial-gradient(circle_at_60%_40%,rgba(240,195,42,0.34),rgba(43,100,176,0.22)_45%,rgba(30,72,131,0)_75%)] blur-2xl"
         aria-hidden="true"
       />
 
@@ -175,14 +175,14 @@ export function HeroLearningEcosystem({ caption }: { caption?: string }) {
                 y2="42"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0%" stopColor="#387BFA" />
-                <stop offset="48%" stopColor="#635BFF" />
-                <stop offset="80%" stopColor="#A78BFA" />
+                <stop offset="0%" stopColor="#2B64B0" />
+                <stop offset="48%" stopColor="#1E4883" />
+                <stop offset="80%" stopColor="#F0C32A" />
                 <stop offset="100%" stopColor="#16A085" />
               </linearGradient>
               <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#635BFF" stopOpacity="0.55" />
-                <stop offset="100%" stopColor="#635BFF" stopOpacity="0" />
+                <stop offset="0%" stopColor="#1E4883" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="#1E4883" stopOpacity="0" />
               </radialGradient>
             </defs>
 
@@ -200,7 +200,7 @@ export function HeroLearningEcosystem({ caption }: { caption?: string }) {
             <path
               d="M 48 166 C 130 192, 195 142, 290 132 C 385 122, 435 92, 512 46"
               fill="none"
-              stroke="rgba(167, 139, 250, 0.28)"
+              stroke="rgba(240, 195, 42, 0.28)"
               strokeWidth="2"
               strokeDasharray="6 6"
             />
@@ -209,7 +209,7 @@ export function HeroLearningEcosystem({ caption }: { caption?: string }) {
             <path
               d="M 48 166 C 120 108, 175 72, 225 110 C 275 144, 365 58, 512 46"
               fill="none"
-              stroke="rgba(56, 123, 250, 0.24)"
+              stroke="rgba(43, 100, 176, 0.24)"
               strokeWidth="1.75"
             />
 
@@ -229,9 +229,9 @@ export function HeroLearningEcosystem({ caption }: { caption?: string }) {
 
             {/* Interactive Nodes along the Intelligence Path */}
             {[
-              { id: 0, cx: 48, cy: 166, label: "Discover", color: "#387BFA" },
-              { id: 1, cx: 225, cy: 110, label: "Personalise", color: "#635BFF" },
-              { id: 2, cx: 390, cy: 72, label: "Engage", color: "#A78BFA" },
+              { id: 0, cx: 48, cy: 166, label: "Discover", color: "#2B64B0" },
+              { id: 1, cx: 225, cy: 110, label: "Personalise", color: "#1E4883" },
+              { id: 2, cx: 390, cy: 72, label: "Engage", color: "#F0C32A" },
               { id: 3, cx: 512, cy: 46, label: "Grow", color: "#16A085" },
             ].map((node) => {
               const isSelected = activeNode === node.id;

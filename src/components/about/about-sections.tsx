@@ -32,7 +32,7 @@ export function AboutHeroIllustration() {
     <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
       {/* Subtle Lavender & Intelligence Blue Glow */}
       <div
-        className="pointer-events-none absolute -inset-6 rounded-[40px] bg-[radial-gradient(circle_at_55%_45%,rgba(167,139,250,0.32),rgba(99,91,255,0.18)_45%,rgba(11,16,38,0)_75%)] blur-2xl"
+        className="pointer-events-none absolute -inset-6 rounded-[40px] bg-[radial-gradient(circle_at_55%_45%,rgba(240,195,42,0.32),rgba(30,72,131,0.18)_45%,rgba(11,16,38,0)_75%)] blur-2xl"
         aria-hidden="true"
       />
 
@@ -66,33 +66,33 @@ export function AboutHeroIllustration() {
                 y2="40"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0%" stopColor="#A78BFA" />
-                <stop offset="50%" stopColor="#635BFF" />
-                <stop offset="100%" stopColor="#387BFA" />
+                <stop offset="0%" stopColor="#F0C32A" />
+                <stop offset="50%" stopColor="#1E4883" />
+                <stop offset="100%" stopColor="#2B64B0" />
               </linearGradient>
               <radialGradient id="lavenderPulse" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#A78BFA" stopOpacity="0.48" />
-                <stop offset="100%" stopColor="#A78BFA" stopOpacity="0" />
+                <stop offset="0%" stopColor="#F0C32A" stopOpacity="0.48" />
+                <stop offset="100%" stopColor="#F0C32A" stopOpacity="0" />
               </radialGradient>
             </defs>
 
             {/* Delicate harmonic wave lines */}
             <path
               d="M 20 195 C 120 190, 170 75, 270 110 C 370 145, 415 55, 495 45"
-              stroke="rgba(167, 139, 250, 0.22)"
+              stroke="rgba(240, 195, 42, 0.22)"
               strokeWidth="1.5"
               fill="none"
             />
             <path
               d="M 20 165 C 135 215, 200 135, 305 130 C 395 125, 435 85, 495 45"
-              stroke="rgba(56, 123, 250, 0.28)"
+              stroke="rgba(43, 100, 176, 0.28)"
               strokeWidth="1.75"
               strokeDasharray="6 6"
               fill="none"
             />
             <path
               d="M 20 115 C 110 85, 195 160, 270 110 C 345 60, 420 95, 495 45"
-              stroke="rgba(167, 139, 250, 0.30)"
+              stroke="rgba(240, 195, 42, 0.30)"
               strokeWidth="1.5"
               strokeDasharray="4 5"
               fill="none"
@@ -119,21 +119,21 @@ export function AboutHeroIllustration() {
                 cy: 185,
                 label: "Curiosity",
                 sub: "Human Potential",
-                color: "#A78BFA",
+                color: "#F0C32A",
               },
               {
                 cx: 158,
                 cy: 122,
                 label: "Adaptation",
                 sub: "Tailored Pacing",
-                color: "#635BFF",
+                color: "#1E4883",
               },
               {
                 cx: 315,
                 cy: 96,
                 label: "Engagement",
                 sub: "Active Inquiry",
-                color: "#387BFA",
+                color: "#2B64B0",
               },
               {
                 cx: 488,
@@ -335,9 +335,9 @@ export function OurApproachInteractive({
                   y2="90"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0%" stopColor="#635BFF" />
-                  <stop offset="50%" stopColor="#387BFA" />
-                  <stop offset="100%" stopColor="#A78BFA" />
+                  <stop offset="0%" stopColor="#1E4883" />
+                  <stop offset="50%" stopColor="#2B64B0" />
+                  <stop offset="100%" stopColor="#F0C32A" />
                 </linearGradient>
               </defs>
 
@@ -352,22 +352,22 @@ export function OurApproachInteractive({
                   />
                   <path
                     d="M50 135 C 165 155, 250 110, 355 105 C 425 100, 455 70, 490 35"
-                    stroke="#A78BFA"
+                    stroke="#F0C32A"
                     strokeOpacity="0.4"
                     strokeWidth="2"
                     strokeDasharray="6 6"
                     fill="none"
                   />
-                  <circle cx="50" cy="135" r="8" fill="#387BFA" />
+                  <circle cx="50" cy="135" r="8" fill="#2B64B0" />
                   <circle
                     cx="195"
                     cy="82"
                     r="11"
-                    fill="#635BFF"
+                    fill="#1E4883"
                     stroke="#FAFBFF"
                     strokeWidth="2.5"
                   />
-                  <circle cx="285" cy="65" r="9" fill="#A78BFA" />
+                  <circle cx="285" cy="65" r="9" fill="#F0C32A" />
                   <circle
                     cx="490"
                     cy="35"
@@ -387,8 +387,8 @@ export function OurApproachInteractive({
                     width="120"
                     height="90"
                     rx="16"
-                    fill="#162147"
-                    stroke="#387BFA"
+                    fill="#142D57"
+                    stroke="#2B64B0"
                     strokeWidth="2"
                   />
                   <rect
@@ -397,8 +397,8 @@ export function OurApproachInteractive({
                     width="120"
                     height="118"
                     rx="16"
-                    fill="#1B2856"
-                    stroke="#635BFF"
+                    fill="#163868"
+                    stroke="#1E4883"
                     strokeWidth="2.5"
                   />
                   <rect
@@ -407,7 +407,7 @@ export function OurApproachInteractive({
                     width="120"
                     height="90"
                     rx="16"
-                    fill="#162147"
+                    fill="#142D57"
                     stroke="#16A085"
                     strokeWidth="2"
                   />
@@ -416,7 +416,7 @@ export function OurApproachInteractive({
                     y1="87"
                     x2="210"
                     y2="87"
-                    stroke="#A78BFA"
+                    stroke="#F0C32A"
                     strokeWidth="3"
                   />
                   <line
@@ -424,7 +424,7 @@ export function OurApproachInteractive({
                     y1="87"
                     x2="365"
                     y2="87"
-                    stroke="#A78BFA"
+                    stroke="#F0C32A"
                     strokeWidth="3"
                   />
                 </g>
@@ -436,7 +436,7 @@ export function OurApproachInteractive({
                     cx="270"
                     cy="88"
                     r="68"
-                    stroke="#A78BFA"
+                    stroke="#F0C32A"
                     strokeOpacity="0.35"
                     strokeWidth="2"
                     fill="none"
@@ -445,13 +445,13 @@ export function OurApproachInteractive({
                     cx="270"
                     cy="88"
                     r="44"
-                    stroke="#387BFA"
+                    stroke="#2B64B0"
                     strokeWidth="3"
                     strokeDasharray="8 6"
                     fill="none"
                   />
-                  <circle cx="270" cy="88" r="20" fill="#635BFF" />
-                  <circle cx="202" cy="88" r="7" fill="#387BFA" />
+                  <circle cx="270" cy="88" r="20" fill="#1E4883" />
+                  <circle cx="202" cy="88" r="7" fill="#2B64B0" />
                   <circle cx="338" cy="88" r="7" fill="#16A085" />
                 </g>
               )}
@@ -464,7 +464,7 @@ export function OurApproachInteractive({
                     width="48"
                     height="52"
                     rx="8"
-                    fill="#387BFA"
+                    fill="#2B64B0"
                     fillOpacity="0.5"
                   />
                   <rect
@@ -473,7 +473,7 @@ export function OurApproachInteractive({
                     width="48"
                     height="74"
                     rx="8"
-                    fill="#387BFA"
+                    fill="#2B64B0"
                     fillOpacity="0.8"
                   />
                   <rect
@@ -482,7 +482,7 @@ export function OurApproachInteractive({
                     width="48"
                     height="96"
                     rx="8"
-                    fill="#635BFF"
+                    fill="#1E4883"
                   />
                   <rect
                     x="330"
@@ -490,7 +490,7 @@ export function OurApproachInteractive({
                     width="48"
                     height="114"
                     rx="8"
-                    fill="#A78BFA"
+                    fill="#F0C32A"
                   />
                   <rect
                     x="410"
@@ -568,9 +568,9 @@ export function EducationalEcosystemConnected({
               y2="440"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0%" stopColor="#387BFA" />
-              <stop offset="50%" stopColor="#635BFF" />
-              <stop offset="100%" stopColor="#A78BFA" />
+              <stop offset="0%" stopColor="#2B64B0" />
+              <stop offset="50%" stopColor="#1E4883" />
+              <stop offset="100%" stopColor="#F0C32A" />
             </linearGradient>
           </defs>
           <path
@@ -590,7 +590,7 @@ export function EducationalEcosystemConnected({
             y1="135"
             x2="1000"
             y2="135"
-            stroke="#635BFF"
+            stroke="#1E4883"
             strokeOpacity="0.3"
             strokeWidth="2"
           />
@@ -599,7 +599,7 @@ export function EducationalEcosystemConnected({
             y1="405"
             x2="1000"
             y2="405"
-            stroke="#387BFA"
+            stroke="#2B64B0"
             strokeOpacity="0.3"
             strokeWidth="2"
           />

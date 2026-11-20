@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" fill="none">
-  <rect width="900" height="600" fill="#0B1026"/>
+  <rect width="900" height="600" fill="#0B1D3A"/>
   <g stroke="#233160" stroke-width="1.5">
     <line x1="120" y1="460" x2="780" y2="460"/>
     <line x1="120" y1="340" x2="780" y2="340"/>
     <line x1="120" y1="220" x2="780" y2="220"/>
   </g>
   <path d="M150 430 L290 360 L430 375 L580 250 L740 170" stroke="#16A085" stroke-width="5" stroke-linecap="round"/>
-  <circle cx="290" cy="360" r="9" fill="#387BFA"/>
-  <circle cx="580" cy="250" r="10" fill="#635BFF"/>
+  <circle cx="290" cy="360" r="9" fill="#2B64B0"/>
+  <circle cx="580" cy="250" r="10" fill="#1E4883"/>
   <circle cx="740" cy="170" r="11" fill="#16A085"/>
   <rect x="140" y="100" width="340" height="96" rx="16" fill="#162044" stroke="#2D3C70"/>
   <text x="168" y="140" fill="#16A085" font-family="Inter, sans-serif" font-size="12" font-weight="700">ASSESSMENT ARCHITECTURE</text>

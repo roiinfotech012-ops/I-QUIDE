@@ -37,7 +37,7 @@ export function SolutionDetailHeroVisual({
     <div className="relative mx-auto w-full max-w-[600px] lg:max-w-none">
       {/* Ambient Themed Glow */}
       <div
-        className="pointer-events-none absolute -inset-6 rounded-[40px] bg-[radial-gradient(circle_at_55%_45%,rgba(99,91,255,0.34),rgba(56,123,250,0.20)_45%,rgba(11,16,38,0)_75%)] blur-2xl"
+        className="pointer-events-none absolute -inset-6 rounded-[40px] bg-[radial-gradient(circle_at_55%_45%,rgba(30,72,131,0.34),rgba(43,100,176,0.20)_45%,rgba(11,16,38,0)_75%)] blur-2xl"
         aria-hidden="true"
       />
 
@@ -87,8 +87,8 @@ export function SolutionDetailHeroVisual({
                     y2="95"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop offset="0%" stopColor="#387BFA" />
-                    <stop offset="50%" stopColor="#635BFF" />
+                    <stop offset="0%" stopColor="#2B64B0" />
+                    <stop offset="50%" stopColor="#1E4883" />
                     <stop offset="100%" stopColor="#16A085" />
                   </linearGradient>
                 </defs>
@@ -96,7 +96,7 @@ export function SolutionDetailHeroVisual({
                 {/* Upper Branch: Visual & Diagrammatic Route */}
                 <path
                   d="M 48 95 C 135 95, 160 36, 260 36 C 360 36, 385 95, 472 95"
-                  stroke="#387BFA"
+                  stroke="#2B64B0"
                   strokeWidth="2.2"
                   strokeDasharray="6 5"
                   fill="none"
@@ -121,14 +121,14 @@ export function SolutionDetailHeroVisual({
                 {/* Lower Branch: Foundational Prerequisite Scaffold */}
                 <path
                   d="M 48 95 C 135 95, 160 154, 260 154 C 360 154, 385 95, 472 95"
-                  stroke="#A78BFA"
+                  stroke="#F0C32A"
                   strokeWidth="2.2"
                   strokeDasharray="6 5"
                   fill="none"
                 />
 
                 {/* Origin Node */}
-                <circle cx="48" cy="95" r="10" fill="#387BFA" />
+                <circle cx="48" cy="95" r="10" fill="#2B64B0" />
                 <text
                   x="48"
                   y="124"
@@ -148,7 +148,7 @@ export function SolutionDetailHeroVisual({
                   height="30"
                   rx="9"
                   fill="#152248"
-                  stroke="#387BFA"
+                  stroke="#2B64B0"
                 />
                 <text
                   x="260"
@@ -166,7 +166,7 @@ export function SolutionDetailHeroVisual({
                   cx="260"
                   cy="95"
                   r="13"
-                  fill="#635BFF"
+                  fill="#1E4883"
                   stroke="#FAFBFF"
                   strokeWidth="3"
                 />
@@ -174,7 +174,7 @@ export function SolutionDetailHeroVisual({
                   x="260"
                   y="73"
                   textAnchor="middle"
-                  fill="#A78BFA"
+                  fill="#F0C32A"
                   fontSize="10"
                   fontWeight="700"
                 >
@@ -189,13 +189,13 @@ export function SolutionDetailHeroVisual({
                   height="30"
                   rx="9"
                   fill="#1C204B"
-                  stroke="#A78BFA"
+                  stroke="#F0C32A"
                 />
                 <text
                   x="260"
                   y="159"
                   textAnchor="middle"
-                  fill="#F3EFFE"
+                  fill="#FEF8E3"
                   fontSize="10.5"
                   fontWeight="600"
                 >
@@ -445,13 +445,13 @@ export function SolutionDetailHeroVisual({
                   />
                   <polygon
                     points="110,32 178,100 110,158 52,100"
-                    fill="rgba(99,91,255,0.32)"
-                    stroke="#A78BFA"
+                    fill="rgba(30,72,131,0.32)"
+                    stroke="#F0C32A"
                     strokeWidth="2.5"
                   />
                   <circle cx="110" cy="32" r="5" fill="#16A085" />
-                  <circle cx="178" cy="100" r="5" fill="#387BFA" />
-                  <circle cx="110" cy="158" r="5" fill="#635BFF" />
+                  <circle cx="178" cy="100" r="5" fill="#2B64B0" />
+                  <circle cx="110" cy="158" r="5" fill="#1E4883" />
                   <circle cx="52" cy="100" r="5" fill="#F39C12" />
                 </svg>
               </div>
@@ -617,8 +617,8 @@ export function SolutionDetailHeroVisual({
                     y2="145"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop offset="0%" stopColor="#635BFF" stopOpacity="0.4" />
-                    <stop offset="100%" stopColor="#635BFF" stopOpacity="0.0" />
+                    <stop offset="0%" stopColor="#1E4883" stopOpacity="0.4" />
+                    <stop offset="100%" stopColor="#1E4883" stopOpacity="0.0" />
                   </linearGradient>
                 </defs>
                 <line
@@ -649,7 +649,7 @@ export function SolutionDetailHeroVisual({
                 />
                 <path
                   d="M 30 112 C 115 104, 175 82, 250 74 C 325 66, 395 42, 470 28"
-                  stroke="#387BFA"
+                  stroke="#2B64B0"
                   strokeWidth="3.5"
                   strokeLinecap="round"
                   fill="none"
@@ -746,7 +746,7 @@ export function SolutionDetailHeroVisual({
                   rx="190"
                   ry="72"
                   fill="none"
-                  stroke="rgba(99,91,255,0.35)"
+                  stroke="rgba(30,72,131,0.35)"
                   strokeWidth="2"
                   strokeDasharray="6 6"
                 />
@@ -757,7 +757,7 @@ export function SolutionDetailHeroVisual({
                   y1="98"
                   x2="95"
                   y2="48"
-                  stroke="#387BFA"
+                  stroke="#2B64B0"
                   strokeWidth="2"
                 />
                 <line
@@ -765,7 +765,7 @@ export function SolutionDetailHeroVisual({
                   y1="98"
                   x2="425"
                   y2="48"
-                  stroke="#A78BFA"
+                  stroke="#F0C32A"
                   strokeWidth="2"
                 />
                 <line
@@ -781,7 +781,7 @@ export function SolutionDetailHeroVisual({
                   y1="98"
                   x2="425"
                   y2="148"
-                  stroke="#635BFF"
+                  stroke="#1E4883"
                   strokeWidth="2"
                 />
 
@@ -792,7 +792,7 @@ export function SolutionDetailHeroVisual({
                   width="150"
                   height="52"
                   rx="16"
-                  fill="#635BFF"
+                  fill="#1E4883"
                   stroke="#FAFBFF"
                   strokeWidth="2"
                 />
@@ -824,7 +824,7 @@ export function SolutionDetailHeroVisual({
                   height="42"
                   rx="11"
                   fill="#152248"
-                  stroke="#387BFA"
+                  stroke="#2B64B0"
                 />
                 <text
                   x="92"
@@ -845,7 +845,7 @@ export function SolutionDetailHeroVisual({
                   height="42"
                   rx="11"
                   fill="#152248"
-                  stroke="#A78BFA"
+                  stroke="#F0C32A"
                 />
                 <text
                   x="427"
@@ -887,7 +887,7 @@ export function SolutionDetailHeroVisual({
                   height="42"
                   rx="11"
                   fill="#152248"
-                  stroke="#635BFF"
+                  stroke="#1E4883"
                 />
                 <text
                   x="427"

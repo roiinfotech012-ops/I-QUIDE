@@ -74,11 +74,11 @@ export function PageHero({
       >
         <path
           d="M50 350 C 180 320, 260 160, 410 180 C 510 190, 540 90, 590 40"
-          stroke="#635BFF"
+          stroke="#1E4883"
           strokeWidth="2"
         />
-        <circle cx="180" cy="320" r="4" fill="#387BFA" />
-        <circle cx="410" cy="180" r="6" fill="#A78BFA" />
+        <circle cx="180" cy="320" r="4" fill="#2B64B0" />
+        <circle cx="410" cy="180" r="6" fill="#F0C32A" />
       </svg>
 
       <Container className="relative z-10">
@@ -438,11 +438,11 @@ export function ContactCTA({
           >
             <path
               d="M20 260 C 120 240, 180 120, 280 140 C 340 150, 360 60, 390 20"
-              stroke="#635BFF"
+              stroke="#1E4883"
               strokeWidth="4"
             />
-            <circle cx="120" cy="240" r="6" fill="#387BFA" />
-            <circle cx="280" cy="140" r="8" fill="#A78BFA" />
+            <circle cx="120" cy="240" r="6" fill="#2B64B0" />
+            <circle cx="280" cy="140" r="8" fill="#F0C32A" />
           </svg>
 
           <div className="relative z-10 mx-auto max-w-3xl text-center">

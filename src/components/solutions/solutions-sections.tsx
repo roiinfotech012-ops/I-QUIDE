@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -29,7 +30,7 @@ export function SolutionsHeroShowcase({
     <div className="relative mx-auto w-full max-w-[600px] lg:max-w-none">
       {/* Ambient Iris & Intelligence Blue Glow */}
       <div
-        className="pointer-events-none absolute -inset-6 rounded-[40px] bg-[radial-gradient(circle_at_55%_45%,rgba(99,91,255,0.34),rgba(56,123,250,0.20)_45%,rgba(11,16,38,0)_75%)] blur-2xl"
+        className="pointer-events-none absolute -inset-6 rounded-[40px] bg-[radial-gradient(circle_at_55%_45%,rgba(30,72,131,0.34),rgba(43,100,176,0.20)_45%,rgba(11,16,38,0)_75%)] blur-2xl"
         aria-hidden="true"
       />
 
@@ -63,8 +64,8 @@ export function SolutionsHeroShowcase({
                 y2="35"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0%" stopColor="#387BFA" />
-                <stop offset="50%" stopColor="#635BFF" />
+                <stop offset="0%" stopColor="#2B64B0" />
+                <stop offset="50%" stopColor="#1E4883" />
                 <stop offset="100%" stopColor="#16A085" />
               </linearGradient>
             </defs>
@@ -79,7 +80,7 @@ export function SolutionsHeroShowcase({
             {/* Secondary constellation links */}
             <path
               d="M 55 162 L 150 75 L 255 142 L 350 62 L 435 128 L 495 45"
-              stroke="rgba(167,139,250,0.26)"
+              stroke="rgba(240,195,42,0.26)"
               strokeWidth="1.75"
               strokeDasharray="5 5"
               fill="none"
@@ -101,12 +102,12 @@ export function SolutionsHeroShowcase({
 
             {/* Six Solution Nodes */}
             {[
-              { cx: 55, cy: 162, num: "01", label: "Personalised", color: "#635BFF" },
-              { cx: 150, cy: 75, num: "02", label: "AI Tutors", color: "#387BFA" },
-              { cx: 255, cy: 142, num: "03", label: "Assessment", color: "#A78BFA" },
+              { cx: 55, cy: 162, num: "01", label: "Personalised", color: "#1E4883" },
+              { cx: 150, cy: 75, num: "02", label: "AI Tutors", color: "#2B64B0" },
+              { cx: 255, cy: 142, num: "03", label: "Assessment", color: "#F0C32A" },
               { cx: 350, cy: 62, num: "04", label: "Gamified", color: "#16A085" },
-              { cx: 435, cy: 128, num: "05", label: "Analytics", color: "#387BFA" },
-              { cx: 495, cy: 45, num: "06", label: "Institutional", color: "#635BFF" },
+              { cx: 435, cy: 128, num: "05", label: "Analytics", color: "#2B64B0" },
+              { cx: 495, cy: 45, num: "06", label: "Institutional", color: "#1E4883" },
             ].map((node, i) => (
               <g key={node.num}>
                 <circle
@@ -162,6 +163,39 @@ export function SolutionsHeroShowcase({
   );
 }
 
+const SOLUTION_VISUAL_MAP = [
+  {
+    src: "/images/solution-personalised-learning.jpg",
+    tag: "Adaptive Pathways · Individual Pacing",
+    caption: "Dynamic conceptual scaffolding tailored to each learner's baseline and tempo.",
+  },
+  {
+    src: "/images/solution-ai-tutors.jpg",
+    tag: "Conversational Intelligence · Socratic Guidance",
+    caption: "24/7 guided inquiry designed to build independent reasoning rather than passive shortcuts.",
+  },
+  {
+    src: "/images/solution-skill-assessment.jpg",
+    tag: "Competency Diagnostics · Continuous Mapping",
+    caption: "Precision skill radar and formative checkpoints illuminating mastery across prerequisites.",
+  },
+  {
+    src: "/images/solution-gamified-learning.jpg",
+    tag: "Interactive Engagement · Conceptual Challenges",
+    caption: "Structured logic quests, puzzles, and milestones that turn curiosity into active mastery.",
+  },
+  {
+    src: "/images/solution-learning-analytics.jpg",
+    tag: "Pedagogical Insights · Cohort Visibility",
+    caption: "Privacy-conscious comprehension telemetry helping educators spot knowledge gaps early.",
+  },
+  {
+    src: "/images/solution-institutional-solutions.jpg",
+    tag: "Campus Architecture · Scalable Deployment",
+    caption: "Unified AI learning infrastructure built for schools, colleges, universities, and training hubs.",
+  },
+];
+
 export function SolutionThematicVisual({
   slug,
   index,
@@ -172,530 +206,52 @@ export function SolutionThematicVisual({
   title: string;
 }) {
   const key = slug.toLowerCase();
+  const visual =
+    key.includes("personalised")
+      ? SOLUTION_VISUAL_MAP[0]
+      : key.includes("tutor")
+      ? SOLUTION_VISUAL_MAP[1]
+      : key.includes("assessment")
+      ? SOLUTION_VISUAL_MAP[2]
+      : key.includes("gamif")
+      ? SOLUTION_VISUAL_MAP[3]
+      : key.includes("analytic")
+      ? SOLUTION_VISUAL_MAP[4]
+      : SOLUTION_VISUAL_MAP[index % SOLUTION_VISUAL_MAP.length] ||
+        SOLUTION_VISUAL_MAP[5];
 
   return (
-    <div className="relative overflow-hidden rounded-hero border border-border bg-navy p-6 text-cloud shadow-elevated sm:p-8">
-      {/* Subtle Top Header Bar */}
-      <div className="mb-5 flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+    <div className="group relative overflow-hidden rounded-hero border border-border bg-navy p-5 text-cloud shadow-elevated sm:p-6">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3.5">
         <div className="flex items-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-iris" />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-lavender">
+          <span className="h-2 w-2 rounded-full bg-gold" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gold">
             0{index + 1} · {title}
           </span>
         </div>
-        <span className="rounded-full border border-white/12 bg-white/5 px-2.5 py-0.5 text-[10px] text-slate-400">
-          Conceptual Visual Illustration
+        <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-0.5 text-[10px] font-medium text-slate-200">
+          {visual.tag}
         </span>
       </div>
 
-      {/* 01: Personalised Learning — Branching Adaptive Learning Paths */}
-      {(key.includes("personalised") || index === 0) &&
-        index === 0 && (
-          <div>
-            <div className="rounded-2xl border border-white/10 bg-navy-light/90 p-5">
-              <svg
-                viewBox="0 0 520 220"
-                className="h-auto w-full"
-                role="img"
-                aria-label="Conceptual illustration of branching adaptive learning paths"
-              >
-                <defs>
-                  <linearGradient
-                    id="plGrad"
-                    x1="30"
-                    y1="110"
-                    x2="490"
-                    y2="110"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop offset="0%" stopColor="#387BFA" />
-                    <stop offset="50%" stopColor="#635BFF" />
-                    <stop offset="100%" stopColor="#16A085" />
-                  </linearGradient>
-                </defs>
-
-                {/* Upper Visual / Analogy Branch */}
-                <path
-                  d="M 55 110 C 140 110, 165 44, 260 44 C 355 44, 380 110, 465 110"
-                  stroke="#387BFA"
-                  strokeWidth="2.5"
-                  strokeDasharray="6 6"
-                  fill="none"
-                />
-                {/* Central Adaptive Mastery Path */}
-                <path
-                  d="M 55 110 C 155 110, 185 88, 260 110 C 335 132, 375 110, 465 110"
-                  stroke="url(#plGrad)"
-                  strokeWidth="4.5"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-                {/* Lower Prerequisite Refresher Branch */}
-                <path
-                  d="M 55 110 C 140 110, 165 176, 260 176 C 355 176, 380 110, 465 110"
-                  stroke="#A78BFA"
-                  strokeWidth="2.5"
-                  strokeDasharray="6 6"
-                  fill="none"
-                />
-
-                {/* Nodes & Conceptual Labels */}
-                <circle cx="55" cy="110" r="10" fill="#387BFA" />
-                <text
-                  x="55"
-                  y="140"
-                  textAnchor="middle"
-                  fill="#FAFBFF"
-                  fontSize="11"
-                  fontWeight="600"
-                >
-                  Learner Baseline
-                </text>
-
-                <rect
-                  x="195"
-                  y="16"
-                  width="130"
-                  height="34"
-                  rx="10"
-                  fill="#16224A"
-                  stroke="#387BFA"
-                />
-                <text
-                  x="260"
-                  y="37"
-                  textAnchor="middle"
-                  fill="#EAF5FF"
-                  fontSize="11"
-                  fontWeight="600"
-                >
-                  Visual Analogy Route
-                </text>
-
-                <circle
-                  cx="260"
-                  cy="110"
-                  r="13"
-                  fill="#635BFF"
-                  stroke="#FAFBFF"
-                  strokeWidth="3"
-                />
-
-                <rect
-                  x="190"
-                  y="160"
-                  width="140"
-                  height="34"
-                  rx="10"
-                  fill="#1C224C"
-                  stroke="#A78BFA"
-                />
-                <text
-                  x="260"
-                  y="181"
-                  textAnchor="middle"
-                  fill="#F3EFFE"
-                  fontSize="11"
-                  fontWeight="600"
-                >
-                  Prerequisite Scaffold
-                </text>
-
-                <circle
-                  cx="465"
-                  cy="110"
-                  r="11"
-                  fill="#16A085"
-                  stroke="#FAFBFF"
-                  strokeWidth="2.5"
-                />
-                <text
-                  x="465"
-                  y="140"
-                  textAnchor="middle"
-                  fill="#16A085"
-                  fontSize="11"
-                  fontWeight="700"
-                >
-                  Mastery Goal
-                </text>
-              </svg>
-            </div>
-            <div className="mt-4 grid grid-cols-3 gap-2.5 text-center text-[11px]">
-              <div className="rounded-xl bg-white/5 p-2.5 text-slate-300">
-                <strong className="block text-white">Adaptive Paths</strong>
-                Dynamic routing
-              </div>
-              <div className="rounded-xl bg-white/5 p-2.5 text-slate-300">
-                <strong className="block text-white">Individualised</strong>
-                Tailored modalities
-              </div>
-              <div className="rounded-xl bg-white/5 p-2.5 text-slate-300">
-                <strong className="block text-white">Learner-Centred</strong>
-                Paced for clarity
-              </div>
-            </div>
-          </div>
-        )}
-
-      {/* 02: AI Tutors — Sophisticated Conceptual Tutoring Conversation */}
-      {index === 1 && (
-        <div className="space-y-3.5 rounded-2xl border border-white/10 bg-navy-light/90 p-5">
-          <div className="flex items-start gap-3">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-intelligence/25 text-xs font-bold text-intelligence">
-              L
-            </div>
-            <div className="max-w-sm rounded-2xl rounded-tl-sm border border-white/10 bg-navy p-3.5 text-xs text-slate-200">
-              <p className="font-semibold text-intelligence">
-                Learner Inquiry
-              </p>
-              <p className="mt-1">
-                &ldquo;I understand how force and mass relate, but why does velocity
-                stay constant when net force is zero?&rdquo;
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start justify-end gap-3">
-            <div className="max-w-md rounded-2xl rounded-tr-sm border border-iris/40 bg-iris/15 p-4 text-xs text-white">
-              <div className="flex items-center justify-between gap-2">
-                <span className="inline-flex items-center gap-1.5 font-semibold text-lavender">
-                  <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-                  AI Tutor · Socratic Guidance
-                </span>
-                <span className="rounded bg-white/10 px-2 py-0.5 text-[10px] text-slate-300">
-                  Step 1 of 2
-                </span>
-              </div>
-              <p className="mt-2 leading-relaxed text-slate-100">
-                &ldquo;Great question. Imagine a puck gliding across frictionless ice.
-                If nothing pushes or slows it down, what would cause its speed to
-                change?&rdquo;
-              </p>
-            </div>
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-iris text-white">
-              <Sparkles className="h-4 w-4" aria-hidden="true" />
-            </div>
-          </div>
-
-          <div className="flex items-start gap-3">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-success/25 text-xs font-bold text-emerald-300">
-              L
-            </div>
-            <div className="max-w-sm rounded-2xl rounded-tl-sm border border-emerald-success/30 bg-emerald-success/10 p-3.5 text-xs text-slate-100">
-              <p className="font-semibold text-emerald-300">
-                Conceptual Breakthrough
-              </p>
-              <p className="mt-1">
-                &ldquo;Nothing would! So force causes acceleration—a change in
-                velocity—not motion itself.&rdquo;
-              </p>
-            </div>
-          </div>
+      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/15 bg-navy-light">
+        <Image
+          src={visual.src}
+          alt={title}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent"
+          aria-hidden="true"
+        />
+        <div className="absolute bottom-3.5 left-4 right-4 flex items-end justify-between gap-3">
+          <p className="text-xs leading-snug text-slate-100 drop-shadow-sm">
+            {visual.caption}
+          </p>
         </div>
-      )}
-
-      {/* 03: Skill Assessment — Competency Mapping & Assessment Visualization */}
-      {index === 2 && (
-        <div className="rounded-2xl border border-white/10 bg-navy-light/90 p-5">
-          <div className="grid items-center gap-6 sm:grid-cols-12">
-            <div className="sm:col-span-6">
-              <svg
-                viewBox="0 0 240 220"
-                className="mx-auto h-48 w-full max-w-[230px]"
-                role="img"
-                aria-label="Conceptual radar chart showing multi-dimensional competency mapping"
-              >
-                <g stroke="#29386B" strokeWidth="1.5" fill="none">
-                  <circle cx="120" cy="110" r="82" />
-                  <circle cx="120" cy="110" r="54" />
-                  <circle cx="120" cy="110" r="28" />
-                  <line x1="38" y1="110" x2="202" y2="110" />
-                  <line x1="120" y1="28" x2="120" y2="192" />
-                </g>
-                <polygon
-                  points="120,38 188,88 164,172 78,162 56,82"
-                  fill="#635BFF"
-                  fillOpacity="0.28"
-                  stroke="#635BFF"
-                  strokeWidth="3"
-                />
-                <circle cx="120" cy="38" r="5.5" fill="#16A085" />
-                <circle cx="188" cy="88" r="5.5" fill="#387BFA" />
-                <circle cx="164" cy="172" r="5.5" fill="#A78BFA" />
-                <circle cx="78" cy="162" r="5.5" fill="#635BFF" />
-                <circle cx="56" cy="82" r="5.5" fill="#387BFA" />
-              </svg>
-            </div>
-
-            <div className="space-y-3 sm:col-span-6">
-              {[
-                {
-                  domain: "Conceptual Reasoning",
-                  tag: "Demonstrated Strength",
-                  pct: "88%",
-                  color: "bg-emerald-success",
-                },
-                {
-                  domain: "Analytical Application",
-                  tag: "Active Progression",
-                  pct: "76%",
-                  color: "bg-iris",
-                },
-                {
-                  domain: "Foundational Synthesis",
-                  tag: "Growth Opportunity",
-                  pct: "64%",
-                  color: "bg-intelligence",
-                },
-              ].map((row) => (
-                <div
-                  key={row.domain}
-                  className="rounded-xl border border-white/10 bg-navy p-3"
-                >
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-semibold text-white">
-                      {row.domain}
-                    </span>
-                    <span className="text-[11px] text-lavender">{row.tag}</span>
-                  </div>
-                  <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
-                    <div
-                      className={cn("h-full rounded-full", row.color)}
-                      style={{ width: row.pct }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* 04: Gamified Learning — Polished Interactive Challenge Board */}
-      {index === 3 && (
-        <div className="rounded-2xl border border-white/10 bg-navy-light/90 p-5">
-          <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-3">
-            {[
-              {
-                stage: "Challenge 01",
-                type: "Pattern & Logic Riddle",
-                title: "Sequence Equilibrium",
-                status: "Completed",
-                accent: "border-emerald-success/40 bg-emerald-success/10 text-emerald-300",
-              },
-              {
-                stage: "Challenge 02",
-                type: "Interactive Puzzle",
-                title: "Circuit Synthesis Quest",
-                status: "Active Exploration",
-                accent: "border-iris bg-iris/20 text-lavender",
-              },
-              {
-                stage: "Challenge 03",
-                type: "Applied Scenario",
-                title: "Systems Mastery Lab",
-                status: "Unlocks Next",
-                accent: "border-white/10 bg-navy text-slate-400",
-              },
-            ].map((tile) => (
-              <div
-                key={tile.stage}
-                className={cn(
-                  "flex flex-col justify-between rounded-2xl border p-4",
-                  tile.accent
-                )}
-              >
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider">
-                    {tile.stage}
-                  </span>
-                  <h4 className="mt-1.5 font-heading text-sm font-bold text-white">
-                    {tile.title}
-                  </h4>
-                  <p className="mt-1 text-[11px] text-slate-300">{tile.type}</p>
-                </div>
-                <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-2.5 text-[10px] font-semibold">
-                  <span>{tile.status}</span>
-                  <Lightbulb className="h-3.5 w-3.5" aria-hidden="true" />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-4 flex items-center justify-between rounded-xl border border-white/10 bg-navy px-4 py-3 text-xs">
-            <span className="text-slate-300">
-              Engagement Mode:{" "}
-              <strong className="text-white">
-                Puzzles, Riddles & Mastery Challenges
-              </strong>
-            </span>
-            <span className="font-semibold text-lavender">
-              Intrinsic Curiosity Loop
-            </span>
-          </div>
-        </div>
-      )}
-
-      {/* 05: Learning Analytics — Illustrative Analytics Charts & Knowledge-Gap Visualisation */}
-      {index === 4 && (
-        <div className="rounded-2xl border border-white/10 bg-navy-light/90 p-5">
-          <div className="grid items-center gap-5 sm:grid-cols-12">
-            <div className="sm:col-span-7">
-              <p className="mb-3 text-xs font-semibold text-slate-300">
-                Cohort Progress & Concept Readiness Trajectory
-              </p>
-              <svg
-                viewBox="0 0 320 155"
-                className="h-36 w-full"
-                role="img"
-                aria-label="Illustrative analytics chart showing progress tracking and knowledge-gap identification"
-              >
-                <g stroke="rgba(255,255,255,0.07)" strokeWidth="1">
-                  <line x1="20" y1="30" x2="300" y2="30" />
-                  <line x1="20" y1="75" x2="300" y2="75" />
-                  <line x1="20" y1="120" x2="300" y2="120" />
-                </g>
-                <rect x="40" y="78" width="32" height="52" rx="6" fill="#387BFA" fillOpacity="0.55" />
-                <rect x="95" y="56" width="32" height="74" rx="6" fill="#387BFA" />
-                {/* Highlighted Knowledge Gap Bar */}
-                <rect
-                  x="150"
-                  y="86"
-                  width="32"
-                  height="44"
-                  rx="6"
-                  fill="#A78BFA"
-                  stroke="#FAFBFF"
-                  strokeWidth="1.5"
-                />
-                <rect x="205" y="42" width="32" height="88" rx="6" fill="#635BFF" />
-                <rect x="260" y="24" width="32" height="106" rx="6" fill="#16A085" />
-              </svg>
-            </div>
-
-            <div className="space-y-3 sm:col-span-5">
-              <div className="rounded-xl border border-lavender/35 bg-iris/15 p-3.5">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-lavender">
-                  Knowledge-Gap Identified
-                </p>
-                <p className="mt-1 text-xs font-bold text-white">
-                  Module 03 · Prerequisite Concept
-                </p>
-                <p className="mt-1 text-[11px] leading-snug text-slate-300">
-                  Highlights where targeted review strengthens cohort progression.
-                </p>
-              </div>
-              <div className="rounded-xl border border-white/10 bg-navy p-3.5">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-300">
-                  Data-Informed Insight
-                </p>
-                <p className="mt-1 text-xs text-slate-200">
-                  Clear progress visibility for educators and learners.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* 06: Institutional Solutions — Connected Institutional Learning Ecosystem */}
-      {index >= 5 && (
-        <div className="rounded-2xl border border-white/10 bg-navy-light/90 p-5">
-          <svg
-            viewBox="0 0 520 205"
-            className="h-auto w-full"
-            role="img"
-            aria-label="Connected institutional learning ecosystem spanning Schools, Higher Education, and Training Organisations"
-          >
-            <line
-              x1="105"
-              y1="102"
-              x2="260"
-              y2="102"
-              stroke="#635BFF"
-              strokeWidth="3"
-            />
-            <line
-              x1="260"
-              y1="102"
-              x2="415"
-              y2="102"
-              stroke="#387BFA"
-              strokeWidth="3"
-            />
-            <path
-              d="M 105 102 Q 260 22 415 102"
-              stroke="#A78BFA"
-              strokeWidth="2"
-              strokeDasharray="6 6"
-              fill="none"
-            />
-            <path
-              d="M 105 102 Q 260 182 415 102"
-              stroke="#16A085"
-              strokeWidth="2"
-              strokeDasharray="6 6"
-              fill="none"
-            />
-
-            {[
-              {
-                cx: 105,
-                title: "Schools",
-                sub: "K-12 & Secondary",
-                stroke: "#387BFA",
-              },
-              {
-                cx: 260,
-                title: "Higher Education",
-                sub: "Colleges & Universities",
-                stroke: "#635BFF",
-              },
-              {
-                cx: 415,
-                title: "Training Orgs",
-                sub: "Skill & Professional",
-                stroke: "#16A085",
-              },
-            ].map((inst) => (
-              <g key={inst.title}>
-                <rect
-                  x={inst.cx - 68}
-                  y="64"
-                  width="136"
-                  height="76"
-                  rx="16"
-                  fill="#0B1026"
-                  stroke={inst.stroke}
-                  strokeWidth="2.5"
-                />
-                <text
-                  x={inst.cx}
-                  y="98"
-                  textAnchor="middle"
-                  fill="#FAFBFF"
-                  fontSize="12.5"
-                  fontWeight="700"
-                  fontFamily="Inter, sans-serif"
-                >
-                  {inst.title}
-                </text>
-                <text
-                  x={inst.cx}
-                  y="118"
-                  textAnchor="middle"
-                  fill="#94A3B8"
-                  fontSize="10.5"
-                  fontFamily="Inter, sans-serif"
-                >
-                  {inst.sub}
-                </text>
-              </g>
-            ))}
-          </svg>
-        </div>
-      )}
+      </div>
     </div>
   );
 }
@@ -766,8 +322,8 @@ export function ConnectedEcosystemDiagram({
                   y2="300"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0%" stopColor="#387BFA" />
-                  <stop offset="50%" stopColor="#635BFF" />
+                  <stop offset="0%" stopColor="#2B64B0" />
+                  <stop offset="50%" stopColor="#1E4883" />
                   <stop offset="100%" stopColor="#16A085" />
                 </linearGradient>
               </defs>
@@ -788,7 +344,7 @@ export function ConnectedEcosystemDiagram({
                 cy="180"
                 rx="135"
                 ry="78"
-                stroke="#387BFA"
+                stroke="#2B64B0"
                 strokeOpacity="0.2"
                 strokeWidth="1.5"
                 strokeDasharray="6 6"
@@ -810,7 +366,7 @@ export function ConnectedEcosystemDiagram({
                   y1="180"
                   x2={pt.x}
                   y2={pt.y}
-                  stroke={selectedIdx === idx ? "#A78BFA" : "#273669"}
+                  stroke={selectedIdx === idx ? "#F0C32A" : "#273669"}
                   strokeWidth={selectedIdx === idx ? "3" : "1.5"}
                 />
               ))}
@@ -821,14 +377,14 @@ export function ConnectedEcosystemDiagram({
                 cy="180"
                 r="48"
                 fill="#131C3E"
-                stroke="#635BFF"
+                stroke="#1E4883"
                 strokeWidth="3"
               />
               <text
                 x="300"
                 y="176"
                 textAnchor="middle"
-                fill="#A78BFA"
+                fill="#F0C32A"
                 fontSize="10"
                 fontWeight="700"
                 fontFamily="Inter, sans-serif"
@@ -849,12 +405,12 @@ export function ConnectedEcosystemDiagram({
 
               {/* Six Interactive Orbital Nodes */}
               {[
-                { x: 300, y: 55, color: "#635BFF" },
-                { x: 486, y: 118, color: "#387BFA" },
-                { x: 486, y: 242, color: "#A78BFA" },
+                { x: 300, y: 55, color: "#1E4883" },
+                { x: 486, y: 118, color: "#2B64B0" },
+                { x: 486, y: 242, color: "#F0C32A" },
                 { x: 300, y: 305, color: "#16A085" },
-                { x: 114, y: 242, color: "#387BFA" },
-                { x: 114, y: 118, color: "#635BFF" },
+                { x: 114, y: 242, color: "#2B64B0" },
+                { x: 114, y: 118, color: "#1E4883" },
               ].map((pt, idx) => {
                 const sol = coreSix[idx];
                 if (!sol) return null;
@@ -880,7 +436,7 @@ export function ConnectedEcosystemDiagram({
                       width="136"
                       height="44"
                       rx="14"
-                      fill={isSelected ? "#635BFF" : "#101836"}
+                      fill={isSelected ? "#1E4883" : "#101836"}
                       stroke={isSelected ? "#FAFBFF" : pt.color}
                       strokeWidth={isSelected ? "2.5" : "2"}
                     />

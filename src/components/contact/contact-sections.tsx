@@ -21,7 +21,7 @@ export function ContactConnectedNodesVisual() {
     <div className="relative mx-auto w-full max-w-[520px]">
       {/* Radial Ambient Glow */}
       <div
-        className="pointer-events-none absolute -inset-6 rounded-full bg-[radial-gradient(circle,rgba(99,91,255,0.2)_0%,rgba(47,128,237,0.1)_48%,transparent_72%)] blur-2xl"
+        className="pointer-events-none absolute -inset-6 rounded-full bg-[radial-gradient(circle,rgba(30,72,131,0.2)_0%,rgba(43,100,176,0.1)_48%,transparent_72%)] blur-2xl"
         aria-hidden="true"
       />
 
@@ -52,13 +52,13 @@ export function ContactConnectedNodesVisual() {
               x2="100%"
               y2="100%"
             >
-              <stop offset="0%" stopColor="#635BFF" />
-              <stop offset="55%" stopColor="#2F80ED" />
-              <stop offset="100%" stopColor="#A799FF" />
+              <stop offset="0%" stopColor="#1E4883" />
+              <stop offset="55%" stopColor="#2B64B0" />
+              <stop offset="100%" stopColor="#F0C32A" />
             </linearGradient>
             <radialGradient id="centerHubGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#635BFF" stopOpacity="0.28" />
-              <stop offset="100%" stopColor="#635BFF" stopOpacity="0" />
+              <stop offset="0%" stopColor="#1E4883" stopOpacity="0.28" />
+              <stop offset="100%" stopColor="#1E4883" stopOpacity="0" />
             </radialGradient>
           </defs>
 
@@ -95,7 +95,7 @@ export function ContactConnectedNodesVisual() {
             cx="230"
             cy="150"
             r="34"
-            fill="#0B1026"
+            fill="#0B1D3A"
             stroke="url(#contactPathGrad)"
             strokeWidth="2.5"
           />
@@ -114,7 +114,7 @@ export function ContactConnectedNodesVisual() {
             x="230"
             y="161"
             textAnchor="middle"
-            fill="#A799FF"
+            fill="#F0C32A"
             fontSize="8"
             fontFamily="monospace"
           >
@@ -133,7 +133,7 @@ export function ContactConnectedNodesVisual() {
               stroke="#CBD5E1"
               strokeWidth="1.5"
             />
-            <circle cx="-32" cy="0" r="6" fill="#635BFF" />
+            <circle cx="-32" cy="0" r="6" fill="#1E4883" />
             <text
               x="-18"
               y="-2"
@@ -167,7 +167,7 @@ export function ContactConnectedNodesVisual() {
               stroke="#CBD5E1"
               strokeWidth="1.5"
             />
-            <circle cx="-32" cy="0" r="6" fill="#2F80ED" />
+            <circle cx="-32" cy="0" r="6" fill="#2B64B0" />
             <text
               x="-18"
               y="-2"
@@ -201,7 +201,7 @@ export function ContactConnectedNodesVisual() {
               stroke="#CBD5E1"
               strokeWidth="1.5"
             />
-            <circle cx="-32" cy="0" r="6" fill="#A799FF" />
+            <circle cx="-32" cy="0" r="6" fill="#F0C32A" />
             <text
               x="-18"
               y="-2"
@@ -258,7 +258,7 @@ export function ContactConnectedNodesVisual() {
           </g>
         </svg>
 
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-lavender/35 bg-[#F6F5FF]/80 px-4 py-3 text-xs text-ink-secondary">
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-lavender/35 bg-[#F4F8FD]/80 px-4 py-3 text-xs text-ink-secondary">
           <span className="inline-flex items-center gap-2 font-medium text-ink">
             <MessageSquare className="h-3.5 w-3.5 text-iris" aria-hidden="true" />
             <span>Every conversation shapes more thoughtful learning.</span>
@@ -277,7 +277,7 @@ export function ContactConnectedNodesVisual() {
  */
 export function ContactVisionAbstractVisual() {
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-lavender/40 bg-gradient-to-br from-navy via-[#131B3A] to-[#1D1A4E] p-6 text-white shadow-subtle">
+    <div className="relative overflow-hidden rounded-3xl border border-lavender/40 bg-gradient-to-br from-navy via-[#142D57] to-[#163868] p-6 text-white shadow-subtle">
       <div
         className="pointer-events-none absolute -right-12 -bottom-12 h-44 w-44 rounded-full bg-iris/25 blur-2xl"
         aria-hidden="true"
@@ -303,13 +303,13 @@ export function ContactVisionAbstractVisual() {
           <path
             d="M 4 32 C 65 8, 125 44, 185 22 C 235 6, 275 34, 316 14"
             fill="none"
-            stroke="#A799FF"
+            stroke="#F0C32A"
             strokeWidth="2"
             strokeLinecap="round"
           />
-          <circle cx="65" cy="20" r="4" fill="#635BFF" />
-          <circle cx="185" cy="22" r="4.5" fill="#2F80ED" />
-          <circle cx="316" cy="14" r="4" fill="#A799FF" />
+          <circle cx="65" cy="20" r="4" fill="#1E4883" />
+          <circle cx="185" cy="22" r="4.5" fill="#2B64B0" />
+          <circle cx="316" cy="14" r="4" fill="#F0C32A" />
         </svg>
       </div>
     </div>
@@ -439,12 +439,12 @@ export function PrivacyConsciousLocationMap({
               <path
                 d="M 40 280 Q 190 190 300 170 T 560 70"
                 fill="none"
-                stroke="#635BFF"
+                stroke="#1E4883"
                 strokeWidth="2.5"
                 strokeDasharray="6 6"
               />
-              <circle cx="300" cy="170" r="38" fill="#635BFF" fillOpacity="0.12" />
-              <circle cx="300" cy="170" r="8" fill="#635BFF" />
+              <circle cx="300" cy="170" r="38" fill="#1E4883" fillOpacity="0.12" />
+              <circle cx="300" cy="170" r="8" fill="#1E4883" />
             </svg>
 
             <div className="relative z-10 max-w-md rounded-3xl border border-white/90 bg-white/90 p-7 shadow-elevated backdrop-blur-md">

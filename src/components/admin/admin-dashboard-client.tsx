@@ -899,7 +899,7 @@ export function AdminDashboardClient({
                   </div>
 
                   {/* Live Banner Preview Card */}
-                  <div className="mt-6 rounded-2xl border border-lavender/40 bg-gradient-to-r from-[#F6F5FF] via-white to-[#EEF4FF] p-5">
+                  <div className="mt-6 rounded-2xl border border-lavender/40 bg-gradient-to-r from-[#F4F8FD] via-white to-[#EEF4FF] p-5">
                     <span className="font-mono text-[10px] font-bold tracking-widest text-iris uppercase">
                       Live Hero Banner Preview • {heroBanner.eyebrow}
                     </span>
@@ -1399,7 +1399,7 @@ export function AdminDashboardClient({
                           outcomeText: "The institutional and learner outcome.",
                           iconName: "Waypoints",
                           heroImage: "/visuals/solution-adaptive-engine.svg",
-                          accentColor: "#635BFF",
+                          accentColor: "#1E4883",
                           keyCapabilities: [
                             {
                               title: "Core Capability",

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Check, Lock, Mail, MapPin, Phone, ShieldCheck, Sparkles } from "lucide-react";
@@ -35,35 +36,40 @@ export function GlobalFooter({
   return (
     <footer className="relative overflow-hidden border-t border-border-dark bg-navy text-cloud">
       {/* Top glowing ambient accent line */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-iris to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent" />
 
       {/* Understated Intelligence Path Graphic Accent */}
       <svg
-        className="pointer-events-none absolute left-0 top-0 h-64 w-full opacity-10"
+        className="pointer-events-none absolute left-0 top-0 h-64 w-full opacity-15"
         viewBox="0 0 1440 240"
         fill="none"
         aria-hidden="true"
       >
         <path
           d="M0 190 C 320 180, 520 50, 840 90 C 1100 120, 1280 40, 1440 20"
-          stroke="#635BFF"
+          stroke="#2B64B0"
           strokeWidth="2.5"
         />
-        <circle cx="320" cy="180" r="5" fill="#387BFA" />
-        <circle cx="840" cy="90" r="6" fill="#A78BFA" />
+        <circle cx="320" cy="180" r="5" fill="#1E4883" />
+        <circle cx="840" cy="90" r="6" fill="#F0C32A" />
       </svg>
 
       <Container className="relative z-10 py-16 sm:py-20">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-12">
           {/* Column 1: Brand Identity & Vision */}
           <div className="lg:col-span-4">
-            <Link href="/" className="inline-flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-navy-light shadow-subtle">
-                <Sparkles className="h-5 w-5 text-lavender" aria-hidden="true" />
-              </div>
-              <span className="font-heading text-2xl font-bold tracking-tight text-white">
-                {settings.brandName}
-              </span>
+            <Link
+              href="/"
+              className="inline-flex items-center rounded-2xl bg-white px-4 py-2.5 shadow-subtle ring-1 ring-gold/40 transition hover:scale-[1.02]"
+              aria-label={`${settings.brandName} Home`}
+            >
+              <Image
+                src="/brand/iguide-logo.png"
+                alt={settings.brandName || "iGUIDE"}
+                width={132}
+                height={54}
+                className="h-12 w-auto object-contain"
+              />
             </Link>
 
             <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-lavender">

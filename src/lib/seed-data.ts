@@ -287,10 +287,10 @@ export const INITIAL_CMS_DATA: CmsStoreData = {
       "Make learning adaptive, engaging, and accessible through intelligent technology.",
     missionStatement:
       "Leverage intelligent technology to support effective, personalised learning.",
-    logoUrl: "/brand/iguide-logo.svg",
-    logoDarkUrl: "/brand/iguide-logo.svg",
+    logoUrl: "/brand/iguide-logo.png",
+    logoDarkUrl: "/brand/iguide-logo.png",
     faviconUrl: "/favicon.svg",
-    defaultOgImage: "/visuals/gallery-learning-commons.svg",
+    defaultOgImage: "/images/solution-institutional-solutions.jpg",
     analyticsMeasurementId: "",
     primaryEmail: "admin@advaita1.com",
     primaryPhone: "+91 8247654106",
@@ -356,8 +356,8 @@ export const INITIAL_CMS_DATA: CmsStoreData = {
       highlightedText: "Intelligence Makes It Possible.",
       subheadline:
         "Discover a more adaptive, engaging, and human-centred approach to education—powered by intelligent technology.",
-      desktopImage: "/visuals/solution-adaptive-engine.svg",
-      mobileImage: "/visuals/solution-adaptive-engine.svg",
+      desktopImage: "/images/solution-personalised-learning.jpg",
+      mobileImage: "/images/solution-personalised-learning.jpg",
       primaryCtaLabel: "Explore Our Solutions",
       primaryCtaHref: "/solutions",
       secondaryCtaLabel: "Discover iGUIDE",
@@ -881,16 +881,16 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       outcomeText:
         "Learners experience supportive, structured progression tailored to how they learn best, while educators maintain clear alignment with curriculum goals.",
       iconName: "Waypoints",
-      heroImage: "/visuals/solution-adaptive-engine.svg",
-      mobileHeroImage: "/visuals/solution-adaptive-engine.svg",
-      accentColor: "#635BFF",
+      heroImage: "/images/solution-personalised-learning.jpg",
+      mobileHeroImage: "/images/solution-personalised-learning.jpg",
+      accentColor: "#1E4883",
       keyCapabilities: [
         {
           title: "Understanding Individual Learning Needs",
           description:
             "Recognises differences in baseline familiarity, learning pace, and preferred conceptual representations.",
           iconName: "Compass",
-          imageUrl: "/visuals/solution-adaptive-engine.svg",
+          imageUrl: "/images/solution-personalised-learning.jpg",
         },
         {
           title: "Adaptive Learning Pathways",
@@ -1033,16 +1033,16 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       outcomeText:
         "Learners receive supportive, concept-focused guidance that nurtures independent thinking alongside educator-led instruction.",
       iconName: "Sparkles",
-      heroImage: "/visuals/solution-educator-copilot.svg",
-      mobileHeroImage: "/visuals/solution-educator-copilot.svg",
-      accentColor: "#387BFA",
+      heroImage: "/images/solution-ai-tutors.jpg",
+      mobileHeroImage: "/images/solution-ai-tutors.jpg",
+      accentColor: "#2B64B0",
       keyCapabilities: [
         {
           title: "Intelligent Tutoring Assistance",
           description:
             "Provides structured, context-aware conceptual hints and explanations tailored to the learner's question.",
           iconName: "Sparkles",
-          imageUrl: "/visuals/solution-educator-copilot.svg",
+          imageUrl: "/images/solution-ai-tutors.jpg",
         },
         {
           title: "Conversational Learning",
@@ -1189,16 +1189,16 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       outcomeText:
         "Learners and educators gain a balanced understanding of strengths and development areas to guide future study.",
       iconName: "Radar",
-      heroImage: "/visuals/solution-assessment-matrix.svg",
-      mobileHeroImage: "/visuals/solution-assessment-matrix.svg",
-      accentColor: "#A78BFA",
+      heroImage: "/images/solution-skill-assessment.jpg",
+      mobileHeroImage: "/images/solution-skill-assessment.jpg",
+      accentColor: "#F0C32A",
       keyCapabilities: [
         {
           title: "Continuous Assessment Approaches",
           description:
             "Integrates constructive evaluation checkpoints throughout the learning process to support ongoing reflection.",
           iconName: "Radar",
-          imageUrl: "/visuals/solution-assessment-matrix.svg",
+          imageUrl: "/images/solution-skill-assessment.jpg",
         },
         {
           title: "Competency Mapping",
@@ -1345,8 +1345,8 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       outcomeText:
         "Learners participate more actively in their educational journey, building problem-solving confidence through engaging activities.",
       iconName: "Lightbulb",
-      heroImage: "/visuals/solution-curriculum-studio.svg",
-      mobileHeroImage: "/visuals/solution-curriculum-studio.svg",
+      heroImage: "/images/solution-gamified-learning.jpg",
+      mobileHeroImage: "/images/solution-gamified-learning.jpg",
       accentColor: "#16A085",
       keyCapabilities: [
         {
@@ -1354,7 +1354,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
           description:
             "Concept-driven logic and subject puzzles designed to strengthen analytical thinking and pattern recognition.",
           iconName: "Lightbulb",
-          imageUrl: "/visuals/solution-curriculum-studio.svg",
+          imageUrl: "/images/solution-gamified-learning.jpg",
         },
         {
           title: "Riddles",
@@ -1501,16 +1501,16 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       outcomeText:
         "Educators and academic leaders gain clearer visibility into learning progression so they can plan supportive interventions.",
       iconName: "BarChart3",
-      heroImage: "/visuals/solution-institutional-analytics.svg",
-      mobileHeroImage: "/visuals/solution-institutional-analytics.svg",
-      accentColor: "#387BFA",
+      heroImage: "/images/solution-learning-analytics.jpg",
+      mobileHeroImage: "/images/solution-learning-analytics.jpg",
+      accentColor: "#2B64B0",
       keyCapabilities: [
         {
           title: "Learning Progress Tracking",
           description:
             "Provides a structured view of how learners and cohorts are moving through topics and learning pathways.",
           iconName: "BarChart3",
-          imageUrl: "/visuals/solution-institutional-analytics.svg",
+          imageUrl: "/images/solution-learning-analytics.jpg",
         },
         {
           title: "Knowledge-Gap Identification",
@@ -1657,16 +1657,16 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       outcomeText:
         "Institutions gain a cohesive, extensible approach to AI-powered education that supports both educators and learners.",
       iconName: "Network",
-      heroImage: "/visuals/solution-inclusion-bridge.svg",
-      mobileHeroImage: "/visuals/solution-inclusion-bridge.svg",
-      accentColor: "#635BFF",
+      heroImage: "/images/solution-institutional-solutions.jpg",
+      mobileHeroImage: "/images/solution-institutional-solutions.jpg",
+      accentColor: "#1E4883",
       keyCapabilities: [
         {
           title: "School-Focused Educational Technology",
           description:
             "Designed to support primary, middle, and senior secondary learning environments with adaptive pathways and engaging activities.",
           iconName: "GraduationCap",
-          imageUrl: "/visuals/solution-inclusion-bridge.svg",
+          imageUrl: "/images/solution-institutional-solutions.jpg",
         },
         {
           title: "College and University Applications",
@@ -1790,7 +1790,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Conceptual visual study illustrating how adaptive learning nodes dynamically respond to individual comprehension tempo.",
       category: "Technology & Innovation",
-      imageUrl: "/visuals/gallery-adaptive-lab.svg",
+      imageUrl: "/images/solution-personalised-learning.jpg",
       altText: "Adaptive Intelligence Path system topology study",
       location: "iGUIDE Innovation Studio",
       aspect: "landscape",
@@ -1805,7 +1805,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Visual framework exploring how Universal Design for Learning (UDL) principles combine with adaptive AI pathways.",
       category: "Educational Initiatives",
-      imageUrl: "/visuals/gallery-accessibility-studio.svg",
+      imageUrl: "/images/solution-ai-tutors.jpg",
       altText: "Human-centred pedagogical design initiative",
       location: "Educational Initiatives Desk",
       aspect: "portrait",
@@ -1820,7 +1820,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Conceptual blueprint for educator workshops focused on mapping subject concepts into connected knowledge graphs.",
       category: "Workshops & Training",
-      imageUrl: "/visuals/gallery-curriculum-workshop.svg",
+      imageUrl: "/images/welcome-editorial.jpg",
       altText: "Curriculum architecture workshop visual blueprint",
       location: "Pedagogical Workshop Series",
       aspect: "landscape",
@@ -1835,7 +1835,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Design exploration of puzzle-inspired learning activities, riddles, and collaborative classroom challenges.",
       category: "Events & Activities",
-      imageUrl: "/visuals/solution-curriculum-studio.svg",
+      imageUrl: "/images/solution-gamified-learning.jpg",
       altText: "Interactive challenge and curiosity activity study",
       location: "Interactive Learning Showcase",
       aspect: "square",
@@ -1850,7 +1850,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Architectural study of modern learning spaces where digital intelligence and human mentorship work in harmony.",
       category: "General Gallery",
-      imageUrl: "/visuals/gallery-learning-commons.svg",
+      imageUrl: "/images/solution-institutional-solutions.jpg",
       altText: "Collaborative learning commons conceptual visual",
       location: "iGUIDE Design Collection",
       aspect: "landscape",
@@ -1865,7 +1865,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Interface design study illustrating Socratic dialogue states—Question, Guidance, and Exploration.",
       category: "Technology & Innovation",
-      imageUrl: "/visuals/gallery-faculty-dialogue.svg",
+      imageUrl: "/images/blog-educator-human-ai.jpg",
       altText: "Conversational tutoring and guided inquiry visual study",
       location: "AI Systems Architecture",
       aspect: "portrait",
@@ -1880,7 +1880,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Visual synthesis demonstrating how continuous skill assessment illuminates strengths and learning opportunities.",
       category: "Events & Activities",
-      imageUrl: "/visuals/gallery-research-symposium.svg",
+      imageUrl: "/images/about-vision.jpg",
       altText: "Knowledge-gap and competency mapping visual study",
       location: "Academic Research Series",
       aspect: "landscape",
@@ -1895,7 +1895,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Training framework designed to help educators translate learning analytics into supportive classroom action.",
       category: "Workshops & Training",
-      imageUrl: "/visuals/solution-institutional-analytics.svg",
+      imageUrl: "/images/solution-learning-analytics.jpg",
       altText: "Educator enablement and analytics training visual",
       location: "Educator Training Track",
       aspect: "square",
@@ -1910,7 +1910,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Overview study uniting schools, colleges, universities, and training organisations around shared learning intelligence.",
       category: "Educational Initiatives",
-      imageUrl: "/visuals/solution-inclusion-bridge.svg",
+      imageUrl: "/images/solution-institutional-solutions.jpg",
       altText: "Connected institutional learning ecosystem visual",
       location: "Institutional Ecosystem Initiative",
       aspect: "landscape",
@@ -1965,7 +1965,7 @@ Schools, colleges, and universities do not operate in a vacuum; they work within
       readTimeMinutes: 6,
       authorName: "iGUIDE Editorial Desk",
       authorRole: "Pedagogical Systems Architecture",
-      coverImage: "/visuals/blog-adaptive-pedagogy.svg",
+      coverImage: "/images/blog-adaptive-pedagogy.jpg",
       tags: ["Personalised Learning", "Pedagogy", "Cognitive Load", "Curriculum Design"],
       featured: true,
       published: true,
@@ -2005,7 +2005,7 @@ In the iGUIDE ecosystem, technology proposes and illuminates—while educators g
       readTimeMinutes: 5,
       authorName: "iGUIDE Editorial Desk",
       authorRole: "Instructional Design & Governance",
-      coverImage: "/visuals/blog-human-in-the-loop.svg",
+      coverImage: "/images/blog-educator-human-ai.jpg",
       tags: ["Artificial Intelligence", "AI Tutors", "Human-in-the-Loop", "Educators"],
       featured: false,
       published: true,
@@ -2049,7 +2049,7 @@ A right answer chosen for the wrong reason masks a fragile foundation. Conversel
       readTimeMinutes: 7,
       authorName: "iGUIDE Editorial Desk",
       authorRole: "Assessment Architecture",
-      coverImage: "/visuals/blog-formative-intelligence.svg",
+      coverImage: "/images/solution-skill-assessment.jpg",
       tags: ["Education Technology", "Skill Assessment", "Diagnostics"],
       featured: false,
       published: true,
@@ -2084,7 +2084,7 @@ Drawing on Universal Design for Learning (UDL), intelligent interfaces can adapt
       readTimeMinutes: 5,
       authorName: "iGUIDE Editorial Desk",
       authorRole: "Inclusive Systems Design",
-      coverImage: "/visuals/blog-accessible-learning.svg",
+      coverImage: "/images/about-vision.jpg",
       tags: ["Learning Innovation", "Accessibility", "UDL", "Inclusive Education"],
       featured: false,
       published: true,
@@ -2119,7 +2119,7 @@ At iGUIDE, our approach to [Gamified Learning](/solutions/gamified-learning) is 
       readTimeMinutes: 5,
       authorName: "iGUIDE Editorial Desk",
       authorRole: "Interactive Learning Design",
-      coverImage: "/visuals/solution-curriculum-studio.svg",
+      coverImage: "/images/solution-gamified-learning.jpg",
       tags: ["Gamified Learning", "Puzzles", "Curiosity", "Learning Innovation"],
       featured: false,
       published: true,
@@ -2154,7 +2154,7 @@ Too often, analytics platforms overwhelm teachers with dozens of disconnected ch
       readTimeMinutes: 6,
       authorName: "iGUIDE Editorial Desk",
       authorRole: "Learning Analytics Research",
-      coverImage: "/visuals/solution-institutional-analytics.svg",
+      coverImage: "/images/solution-learning-analytics.jpg",
       tags: ["Industry Insights", "Learning Analytics", "Data-Informed Education"],
       featured: false,
       published: true,
@@ -2183,7 +2183,7 @@ Across the iGUIDE ecosystem, the *Intelligence Path* represents a learner's jour
       readTimeMinutes: 4,
       authorName: "iGUIDE Editorial Desk",
       authorRole: "Brand & Product Architecture",
-      coverImage: "/visuals/solution-inclusion-bridge.svg",
+      coverImage: "/images/solution-institutional-solutions.jpg",
       tags: ["Company Updates", "Intelligence Path", "Design Philosophy"],
       featured: false,
       published: true,
@@ -2223,7 +2223,7 @@ Across the iGUIDE ecosystem, the *Intelligence Path* represents a learner's jour
       originalName: "iguide-logo.svg",
       mimeType: "image/svg+xml",
       sizeBytes: 842,
-      url: "/brand/iguide-logo.svg",
+      url: "/brand/iguide-logo.png",
       altText: "iGUIDE primary brand logo",
       category: "Brand",
       createdAt: nowIso,
@@ -2234,7 +2234,7 @@ Across the iGUIDE ecosystem, the *Intelligence Path* represents a learner's jour
       originalName: "solution-adaptive-engine.svg",
       mimeType: "image/svg+xml",
       sizeBytes: 1840,
-      url: "/visuals/solution-adaptive-engine.svg",
+      url: "/images/solution-personalised-learning.jpg",
       altText: "Personalised Learning illustration",
       category: "Solutions",
       createdAt: nowIso,
@@ -2245,7 +2245,7 @@ Across the iGUIDE ecosystem, the *Intelligence Path* represents a learner's jour
       originalName: "gallery-learning-commons.svg",
       mimeType: "image/svg+xml",
       sizeBytes: 1920,
-      url: "/visuals/gallery-learning-commons.svg",
+      url: "/images/solution-institutional-solutions.jpg",
       altText: "Collaborative Learning Studio illustration",
       category: "Gallery",
       createdAt: nowIso,

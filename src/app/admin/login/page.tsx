@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
@@ -57,14 +58,14 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gradient-to-br from-[#F4F2FF] via-[#FAF9FF] to-[#EEF4FF] px-4 py-12 text-ink sm:px-6 lg:px-8">
+    <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gradient-to-br from-[#F4F8FD] via-[#F8FAFD] to-[#EEF4FF] px-4 py-12 text-ink sm:px-6 lg:px-8">
       {/* Subtle Gradient Ambient Orbs */}
       <div
-        className="pointer-events-none absolute -top-24 left-1/4 h-[460px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(99,91,255,0.14)_0%,rgba(47,128,237,0.06)_50%,transparent_70%)] blur-3xl"
+        className="pointer-events-none absolute -top-24 left-1/4 h-[460px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(30,72,131,0.14)_0%,rgba(43,100,176,0.06)_50%,transparent_70%)] blur-3xl"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute right-0 -bottom-24 h-[400px] w-[580px] rounded-full bg-[radial-gradient(circle,rgba(167,153,255,0.16)_0%,transparent_70%)] blur-3xl"
+        className="pointer-events-none absolute right-0 -bottom-24 h-[400px] w-[580px] rounded-full bg-[radial-gradient(circle,rgba(240,195,42,0.16)_0%,transparent_70%)] blur-3xl"
         aria-hidden="true"
       />
 
@@ -81,23 +82,24 @@ export default function AdminLoginPage() {
           {/* Left Column: Subtle Gradient Intelligence Path Brand Panel */}
           <div className="relative hidden flex-col justify-between overflow-hidden bg-navy p-10 text-white lg:col-span-5 lg:flex">
             <div
-              className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(99,91,255,0.34),transparent_60%),radial-gradient(circle_at_85%_85%,rgba(47,128,237,0.25),transparent_55%)]"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(30,72,131,0.34),transparent_60%),radial-gradient(circle_at_85%_85%,rgba(43,100,176,0.25),transparent_55%)]"
               aria-hidden="true"
             />
 
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2.5">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-lavender">
-                  <Sparkles className="h-5 w-5" aria-hidden="true" />
+              <div className="inline-flex items-center gap-3">
+                <div className="rounded-2xl bg-white px-3.5 py-2 shadow-subtle ring-1 ring-gold/40">
+                  <Image
+                    src="/brand/iguide-logo.png"
+                    alt="iGUIDE"
+                    width={112}
+                    height={46}
+                    className="h-10 w-auto object-contain"
+                  />
                 </div>
-                <div>
-                  <span className="font-heading text-xl font-extrabold tracking-tight text-white">
-                    iGUIDE
-                  </span>
-                  <span className="block font-mono text-[10px] tracking-[0.2em] text-lavender uppercase">
-                    Enterprise CMS
-                  </span>
-                </div>
+                <span className="font-mono text-[10px] font-semibold tracking-[0.2em] text-gold uppercase">
+                  Enterprise CMS
+                </span>
               </div>
 
               <h2 className="mt-8 font-heading text-2xl font-extrabold leading-snug text-white">
@@ -124,9 +126,9 @@ export default function AdminLoginPage() {
                     x2="100%"
                     y2="0%"
                   >
-                    <stop offset="0%" stopColor="#635BFF" />
-                    <stop offset="50%" stopColor="#2F80ED" />
-                    <stop offset="100%" stopColor="#A799FF" />
+                    <stop offset="0%" stopColor="#1E4883" />
+                    <stop offset="50%" stopColor="#2B64B0" />
+                    <stop offset="100%" stopColor="#F0C32A" />
                   </linearGradient>
                 </defs>
                 <path
@@ -136,9 +138,9 @@ export default function AdminLoginPage() {
                   strokeWidth="3"
                   strokeLinecap="round"
                 />
-                <circle cx="85" cy="68" r="6" fill="#635BFF" />
-                <circle cx="178" cy="86" r="6" fill="#2F80ED" />
-                <circle cx="240" cy="50" r="7" fill="#A799FF" />
+                <circle cx="85" cy="68" r="6" fill="#1E4883" />
+                <circle cx="178" cy="86" r="6" fill="#2B64B0" />
+                <circle cx="240" cy="50" r="7" fill="#F0C32A" />
                 <circle cx="308" cy="24" r="5" fill="#10B981" />
               </svg>
             </div>

@@ -120,9 +120,9 @@ export default async function ContactPage() {
       />
 
       {/* SECTION 1: CONTACT HERO (Split Composition with Connected-Node Illustration) */}
-      <section className="relative overflow-hidden border-b border-border/70 bg-gradient-to-b from-[#F5F3FF] via-[#FAF9FF] to-white pt-28 pb-16 sm:pt-36 sm:pb-24">
+      <section className="relative overflow-hidden border-b border-border/70 bg-gradient-to-b from-[#F4F8FD] via-[#F8FAFD] to-white pt-28 pb-16 sm:pt-36 sm:pb-24">
         <div
-          className="pointer-events-none absolute -top-28 left-1/4 h-[460px] w-[780px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(99,91,255,0.12)_0%,rgba(47,128,237,0.06)_50%,transparent_72%)] blur-3xl"
+          className="pointer-events-none absolute -top-28 left-1/4 h-[460px] w-[780px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(30,72,131,0.12)_0%,rgba(43,100,176,0.06)_50%,transparent_72%)] blur-3xl"
           aria-hidden="true"
         />
 
@@ -443,7 +443,7 @@ export default async function ContactPage() {
       </section>
 
       {/* SECTION 6: CLOSING CTA (Minimal & Elegant) */}
-      <section className="relative overflow-hidden border-t border-border/80 bg-gradient-to-b from-[#F6F5FF] to-white py-20 sm:py-24">
+      <section className="relative overflow-hidden border-t border-border/80 bg-gradient-to-b from-[#F4F8FD] to-white py-20 sm:py-24">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
             <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full border border-lavender/45 bg-white px-3.5 py-1 font-mono text-[10px] font-semibold tracking-[0.18em] text-iris uppercase shadow-subtle">

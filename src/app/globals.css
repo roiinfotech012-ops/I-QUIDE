@@ -4,35 +4,36 @@
 
 @layer base {
   :root {
-    --navy: #0b1026;
-    --navy-light: #121835;
-    --iris: #635bff;
-    --intelligence: #387bfa;
-    --lavender: #a78bfa;
-    --ice: #eaf5ff;
-    --cloud: #fafbff;
-    --ink: #101428;
-    --ink-secondary: #626a80;
-    --border: #e5eaf4;
+    --navy: #0b1d3a;
+    --navy-light: #142d57;
+    --iris: #1e4883;
+    --intelligence: #2b64b0;
+    --lavender: #f0c32a;
+    --gold: #f0c32a;
+    --ice: #eaf1fa;
+    --cloud: #f8fafd;
+    --ink: #0c1b33;
+    --ink-secondary: #4a5c78;
+    --border: #dce5f2;
     --success: #16a085;
   }
 
   html {
     scroll-behavior: smooth;
-    background-color: #fafbff;
-    color: #101428;
-    overflow-x: hidden;
+    background-color: #f8fafd;
+    color: #0c1b33;
+    overflow-x: clip;
   }
 
   body {
-    background-color: #fafbff;
-    color: #101428;
-    overflow-x: hidden;
+    background-color: #f8fafd;
+    color: #0c1b33;
+    overflow-x: clip;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-image: 
-      radial-gradient(at 100% 0%, rgba(99, 91, 255, 0.03) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, rgba(56, 123, 250, 0.03) 0px, transparent 50%);
+      radial-gradient(at 100% 0%, rgba(30, 72, 131, 0.05) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(240, 195, 42, 0.06) 0px, transparent 50%);
   }
 
   /* Formal subtle custom scrollbar */
@@ -41,15 +42,15 @@
     height: 9px;
   }
   ::-webkit-scrollbar-track {
-    background: #f1f4f9;
+    background: #eef3fa;
   }
   ::-webkit-scrollbar-thumb {
-    background: #c5cee0;
+    background: #b5c6de;
     border-radius: 9999px;
-    border: 2px solid #f1f4f9;
+    border: 2px solid #eef3fa;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #9aa8c7;
+    background: #1e4883;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -71,56 +72,56 @@
   .bg-grid-subtle {
     background-size: 32px 32px;
     background-image: 
-      linear-gradient(to right, rgba(16, 20, 40, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(16, 20, 40, 0.04) 1px, transparent 1px);
+      linear-gradient(to right, rgba(30, 72, 131, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(30, 72, 131, 0.045) 1px, transparent 1px);
   }
 
   .bg-grid-subtle-dark {
     background-size: 32px 32px;
     background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
   }
 
   .bg-dot-subtle {
     background-size: 24px 24px;
-    background-image: radial-gradient(circle, rgba(99, 91, 255, 0.12) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(30, 72, 131, 0.14) 1px, transparent 1px);
   }
 
   /* Formal text gradients */
   .text-gradient-hero {
-    background: linear-gradient(135deg, #0b1026 15%, #635bff 65%, #387bfa 100%);
+    background: linear-gradient(135deg, #0b1d3a 15%, #1e4883 60%, #2b64b0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .text-gradient-light {
-    background: linear-gradient(135deg, #ffffff 20%, #e0e7ff 60%, #a78bfa 100%);
+    background: linear-gradient(135deg, #ffffff 20%, #eaf1fa 60%, #f0c32a 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   /* Glowing and subtle card elevation */
   .glass-card-light {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(229, 234, 244, 0.9);
+    border: 1px solid rgba(220, 229, 242, 0.92);
   }
 
   .glass-card-dark {
-    background: rgba(11, 16, 38, 0.75);
+    background: rgba(11, 29, 58, 0.80);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .glow-border-iris {
-    box-shadow: 0 0 0 1px rgba(99, 91, 255, 0.2), 0 8px 30px -6px rgba(99, 91, 255, 0.15);
+    box-shadow: 0 0 0 1px rgba(30, 72, 131, 0.22), 0 8px 30px -6px rgba(30, 72, 131, 0.16);
   }
 
   .glow-border-subtle {
-    box-shadow: 0 0 0 1px rgba(16, 20, 40, 0.05), 0 12px 32px -8px rgba(11, 16, 38, 0.08);
+    box-shadow: 0 0 0 1px rgba(11, 29, 58, 0.06), 0 12px 32px -8px rgba(11, 29, 58, 0.10);
   }
 
   /* Shimmer animation for badges and highlights */

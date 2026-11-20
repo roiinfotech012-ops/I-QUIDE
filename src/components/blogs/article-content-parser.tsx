@@ -322,7 +322,7 @@ export function SafeArticleContent({
           return (
             <blockquote
               key={index}
-              className="relative my-8 overflow-hidden rounded-3xl border border-lavender/45 bg-gradient-to-br from-[#F6F5FF] via-white to-[#EEF4FF] p-7 sm:p-9 shadow-subtle"
+              className="relative my-8 overflow-hidden rounded-3xl border border-lavender/45 bg-gradient-to-br from-[#F4F8FD] via-white to-[#EEF4FF] p-7 sm:p-9 shadow-subtle"
             >
               <div
                 className="pointer-events-none absolute top-0 bottom-0 left-0 w-1.5 bg-gradient-to-b from-iris via-intelligence to-lavender"

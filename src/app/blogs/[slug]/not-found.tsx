@@ -10,9 +10,9 @@ import {
 
 export default function BlogArticleNotFound() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#F6F5FF] via-white to-cloud pt-36 pb-28 sm:pt-44 sm:pb-36">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#F4F8FD] via-white to-cloud pt-36 pb-28 sm:pt-44 sm:pb-36">
       <div
-        className="pointer-events-none absolute top-0 left-1/2 h-[420px] w-[780px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(99,91,255,0.12)_0%,transparent_70%)] blur-3xl"
+        className="pointer-events-none absolute top-0 left-1/2 h-[420px] w-[780px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(30,72,131,0.12)_0%,transparent_70%)] blur-3xl"
         aria-hidden="true"
       />
       <Container className="relative z-10 text-center">

@@ -164,7 +164,7 @@ export function EnquiryForm({
       <div
         role="status"
         aria-live="polite"
-        className="rounded-[32px] border border-emerald-500/30 bg-gradient-to-br from-emerald-50/70 via-white to-[#F6F5FF] p-8 text-center shadow-elevated sm:p-12"
+        className="rounded-[32px] border border-emerald-500/30 bg-gradient-to-br from-emerald-50/70 via-white to-[#F4F8FD] p-8 text-center shadow-elevated sm:p-12"
       >
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-subtle">
           <CheckCircle2 className="h-8 w-8" aria-hidden="true" />
@@ -232,7 +232,7 @@ export function EnquiryForm({
       />
 
       <div className="mb-7 border-b border-border/80 pb-5">
-        <div className="inline-flex items-center gap-2 rounded-full border border-lavender/45 bg-[#F6F5FF] px-3 py-1 font-mono text-[10px] font-semibold tracking-[0.18em] text-iris uppercase">
+        <div className="inline-flex items-center gap-2 rounded-full border border-lavender/45 bg-[#F4F8FD] px-3 py-1 font-mono text-[10px] font-semibold tracking-[0.18em] text-iris uppercase">
           <Sparkles className="h-3 w-3" aria-hidden="true" />
           <span>ENQUIRY & CONSULTATION</span>
         </div>

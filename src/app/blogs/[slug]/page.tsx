@@ -170,10 +170,10 @@ export default async function BlogDetailPage({
       <article className="bg-white">
         <ReadingProgressBar />
         {/* SECTION 1: ARTICLE HEADER */}
-        <header className="relative overflow-hidden border-b border-border/70 bg-gradient-to-b from-[#F5F3FF] via-[#FAF9FF] to-white pt-28 pb-14 sm:pt-36 sm:pb-16">
+        <header className="relative overflow-hidden border-b border-border/70 bg-gradient-to-b from-[#F4F8FD] via-[#F8FAFD] to-white pt-28 pb-14 sm:pt-36 sm:pb-16">
           {/* Subtle Ambient Glows & Editorial Line Art */}
           <div
-            className="pointer-events-none absolute -top-24 left-1/2 h-[420px] w-[860px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(99,91,255,0.11)_0%,rgba(47,128,237,0.05)_48%,transparent_72%)] blur-3xl"
+            className="pointer-events-none absolute -top-24 left-1/2 h-[420px] w-[860px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(30,72,131,0.11)_0%,rgba(43,100,176,0.05)_48%,transparent_72%)] blur-3xl"
             aria-hidden="true"
           />
 
@@ -485,7 +485,7 @@ export default async function BlogDetailPage({
       {/* SECTION 6: CTA */}
       <section className="relative overflow-hidden bg-navy py-20 text-white sm:py-24">
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(99,91,255,0.28),transparent_55%),radial-gradient(circle_at_80%_80%,rgba(47,128,237,0.22),transparent_55%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(30,72,131,0.28),transparent_55%),radial-gradient(circle_at_80%_80%,rgba(43,100,176,0.22),transparent_55%)]"
           aria-hidden="true"
         />
         <Container className="relative z-10">

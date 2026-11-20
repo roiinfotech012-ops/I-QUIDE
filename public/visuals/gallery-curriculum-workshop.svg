@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" fill="none">
-  <rect width="900" height="600" fill="#0B1026"/>
+  <rect width="900" height="600" fill="#0B1D3A"/>
   <circle cx="450" cy="300" r="260" stroke="#1E2B58" stroke-width="1.5"/>
   <circle cx="450" cy="300" r="180" stroke="#283870" stroke-width="1.5" stroke-dasharray="6 6"/>
   <rect x="130" y="120" width="640" height="360" rx="24" fill="#121A3A" stroke="#28376B"/>
-  <text x="180" y="185" fill="#A78BFA" font-family="Inter, sans-serif" font-size="13" font-weight="600">CURRICULUM ARCHITECTURE WORKSHOP</text>
+  <text x="180" y="185" fill="#F0C32A" font-family="Inter, sans-serif" font-size="13" font-weight="600">CURRICULUM ARCHITECTURE WORKSHOP</text>
   <text x="180" y="225" fill="#FAFBFF" font-family="Inter, sans-serif" font-size="26" font-weight="700">Designing Adaptive Learning Journeys</text>
   <g transform="translate(180, 265)">
-    <rect width="160" height="140" rx="16" fill="#1A2550" stroke="#387BFA"/>
-    <text x="24" y="45" fill="#387BFA" font-family="Inter, sans-serif" font-size="12" font-weight="700">PHASE 01</text>
+    <rect width="160" height="140" rx="16" fill="#1A2550" stroke="#2B64B0"/>
+    <text x="24" y="45" fill="#2B64B0" font-family="Inter, sans-serif" font-size="12" font-weight="700">PHASE 01</text>
     <text x="24" y="75" fill="#FAFBFF" font-family="Inter, sans-serif" font-size="16" font-weight="700">Diagnostic Discovery</text>
   </g>
   <g transform="translate(370, 265)">
-    <rect width="160" height="140" rx="16" fill="#1A2550" stroke="#635BFF"/>
-    <text x="24" y="45" fill="#A78BFA" font-family="Inter, sans-serif" font-size="12" font-weight="700">PHASE 02</text>
+    <rect width="160" height="140" rx="16" fill="#1A2550" stroke="#1E4883"/>
+    <text x="24" y="45" fill="#F0C32A" font-family="Inter, sans-serif" font-size="12" font-weight="700">PHASE 02</text>
     <text x="24" y="75" fill="#FAFBFF" font-family="Inter, sans-serif" font-size="16" font-weight="700">Scaffolded Pathways</text>
   </g>
   <g transform="translate(560, 265)">

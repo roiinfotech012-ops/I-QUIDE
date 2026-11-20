@@ -101,9 +101,9 @@ export function LegalPageTemplate({
   return (
     <article className="bg-white">
       {/* PREMIUM MINIMAL PAGE HERO */}
-      <header className="relative overflow-hidden border-b border-border/80 bg-gradient-to-b from-[#F5F3FF] via-[#FAF9FF] to-white pt-28 pb-14 sm:pt-36 sm:pb-16">
+      <header className="relative overflow-hidden border-b border-border/80 bg-gradient-to-b from-[#F4F8FD] via-[#F8FAFD] to-white pt-28 pb-14 sm:pt-36 sm:pb-16">
         <div
-          className="pointer-events-none absolute -top-24 left-1/2 h-[380px] w-[760px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(99,91,255,0.1)_0%,rgba(47,128,237,0.04)_50%,transparent_72%)] blur-3xl"
+          className="pointer-events-none absolute -top-24 left-1/2 h-[380px] w-[760px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(30,72,131,0.1)_0%,rgba(43,100,176,0.04)_50%,transparent_72%)] blur-3xl"
           aria-hidden="true"
         />
 
@@ -303,7 +303,7 @@ export function LegalPageTemplate({
                   </div>
 
                   {/* Companion Legal Document Cross-Link */}
-                  <div className="mt-8 flex flex-col justify-between gap-4 rounded-3xl border border-lavender/40 bg-gradient-to-r from-[#F6F5FF] via-white to-[#EEF4FF] p-6 sm:flex-row sm:items-center">
+                  <div className="mt-8 flex flex-col justify-between gap-4 rounded-3xl border border-lavender/40 bg-gradient-to-r from-[#F4F8FD] via-white to-[#EEF4FF] p-6 sm:flex-row sm:items-center">
                     <div>
                       <span className="font-mono text-[10px] font-semibold tracking-[0.18em] text-iris uppercase">
                         Related Information Page

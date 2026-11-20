@@ -5,6 +5,7 @@ import { getSiteSettings, getSolutions } from "@/lib/cms";
 import { buildOrganizationJsonLd, buildPageMetadata } from "@/lib/seo";
 import { StickyHeader } from "@/components/layout/sticky-header";
 import { GlobalFooter } from "@/components/layout/global-footer";
+import { BrandIntroSplash } from "@/components/layout/brand-intro-splash";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -49,6 +50,8 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
+
+        <BrandIntroSplash />
 
         <StickyHeader settings={settings} solutions={solutions} />
 

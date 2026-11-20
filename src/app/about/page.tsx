@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import {
   BarChart3,
   BrainCircuit,
@@ -44,171 +45,31 @@ export async function generateMetadata() {
   });
 }
 
+const ABOUT_STRENGTH_IMAGES = [
+  { src: "/images/about-vision.jpg", alt: "Intelligent Education Technology architecture" },
+  { src: "/images/solution-personalised-learning.jpg", alt: "Personalised adaptive learning experience" },
+  { src: "/images/solution-gamified-learning.jpg", alt: "Interactive learning experiences and engagement" },
+  { src: "/images/solution-learning-analytics.jpg", alt: "Data-informed learning insights" },
+  { src: "/images/solution-institutional-solutions.jpg", alt: "Scalable institutional education ecosystem" },
+];
+
 function renderStrengthIllustration(index: number) {
-  switch (index) {
-    case 0:
-      // Intelligent education technology
-      return (
-        <svg
-          viewBox="0 0 420 180"
-          className="h-40 w-full"
-          fill="none"
-          aria-hidden="true"
-        >
-          <rect
-            x="24"
-            y="24"
-            width="372"
-            height="132"
-            rx="20"
-            fill="#0B1026"
-          />
-          <path
-            d="M65 125 C 145 120, 175 55, 255 70 C 315 80, 335 45, 365 42"
-            stroke="#635BFF"
-            strokeWidth="4"
-            strokeLinecap="round"
-          />
-          <circle cx="65" cy="125" r="7" fill="#387BFA" />
-          <circle
-            cx="210"
-            cy="78"
-            r="9"
-            fill="#635BFF"
-            stroke="#FAFBFF"
-            strokeWidth="2.5"
-          />
-          <circle cx="365" cy="42" r="8" fill="#A78BFA" />
-        </svg>
-      );
-    case 1:
-      // Personalisation
-      return (
-        <svg
-          viewBox="0 0 420 180"
-          className="h-40 w-full"
-          fill="none"
-          aria-hidden="true"
-        >
-          <rect
-            x="24"
-            y="24"
-            width="372"
-            height="132"
-            rx="20"
-            fill="#F3EFFE"
-          />
-          <path
-            d="M70 90 C 150 90, 175 48, 255 48 L 355 48"
-            stroke="#387BFA"
-            strokeWidth="3"
-          />
-          <path d="M70 90 L 355 90" stroke="#635BFF" strokeWidth="4" />
-          <path
-            d="M70 90 C 150 90, 175 132, 255 132 L 355 132"
-            stroke="#A78BFA"
-            strokeWidth="3"
-            strokeDasharray="6 6"
-          />
-          <circle cx="70" cy="90" r="8" fill="#635BFF" />
-          <circle cx="255" cy="48" r="6" fill="#387BFA" />
-          <circle cx="255" cy="90" r="8" fill="#635BFF" />
-          <circle cx="255" cy="132" r="6" fill="#A78BFA" />
-        </svg>
-      );
-    case 2:
-      // Interactive experiences
-      return (
-        <svg
-          viewBox="0 0 420 180"
-          className="h-40 w-full"
-          fill="none"
-          aria-hidden="true"
-        >
-          <rect
-            x="24"
-            y="24"
-            width="372"
-            height="132"
-            rx="20"
-            fill="#0B1026"
-          />
-          <circle
-            cx="210"
-            cy="90"
-            r="52"
-            stroke="#387BFA"
-            strokeWidth="2.5"
-            strokeDasharray="8 6"
-          />
-          <circle cx="210" cy="90" r="24" fill="#635BFF" />
-          <circle cx="158" cy="90" r="6" fill="#A78BFA" />
-          <circle cx="262" cy="90" r="6" fill="#16A085" />
-        </svg>
-      );
-    case 3:
-      // Data-informed learning insights
-      return (
-        <svg
-          viewBox="0 0 420 180"
-          className="h-40 w-full"
-          fill="none"
-          aria-hidden="true"
-        >
-          <rect
-            x="24"
-            y="24"
-            width="372"
-            height="132"
-            rx="20"
-            fill="#EAF5FF"
-          />
-          <rect x="85" y="102" width="36" height="36" rx="6" fill="#387BFA" fillOpacity="0.5" />
-          <rect x="145" y="84" width="36" height="54" rx="6" fill="#387BFA" />
-          <rect x="205" y="64" width="36" height="74" rx="6" fill="#635BFF" />
-          <rect x="265" y="46" width="36" height="92" rx="6" fill="#16A085" />
-        </svg>
-      );
-    default:
-      // Scalable institutional applications
-      return (
-        <svg
-          viewBox="0 0 420 180"
-          className="h-40 w-full"
-          fill="none"
-          aria-hidden="true"
-        >
-          <rect
-            x="24"
-            y="24"
-            width="372"
-            height="132"
-            rx="20"
-            fill="#0B1026"
-          />
-          {[110, 210, 310].map((cx, i) => (
-            <g key={cx}>
-              <rect
-                x={cx - 34}
-                y="54"
-                width="68"
-                height="72"
-                rx="14"
-                fill="#162147"
-                stroke={i === 1 ? "#635BFF" : "#387BFA"}
-                strokeWidth="2"
-              />
-              <circle
-                cx={cx}
-                cy="90"
-                r="10"
-                fill={i === 2 ? "#16A085" : "#635BFF"}
-              />
-            </g>
-          ))}
-        </svg>
-      );
-  }
+  const img = ABOUT_STRENGTH_IMAGES[index % ABOUT_STRENGTH_IMAGES.length];
+  return (
+    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border/80 bg-navy shadow-subtle">
+      <Image
+        src={img.src}
+        alt={img.alt}
+        fill
+        sizes="(max-width: 1024px) 100vw, 42vw"
+        className="object-cover transition-transform duration-700 hover:scale-105"
+      />
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/35 via-transparent to-transparent"
+        aria-hidden="true"
+      />
+    </div>
+  );
 }
 
 export default async function AboutPage() {
@@ -349,7 +210,7 @@ export default async function AboutPage() {
       <section className="relative overflow-hidden bg-navy pt-32 pb-20 text-cloud sm:pt-40 sm:pb-28 lg:pb-32">
         {/* Subtle Lavender & Iris Radial Accents */}
         <div
-          className="pointer-events-none absolute right-0 top-0 h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(167,139,250,0.22)_0%,rgba(99,91,255,0.10)_45%,rgba(11,16,38,0)_75%)] blur-3xl"
+          className="pointer-events-none absolute right-0 top-0 h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(240,195,42,0.22)_0%,rgba(30,72,131,0.10)_45%,rgba(11,16,38,0)_75%)] blur-3xl"
           aria-hidden="true"
         />
 
@@ -362,12 +223,12 @@ export default async function AboutPage() {
         >
           <path
             d="M-80 480 C 320 440, 560 180, 920 220 C 1180 250, 1320 110, 1520 60"
-            stroke="#A78BFA"
+            stroke="#F0C32A"
             strokeWidth="2"
           />
           <path
             d="M-80 540 C 360 490, 620 280, 980 290 C 1220 300, 1360 180, 1520 130"
-            stroke="#387BFA"
+            stroke="#2B64B0"
             strokeWidth="1.5"
             strokeDasharray="6 6"
           />
@@ -493,9 +354,9 @@ export default async function AboutPage() {
                         y2="70"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop offset="0%" stopColor="#387BFA" />
-                        <stop offset="50%" stopColor="#635BFF" />
-                        <stop offset="100%" stopColor="#A78BFA" />
+                        <stop offset="0%" stopColor="#2B64B0" />
+                        <stop offset="50%" stopColor="#1E4883" />
+                        <stop offset="100%" stopColor="#F0C32A" />
                       </linearGradient>
                     </defs>
 
@@ -526,7 +387,7 @@ export default async function AboutPage() {
                     />
                     <path
                       d="M 55 85 C 165 95, 220 150, 320 150 C 420 150, 475 210, 585 220"
-                      stroke="#387BFA"
+                      stroke="#2B64B0"
                       strokeOpacity="0.4"
                       strokeWidth="2.5"
                       strokeDasharray="7 7"
@@ -546,7 +407,7 @@ export default async function AboutPage() {
                     <text
                       x="65"
                       y="62"
-                      fill="#635BFF"
+                      fill="#1E4883"
                       fontSize="10"
                       fontWeight="700"
                       fontFamily="Inter, sans-serif"
@@ -570,12 +431,12 @@ export default async function AboutPage() {
                       width="165"
                       height="62"
                       rx="14"
-                      fill="#0B1026"
+                      fill="#0B1D3A"
                     />
                     <text
                       x="455"
                       y="224"
-                      fill="#A78BFA"
+                      fill="#F0C32A"
                       fontSize="10"
                       fontWeight="700"
                       fontFamily="Inter, sans-serif"
@@ -598,12 +459,12 @@ export default async function AboutPage() {
                       cx="320"
                       cy="150"
                       r="28"
-                      fill="#0B1026"
-                      stroke="#635BFF"
+                      fill="#0B1D3A"
+                      stroke="#1E4883"
                       strokeWidth="4"
                     />
-                    <circle cx="320" cy="150" r="9" fill="#A78BFA" />
-                    <circle cx="55" cy="235" r="9" fill="#387BFA" />
+                    <circle cx="320" cy="150" r="9" fill="#F0C32A" />
+                    <circle cx="55" cy="235" r="9" fill="#2B64B0" />
                     <circle cx="585" cy="65" r="10" fill="#16A085" />
                   </svg>
                 </div>
@@ -709,8 +570,8 @@ export default async function AboutPage() {
                         y2="125"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop offset="0%" stopColor="#635BFF" stopOpacity="0.22" />
-                        <stop offset="100%" stopColor="#A78BFA" stopOpacity="0" />
+                        <stop offset="0%" stopColor="#1E4883" stopOpacity="0.22" />
+                        <stop offset="100%" stopColor="#F0C32A" stopOpacity="0" />
                       </linearGradient>
                     </defs>
                     <path
@@ -719,20 +580,20 @@ export default async function AboutPage() {
                     />
                     <path
                       d="M 20 112 C 120 108, 180 78, 270 58 C 350 40, 400 22, 460 18"
-                      stroke="#635BFF"
+                      stroke="#1E4883"
                       strokeWidth="3.5"
                       strokeLinecap="round"
                       fill="none"
                     />
                     <path
                       d="M 20 112 C 140 95, 220 92, 320 62 C 385 42, 420 35, 460 18"
-                      stroke="#A78BFA"
+                      stroke="#F0C32A"
                       strokeWidth="2"
                       strokeDasharray="5 5"
                       fill="none"
                     />
-                    <circle cx="135" cy="95" r="6" fill="#A78BFA" />
-                    <circle cx="270" cy="58" r="7.5" fill="#635BFF" />
+                    <circle cx="135" cy="95" r="6" fill="#F0C32A" />
+                    <circle cx="270" cy="58" r="7.5" fill="#1E4883" />
                     <circle
                       cx="460"
                       cy="18"
@@ -750,7 +611,7 @@ export default async function AboutPage() {
             <AnimatedReveal delay={0.1} className="lg:col-span-6">
               <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-hero border border-white/12 bg-navy p-8 text-cloud shadow-navy sm:p-12">
                 <div
-                  className="pointer-events-none absolute right-0 top-0 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(56,123,250,0.22)_0%,rgba(11,16,38,0)_70%)] blur-2xl"
+                  className="pointer-events-none absolute right-0 top-0 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(43,100,176,0.22)_0%,rgba(11,16,38,0)_70%)] blur-2xl"
                   aria-hidden="true"
                 />
 
@@ -783,7 +644,7 @@ export default async function AboutPage() {
                     role="img"
                     aria-label="Delicate blue AI-network visual with interconnected nodes"
                   >
-                    <g stroke="#387BFA" strokeOpacity="0.35" strokeWidth="1.5">
+                    <g stroke="#2B64B0" strokeOpacity="0.35" strokeWidth="1.5">
                       <line x1="65" y1="95" x2="175" y2="42" />
                       <line x1="65" y1="95" x2="195" y2="98" />
                       <line x1="175" y1="42" x2="195" y2="98" />
@@ -795,17 +656,17 @@ export default async function AboutPage() {
                     </g>
                     <path
                       d="M 65 95 L 175 42 L 310 55 L 425 35"
-                      stroke="#387BFA"
+                      stroke="#2B64B0"
                       strokeWidth="3"
                       fill="none"
                       strokeLinecap="round"
                     />
                     {[
-                      { cx: 65, cy: 95, r: 6, fill: "#387BFA" },
-                      { cx: 175, cy: 42, r: 8, fill: "#635BFF" },
-                      { cx: 195, cy: 98, r: 5.5, fill: "#387BFA" },
-                      { cx: 310, cy: 55, r: 8.5, fill: "#387BFA" },
-                      { cx: 335, cy: 104, r: 5.5, fill: "#A78BFA" },
+                      { cx: 65, cy: 95, r: 6, fill: "#2B64B0" },
+                      { cx: 175, cy: 42, r: 8, fill: "#1E4883" },
+                      { cx: 195, cy: 98, r: 5.5, fill: "#2B64B0" },
+                      { cx: 310, cy: 55, r: 8.5, fill: "#2B64B0" },
+                      { cx: 335, cy: 104, r: 5.5, fill: "#F0C32A" },
                       { cx: 425, cy: 35, r: 9, fill: "#16A085" },
                     ].map((n, idx) => (
                       <circle
@@ -814,7 +675,7 @@ export default async function AboutPage() {
                         cy={n.cy}
                         r={n.r}
                         fill={n.fill}
-                        stroke="#0B1026"
+                        stroke="#0B1D3A"
                         strokeWidth="2"
                       />
                     ))}
@@ -965,7 +826,7 @@ export default async function AboutPage() {
         <Container>
           <div className="relative overflow-hidden rounded-hero bg-navy px-6 py-16 text-cloud shadow-navy sm:px-14 sm:py-24">
             <div
-              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(167,139,250,0.28),rgba(56,123,250,0.14)_45%,rgba(11,16,38,0)_75%)]"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(240,195,42,0.28),rgba(43,100,176,0.14)_45%,rgba(11,16,38,0)_75%)]"
               aria-hidden="true"
             />
             <svg
@@ -976,11 +837,11 @@ export default async function AboutPage() {
             >
               <path
                 d="M-40 330 C 260 310, 460 110, 780 150 C 980 180, 1100 60, 1240 30"
-                stroke="#A78BFA"
+                stroke="#F0C32A"
                 strokeWidth="3"
               />
-              <circle cx="260" cy="310" r="6" fill="#387BFA" />
-              <circle cx="780" cy="150" r="8" fill="#635BFF" />
+              <circle cx="260" cy="310" r="6" fill="#2B64B0" />
+              <circle cx="780" cy="150" r="8" fill="#1E4883" />
             </svg>
 
             <div className="relative z-10 mx-auto max-w-3xl text-center">
