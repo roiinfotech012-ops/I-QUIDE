@@ -1,24 +1,10 @@
 import React from "react";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { getSiteSettings, getSolutions } from "@/lib/cms";
 import { buildOrganizationJsonLd, buildPageMetadata } from "@/lib/seo";
 import { StickyHeader } from "@/components/layout/sticky-header";
 import { GlobalFooter } from "@/components/layout/global-footer";
 import { BrandIntroSplash } from "@/components/layout/brand-intro-splash";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-jakarta",
-  weight: ["500", "600", "700", "800"],
-  display: "swap",
-});
 
 export async function generateMetadata() {
   return buildPageMetadata({});
@@ -37,7 +23,7 @@ export default async function RootLayout({
   const orgJsonLd = buildOrganizationJsonLd(settings);
 
   return (
-    <html lang="en" className={`${inter.variable} ${jakarta.variable}`}>
+    <html lang="en">
       <body className="min-h-screen flex flex-col font-sans bg-cloud text-ink selection:bg-iris/20 selection:text-iris">
         <a
           href="#main-content"
