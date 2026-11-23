@@ -3,22 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  BarChart3,
-  Bot,
-  Calendar,
   Check,
   Compass,
   GraduationCap,
   PlayCircle,
   ShieldCheck,
-  Sparkles,
-  Target,
-  TrendingUp,
   Users,
-  Waypoints,
 } from "lucide-react";
 import {
-  getBlogPosts,
   getGalleryItems,
   getHeroBanners,
   getPageContentBySlug,
@@ -27,15 +19,11 @@ import {
   getTestimonials,
 } from "@/lib/cms";
 import { buildPageMetadata } from "@/lib/seo";
-import { cn, formatDate } from "@/lib/utils";
 import {
   Container,
-  DynamicIcon,
   EyebrowLabel,
-  GradientText,
   PrimaryButton,
   SecondaryButton,
-  SectionHeading,
 } from "@/components/ui/primitives";
 import { AnimatedReveal } from "@/components/ui/animated-reveal";
 import {
@@ -74,7 +62,6 @@ export default async function HomePage() {
     solutions,
     galleryItems,
     testimonials,
-    blogs,
   ] = await Promise.all([
     getSiteSettings(),
     getHeroBanners("home"),
@@ -82,7 +69,6 @@ export default async function HomePage() {
     getSolutions(true),
     getGalleryItems(true),
     getTestimonials(true),
-    getBlogPosts(true),
   ]);
 
   const hero = banners.find((b) => b.published) || {
@@ -100,46 +86,15 @@ export default async function HomePage() {
   };
 
   const sections = (homePage?.sectionsJson || {}) as {
-    welcomeLabel?: string;
-    welcomeHeading?: string;
-    welcomeParagraph1?: string;
-    welcomeParagraph2?: string;
-    welcomeCtaLabel?: string;
-    welcomeCtaHref?: string;
-    welcomeDecorativeText?: string;
-    visionEyebrow?: string;
-    visionStatement?: string;
     solutionsHeading?: string;
     solutionsDescription?: string;
-    optionalFutureOffering?: {
-      enabled?: boolean;
-      badge?: string;
-      title?: string;
-      description?: string;
-      href?: string;
-    };
     whyChooseHeading?: string;
     journeyHeading?: string;
     galleryHeading?: string;
     testimonialsHeading?: string;
-    insightsHeading?: string;
     signatureCtaHeading?: string;
     signatureCtaDescription?: string;
   };
-
-  const latestBlogs = blogs.slice(0, 3);
-  const leadBlog = latestBlogs[0];
-  const secondaryBlogs = latestBlogs.slice(1, 3);
-
-  // Asymmetric Bento spans for the 6 primary solution cards
-  const bentoSpans = [
-    "md:col-span-6 lg:col-span-7",
-    "md:col-span-6 lg:col-span-5",
-    "md:col-span-6 lg:col-span-4",
-    "md:col-span-6 lg:col-span-4",
-    "md:col-span-6 lg:col-span-4",
-    "md:col-span-12 lg:col-span-12",
-  ];
 
   return (
     <>
@@ -620,144 +575,6 @@ export default async function HomePage() {
         testimonials={testimonials}
         heading="Trusted by Learners & Educators Across India"
       />
-
-      {/* =====================================================================
-          SECTION 9: LATEST INSIGHTS
-          Distinctive Editorial Composition ("Ideas Shaping Tomorrow's Learning.")
-      ====================================================================== */}
-      {latestBlogs.length > 0 && (
-        <section className="border-t border-border bg-white py-24 sm:py-32">
-          <Container>
-            <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-              <SectionHeading
-                eyebrow="LATEST INSIGHTS"
-                title={
-                  sections.insightsHeading ||
-                  "Ideas Shaping Tomorrow's Learning."
-                }
-                description="Research notes, pedagogical perspectives, and practical essays from the iGUIDE editorial desk."
-              />
-              <div className="shrink-0">
-                <SecondaryButton href="/blogs">
-                  View All Insights
-                </SecondaryButton>
-              </div>
-            </div>
-
-            <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-12">
-              {/* Featured Lead Article Card (Larger Left 7 Columns) */}
-              {leadBlog && (
-                <article className="group flex flex-col justify-between overflow-hidden rounded-feature border border-border bg-cloud shadow-subtle transition-all duration-300 hover:-translate-y-1 hover:border-iris/40 hover:shadow-elevated lg:col-span-7">
-                  <div>
-                    <div className="relative aspect-[16/9] w-full overflow-hidden bg-navy">
-                      <Image
-                        src={leadBlog.coverImage}
-                        alt={leadBlog.title}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 58vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <span className="absolute left-5 top-5 rounded-full bg-navy/85 px-3.5 py-1 text-xs font-semibold text-lavender backdrop-blur-md">
-                        {leadBlog.category}
-                      </span>
-                    </div>
-
-                    <div className="p-7 sm:p-9">
-                      <div className="flex items-center gap-2 text-xs text-ink-muted">
-                        <Calendar
-                          className="h-3.5 w-3.5 text-iris"
-                          aria-hidden="true"
-                        />
-                        <span>{formatDate(leadBlog.publishedAt)}</span>
-                      </div>
-
-                      <h3 className="mt-3 font-heading text-2xl font-bold leading-snug text-ink transition-colors group-hover:text-iris sm:text-3xl">
-                        <Link href={`/blogs/${leadBlog.slug}`}>
-                          {leadBlog.title}
-                        </Link>
-                      </h3>
-
-                      <p className="mt-3 text-sm leading-relaxed text-ink-secondary sm:text-base">
-                        {leadBlog.excerpt}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between border-t border-border px-7 py-5 sm:px-9">
-                    <span className="text-xs font-medium text-ink-secondary">
-                      {leadBlog.authorName}
-                    </span>
-                    <Link
-                      href={`/blogs/${leadBlog.slug}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-iris hover:underline"
-                    >
-                      <span>Read Article</span>
-                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </Link>
-                  </div>
-                </article>
-              )}
-
-              {/* Two Stacked Companion Editorial Cards (Right 5 Columns) */}
-              <div className="flex flex-col justify-between gap-8 lg:col-span-5">
-                {secondaryBlogs.map((post) => (
-                  <article
-                    key={post.id}
-                    className="group flex flex-1 flex-col justify-between overflow-hidden rounded-feature border border-border bg-white p-6 shadow-subtle transition-all duration-300 hover:-translate-y-1 hover:border-iris/40 hover:shadow-elevated sm:p-7"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between gap-3">
-                        <span className="rounded-full bg-iris-light px-3 py-1 text-[11px] font-semibold text-iris">
-                          {post.category}
-                        </span>
-                        <span className="inline-flex items-center gap-1.5 text-xs text-ink-muted">
-                          <Calendar
-                            className="h-3.5 w-3.5 text-intelligence"
-                            aria-hidden="true"
-                          />
-                          {formatDate(post.publishedAt)}
-                        </span>
-                      </div>
-
-                      <div className="mt-4 flex items-start gap-4">
-                        <div className="relative hidden h-20 w-28 shrink-0 overflow-hidden rounded-xl bg-navy sm:block">
-                          <Image
-                            src={post.coverImage}
-                            alt={post.title}
-                            fill
-                            sizes="112px"
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-                        </div>
-                        <div>
-                          <h3 className="font-heading text-lg font-bold leading-snug text-ink transition-colors group-hover:text-iris sm:text-xl">
-                            <Link href={`/blogs/${post.slug}`}>
-                              {post.title}
-                            </Link>
-                          </h3>
-                          <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-ink-secondary sm:text-sm">
-                            {post.excerpt}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="mt-5 flex items-center justify-end border-t border-border pt-4">
-                      <Link
-                        href={`/blogs/${post.slug}`}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-iris hover:underline"
-                      >
-                        <span>Read Article</span>
-                        <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                      </Link>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </Container>
-        </section>
-      )}
 
       {/* =====================================================================
           SECTION 10: SIGNATURE CTA
