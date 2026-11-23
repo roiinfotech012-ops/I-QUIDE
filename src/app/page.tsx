@@ -102,7 +102,7 @@ export default async function HomePage() {
           SECTION 1: CLEAN EDITORIAL HERO BANNER
           Reference-matched airy left composition + vivid right-anchored Indian students photo + single sleek right-docked benefit card
       ====================================================================== */}
-      <section className="relative overflow-hidden bg-[#F7FAFF] pt-32 pb-20 sm:pt-36 sm:pb-24 lg:min-h-[650px] lg:pt-36 lg:pb-24">
+      <section className="relative overflow-hidden bg-[#F7FAFF] pt-36 pb-20 sm:pt-40 sm:pb-24 lg:min-h-[660px] lg:pt-40 lg:pb-24">
         {/* Vivid sunlit Indian campus photograph anchored cleanly on the right with smooth left-edge feather mask */}
         <div
           className="pointer-events-none absolute inset-0 z-0 hidden md:block"

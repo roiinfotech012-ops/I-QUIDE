@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import type { SiteSettingsRecord, SolutionRecord } from "@/lib/seed-data";
 import { cn } from "@/lib/utils";
@@ -84,62 +84,73 @@ export function StickyHeader({
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled ? "py-3" : "py-5"
+        scrolled ? "py-2.5" : "py-3.5"
       )}
     >
       <Container>
         <div className="flex items-center justify-between gap-4">
-          {/* Standalone Transparent PNG Brand Logo with Repeated Every-5-Second Kite/Plane Flying Animation */}
+          {/* Standalone Transparent PNG Brand Logo with True Nose-Forward Flight Every 5 Seconds */}
           <Link
             href="/"
-            className="group relative shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-iris rounded-xl"
+            className="group relative shrink-0 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-iris"
             aria-label={`${settings.brandName} Home`}
           >
             <div
               className={cn(
-                "relative flex w-[104px] flex-col items-center transition-transform duration-300 group-hover:scale-[1.04] sm:w-[128px]",
+                "relative flex w-[98px] flex-col items-center transition-transform duration-300 group-hover:scale-[1.04] sm:w-[118px]",
                 isDarkHeroTop &&
                   "drop-shadow-[0_0_10px_rgba(255,255,255,0.55)]"
               )}
             >
-              {/* Kite / Paper Airplane flies a graceful loop every 5 seconds and lands cleanly back on the logo */}
-              <motion.div
-                animate={
-                  prefersReducedMotion
-                    ? undefined
-                    : {
-                        x: [0, 18, 30, 10, -14, -4, 0, 0],
-                        y: [0, -14, -22, -16, -6, -2, 0, 0],
-                        rotate: [0, -16, -8, 12, 6, -3, 0, 0],
-                        scale: [1, 1.08, 1.04, 0.96, 1.02, 1, 1, 1],
-                      }
-                }
-                transition={{
-                  duration: 5,
-                  times: [0, 0.06, 0.13, 0.2, 0.27, 0.33, 0.38, 1],
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="relative z-10 w-full"
-                style={{ willChange: "transform" }}
+              {/* Delicate Golden-Blue Curved Contrail visible during takeoff & glide-in */}
+              {!prefersReducedMotion && (
+                <svg
+                  viewBox="0 0 180 90"
+                  className="pointer-events-none absolute -left-8 -top-5 h-[90px] w-[180px] overflow-visible"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <defs>
+                    <linearGradient id="hdrTrailGrad" x1="15" y1="80" x2="165" y2="12" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stopColor="#1E4883" stopOpacity="0" />
+                      <stop offset="55%" stopColor="#2B64B0" stopOpacity="0.6" />
+                      <stop offset="100%" stopColor="#F0C32A" stopOpacity="0.95" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M 16 78 C 54 66, 86 44, 158 10"
+                    stroke="url(#hdrTrailGrad)"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                    className="animate-iguide-trail"
+                  />
+                </svg>
+              )}
+
+              {/* Paper Airplane: True nose-forward takeoff up-right & smooth glide-in from bottom-left every 5s */}
+              <div
+                className={cn(
+                  "relative z-10 w-full",
+                  !prefersReducedMotion && "animate-iguide-plane"
+                )}
               >
                 <Image
                   src="/brand/iguide-plane.png"
                   alt="iGUIDE flying paper airplane"
-                  width={128}
-                  height={62}
+                  width={118}
+                  height={57}
                   priority
                   unoptimized
-                  className="h-auto w-full object-contain drop-shadow-[0_4px_8px_rgba(30,72,131,0.20)]"
+                  className="h-auto w-full object-contain drop-shadow-[0_4px_8px_rgba(30,72,131,0.22)]"
                 />
-              </motion.div>
+              </div>
 
               {/* Anchored Horizon Lines + iGUIDE Wordmark */}
               <Image
                 src="/brand/iguide-wordmark.png"
                 alt={settings.brandName || "iGUIDE"}
-                width={128}
-                height={51}
+                width={118}
+                height={47}
                 priority
                 unoptimized
                 className="-mt-1.5 h-auto w-full object-contain"
