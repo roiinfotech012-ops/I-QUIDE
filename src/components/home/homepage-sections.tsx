@@ -526,130 +526,285 @@ export function HomeGalleryCollage({
   items: GalleryItemRecord[];
   heading?: string;
 }) {
+  const prefersReducedMotion = useReducedMotion();
+  const [activeIndex, setActiveIndex] = useState<number>(2);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
   const previewItems = items.slice(0, 5);
+  const count = previewItems.length;
+
+  useEffect(() => {
+    if (count > 0 && activeIndex >= count) {
+      setActiveIndex(Math.floor(count / 2));
+    }
+  }, [count, activeIndex]);
+
+  // Smooth auto-advance every 4.5s (pauses on hover or while lightbox is open)
+  useEffect(() => {
+    if (prefersReducedMotion || isPaused || lightboxIndex !== null || count <= 1) {
+      return;
+    }
+    const timer = window.setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % count);
+    }, 4500);
+    return () => window.clearInterval(timer);
+  }, [prefersReducedMotion, isPaused, lightboxIndex, count]);
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      if (lightboxIndex === null) return;
-      if (e.key === "Escape") setLightboxIndex(null);
-      if (e.key === "ArrowRight")
-        setLightboxIndex((prev) =>
-          prev === null ? null : (prev + 1) % previewItems.length
-        );
-      if (e.key === "ArrowLeft")
-        setLightboxIndex((prev) =>
-          prev === null
-            ? null
-            : (prev - 1 + previewItems.length) % previewItems.length
-        );
+      if (lightboxIndex !== null) {
+        if (e.key === "Escape") setLightboxIndex(null);
+        if (e.key === "ArrowRight")
+          setLightboxIndex((prev) =>
+            prev === null ? null : (prev + 1) % count
+          );
+        if (e.key === "ArrowLeft")
+          setLightboxIndex((prev) =>
+            prev === null ? null : (prev - 1 + count) % count
+          );
+      }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [lightboxIndex, previewItems.length]);
+  }, [lightboxIndex, count]);
 
-  if (previewItems.length === 0) return null;
+  if (count === 0) return null;
 
-  const activeItem =
+  const activeGalleryItem = previewItems[activeIndex] ?? previewItems[0];
+  const lightboxItem =
     lightboxIndex !== null ? previewItems[lightboxIndex] : null;
 
-  // Asymmetric spans for 5 items in a 12-column editorial collage
-  const spanClasses = [
-    "md:col-span-6 lg:col-span-7",
-    "md:col-span-6 lg:col-span-5",
-    "md:col-span-4 lg:col-span-4",
-    "md:col-span-4 lg:col-span-4",
-    "md:col-span-4 lg:col-span-4",
-  ];
+  const goPrev = () => setActiveIndex((prev) => (prev - 1 + count) % count);
+  const goNext = () => setActiveIndex((prev) => (prev + 1) % count);
+
+  // Shortest circular offset in [-2, -1, 0, 1, 2]
+  const getRelativeOffset = (idx: number) => {
+    let diff = idx - activeIndex;
+    if (diff > count / 2) diff -= count;
+    if (diff < -count / 2) diff += count;
+    return diff;
+  };
 
   return (
-    <section className="py-24 sm:py-32">
-      <Container>
-        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-          <SectionHeading
-            eyebrow="VISUAL ECOSYSTEM & GALLERY"
-            title={heading}
-            description="Explore conceptual visual studies, collaborative learning environments, and adaptive pathway blueprints curated in the iGUIDE CMS."
-          />
-          <div className="shrink-0">
-            <PrimaryButton href="/gallery" showArrow>
-              Explore Our Gallery
-            </PrimaryButton>
+    <section
+      className="relative overflow-hidden bg-[#081326] py-20 text-white sm:py-28"
+      aria-label="Moments That Inspire Learning Gallery Showcase"
+    >
+      {/* Dynamic Blurred Ambient Backdrop from the Active Center Photo (Exact Luxury Dark Depth Feel) */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+        <Image
+          src={activeGalleryItem.imageUrl}
+          alt=""
+          fill
+          sizes="100vw"
+          className="scale-110 object-cover opacity-30 blur-[70px] transition-all duration-700"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#071124]/90 via-[#081326]/75 to-[#071124]/95" />
+      </div>
+
+      <Container className="relative z-10">
+        {/* Centered Luxury Header */}
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-[10.5px] font-bold uppercase tracking-[0.18em] text-gold backdrop-blur-md">
+            <span className="h-2 w-2 rounded-full bg-gold" />
+            <span>VISUAL ECOSYSTEM &amp; GALLERY</span>
           </div>
+          <h2 className="mt-4 font-heading text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+            {heading}
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
+            Explore curated Indian learning environments, collaborative studios, and adaptive classroom moments across iGUIDE.
+          </p>
         </div>
 
-        {/* Asymmetric Editorial Collage */}
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-12">
-          {previewItems.map((item, idx) => (
-            <figure
-              key={item.id}
-              className={cn(
-                "group relative flex flex-col overflow-hidden rounded-feature border border-border bg-white shadow-subtle transition-all duration-300 hover:-translate-y-1 hover:border-iris/40 hover:shadow-elevated",
-                spanClasses[idx] || "md:col-span-6 lg:col-span-4"
-              )}
-            >
-              <div
+        {/* 5-Card Layered 3D Depth Stage (Center Card Biggest & Front-and-Center, Same-to-Same Reference Layout) */}
+        <div
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          className="relative mx-auto mt-14 flex h-[470px] w-full max-w-[1220px] items-center justify-center sm:h-[530px]"
+        >
+          {/* Left / Right Subtle Glass Arrow Controls */}
+          <button
+            type="button"
+            onClick={goPrev}
+            aria-label="Previous gallery moment"
+            className="absolute left-1 top-1/2 z-40 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-navy/70 text-white shadow-elevated backdrop-blur-md transition hover:border-gold hover:bg-navy sm:left-3"
+          >
+            <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+          </button>
+
+          <button
+            type="button"
+            onClick={goNext}
+            aria-label="Next gallery moment"
+            className="absolute right-1 top-1/2 z-40 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-navy/70 text-white shadow-elevated backdrop-blur-md transition hover:border-gold hover:bg-navy sm:right-3"
+          >
+            <ChevronRight className="h-5 w-5" aria-hidden="true" />
+          </button>
+
+          {/* 5 Stepped Depth Cards */}
+          {previewItems.map((item, idx) => {
+            const offset = getRelativeOffset(idx);
+            const absOffset = Math.abs(offset);
+            const isCenter = offset === 0;
+
+            // Stepped horizontal spread & depth scale matching Image 2 cleanly
+            const xShift =
+              offset === 0
+                ? 0
+                : offset === -1
+                ? -245
+                : offset === 1
+                ? 245
+                : offset < -1
+                ? -430
+                : 430;
+
+            const cardScale =
+              absOffset === 0 ? 1 : absOffset === 1 ? 0.85 : 0.7;
+
+            const cardOpacity =
+              absOffset === 0 ? 1 : absOffset === 1 ? 0.85 : 0.45;
+
+            const zIndex = absOffset === 0 ? 30 : absOffset === 1 ? 20 : 10;
+
+            return (
+              <motion.article
+                key={item.id}
+                onClick={() => {
+                  if (isCenter) {
+                    setLightboxIndex(idx);
+                  } else {
+                    setActiveIndex(idx);
+                  }
+                }}
+                animate={{
+                  x: xShift,
+                  scale: cardScale,
+                  opacity: cardOpacity,
+                }}
+                transition={
+                  prefersReducedMotion
+                    ? { duration: 0 }
+                    : { type: "spring", stiffness: 250, damping: 28 }
+                }
+                style={{ zIndex }}
+                role="button"
+                tabIndex={0}
+                aria-label={
+                  isCenter
+                    ? `Inspect ${item.title} full screen`
+                    : `Focus ${item.title}`
+                }
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    if (isCenter) setLightboxIndex(idx);
+                    else setActiveIndex(idx);
+                  }
+                }}
                 className={cn(
-                  "relative w-full overflow-hidden bg-navy",
-                  idx < 2 ? "aspect-[16/10]" : "aspect-[3/2]"
+                  "group absolute flex h-[435px] w-[300px] cursor-pointer flex-col justify-end overflow-hidden rounded-[26px] bg-navy select-none transition-shadow duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold sm:h-[495px] sm:w-[375px]",
+                  isCenter
+                    ? "border border-white/30 shadow-[0_30px_80px_-12px_rgba(0,0,0,0.85),0_0_40px_rgba(240,195,42,0.14)]"
+                    : "border border-white/10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.75)]",
+                  absOffset >= 2 && "hidden md:flex",
+                  absOffset === 1 && "hidden sm:flex"
                 )}
               >
+                {/* Full-Bleed Portrait Image */}
                 <Image
                   src={item.imageUrl}
                   alt={item.altText || item.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 300px, 380px"
+                  className={cn(
+                    "object-cover transition-all duration-700",
+                    isCenter
+                      ? "brightness-100 group-hover:scale-105"
+                      : absOffset === 1
+                      ? "brightness-[0.65] group-hover:brightness-[0.82]"
+                      : "brightness-[0.42] group-hover:brightness-[0.65]"
+                  )}
                 />
-                <button
-                  type="button"
-                  onClick={() => setLightboxIndex(idx)}
-                  aria-label={`Open ${item.title} in lightbox`}
-                  className="absolute inset-0 flex items-center justify-center bg-navy/45 opacity-0 backdrop-blur-[2px] transition-opacity duration-200 group-hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none"
-                >
-                  <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold text-ink shadow-elevated">
-                    <Maximize2
-                      className="h-3.5 w-3.5 text-iris"
-                      aria-hidden="true"
-                    />
-                    <span>Inspect Visual</span>
-                  </span>
-                </button>
-                <span className="pointer-events-none absolute left-4 top-4 rounded-full bg-navy/85 px-3 py-1 text-[11px] font-semibold text-lavender backdrop-blur-md">
-                  {item.category}
-                </span>
-              </div>
 
-              <figcaption className="flex flex-1 items-center justify-between gap-4 p-5">
-                <div>
-                  <h3 className="font-heading text-base font-bold text-ink">
+                {/* Smooth Dark Editorial Bottom Scrim */}
+                <div
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#060E1F]/95 via-[#060E1F]/45 via-[38%] to-transparent"
+                  aria-hidden="true"
+                />
+
+                {/* Subtle Inspect Icon on Center Card Hover */}
+                {isCenter && (
+                  <span className="pointer-events-none absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-navy/70 px-3 py-1.5 text-[10px] font-bold text-white opacity-0 backdrop-blur-md transition-opacity duration-200 group-hover:opacity-100">
+                    <Maximize2 className="h-3 w-3 text-gold" aria-hidden="true" />
+                    <span>Expand</span>
+                  </span>
+                )}
+
+                {/* Bottom Editorial Content Overlay (Category Eyebrow + Large Title + Caption) */}
+                <div className="relative z-10 p-6 sm:p-7">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold/95">
+                    {item.category}
+                  </p>
+                  <h3 className="mt-1.5 font-heading text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-[1.7rem]">
                     {item.title}
                   </h3>
-                  <p className="mt-1 line-clamp-2 text-xs text-ink-secondary">
+                  <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-slate-200/95 sm:text-[13px]">
                     {item.caption}
                   </p>
                 </div>
-              </figcaption>
-            </figure>
-          ))}
+              </motion.article>
+            );
+          })}
         </div>
 
-        {/* Accessible Lightbox Modal */}
-        {activeItem && lightboxIndex !== null && (
+        {/* Bottom Pagination Dots & Explore Gallery CTA */}
+        <div className="mt-8 flex flex-col items-center justify-center gap-5">
+          <div className="flex items-center gap-2" role="tablist" aria-label="Gallery slides">
+            {previewItems.map((item, idx) => {
+              const active = idx === activeIndex;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  aria-label={`View ${item.title}`}
+                  onClick={() => setActiveIndex(idx)}
+                  className={cn(
+                    "h-2 rounded-full transition-all duration-300",
+                    active
+                      ? "w-8 bg-gold"
+                      : "w-2 bg-white/30 hover:bg-white/60"
+                  )}
+                />
+              );
+            })}
+          </div>
+
+          <PrimaryButton href="/gallery" showArrow>
+            Explore Full Gallery
+          </PrimaryButton>
+        </div>
+
+        {/* Accessible Full-Screen Lightbox Modal */}
+        {lightboxItem && lightboxIndex !== null && (
           <div
             role="dialog"
             aria-modal="true"
-            aria-label={activeItem.title}
+            aria-label={lightboxItem.title}
             className="fixed inset-0 z-50 flex items-center justify-center bg-navy/90 p-4 backdrop-blur-md sm:p-8"
           >
             <div className="relative w-full max-w-4xl overflow-hidden rounded-hero border border-white/15 bg-navy-light text-cloud shadow-navy">
               <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-widest text-lavender">
-                    {activeItem.category}
+                  <span className="text-xs font-semibold uppercase tracking-widest text-gold">
+                    {lightboxItem.category}
                   </span>
                   <h3 className="font-heading text-lg font-bold text-white">
-                    {activeItem.title}
+                    {lightboxItem.title}
                   </h3>
                 </div>
                 <button
@@ -664,8 +819,8 @@ export function HomeGalleryCollage({
 
               <div className="relative aspect-[16/10] w-full bg-navy">
                 <Image
-                  src={activeItem.imageUrl}
-                  alt={activeItem.altText || activeItem.title}
+                  src={lightboxItem.imageUrl}
+                  alt={lightboxItem.altText || lightboxItem.title}
                   fill
                   sizes="100vw"
                   className="object-contain p-4"
@@ -674,16 +829,13 @@ export function HomeGalleryCollage({
 
               <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 px-6 py-4">
                 <p className="max-w-2xl text-xs leading-relaxed text-slate-300">
-                  {activeItem.caption}
+                  {lightboxItem.caption}
                 </p>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() =>
-                      setLightboxIndex(
-                        (lightboxIndex - 1 + previewItems.length) %
-                          previewItems.length
-                      )
+                      setLightboxIndex((lightboxIndex - 1 + count) % count)
                     }
                     aria-label="Previous image"
                     className="rounded-full border border-white/15 bg-white/5 p-2 text-white hover:bg-white/15"
@@ -691,15 +843,11 @@ export function HomeGalleryCollage({
                     <ChevronLeft className="h-4 w-4" aria-hidden="true" />
                   </button>
                   <span className="text-xs text-slate-400">
-                    {lightboxIndex + 1} / {previewItems.length}
+                    {lightboxIndex + 1} / {count}
                   </span>
                   <button
                     type="button"
-                    onClick={() =>
-                      setLightboxIndex(
-                        (lightboxIndex + 1) % previewItems.length
-                      )
-                    }
+                    onClick={() => setLightboxIndex((lightboxIndex + 1) % count)}
                     aria-label="Next image"
                     className="rounded-full border border-white/15 bg-white/5 p-2 text-white hover:bg-white/15"
                   >
