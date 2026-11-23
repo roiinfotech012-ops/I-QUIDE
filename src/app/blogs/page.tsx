@@ -72,7 +72,7 @@ export default async function BlogsPage() {
           meaningful engagement, and emerging learning technologies."
           Exceptionally elegant typography with a minimal abstract background.
          ===================================================================== */}
-      <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-lavender-soft/60 via-cloud to-white pt-12 pb-20 sm:pt-16 sm:pb-24">
+      <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-lavender-soft/60 via-cloud to-white pt-32 pb-20 sm:pt-40 sm:pb-24">
         {/* Minimal Abstract Background Graphics */}
         <div
           className="pointer-events-none absolute -top-24 right-1/4 h-[380px] w-[380px] rounded-full bg-iris/10 blur-[110px]"

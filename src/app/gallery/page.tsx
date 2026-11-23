@@ -69,7 +69,7 @@ export default async function GalleryPage() {
           Heading: "A Glimpse into the World of Learning and Innovation."
           Refined editorial hero with subtle background graphics & large type.
          ===================================================================== */}
-      <section className="relative overflow-hidden border-b border-white/10 bg-navy pt-12 pb-20 text-cloud sm:pt-16 sm:pb-28">
+      <section className="relative overflow-hidden border-b border-white/10 bg-navy pt-32 pb-20 text-cloud sm:pt-40 sm:pb-28">
         {/* Subtle Neural & Intelligence Path Background Graphics */}
         <div
           className="pointer-events-none absolute inset-0 bg-neural-grid bg-[size:38px_38px] opacity-20"

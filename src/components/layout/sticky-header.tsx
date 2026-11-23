@@ -66,9 +66,14 @@ export function StickyHeader({
 
   if (isAdminRoute) return null;
 
-  // Homepage hero has a bright, airy light editorial background; subpages use dark maritime navy hero headers
-  const isHomeTop = pathname === "/" && !scrolled && !mobileMenuOpen;
-  const isDarkHeroTop = pathname !== "/" && !scrolled && !mobileMenuOpen;
+  // Match floating pill theme accurately to each route's hero surface
+  const hasDarkHero =
+    pathname === "/about" ||
+    pathname === "/gallery" ||
+    pathname === "/solutions" ||
+    Boolean(pathname?.startsWith("/solutions/"));
+  const isLightHeroTop = !hasDarkHero && !scrolled && !mobileMenuOpen;
+  const isDarkHeroTop = hasDarkHero && !scrolled && !mobileMenuOpen;
 
   const navItems = [
     { label: "Home", href: "/" },
@@ -97,7 +102,8 @@ export function StickyHeader({
           >
             <div
               className={cn(
-                "relative flex w-[98px] flex-col items-center transition-transform duration-300 group-hover:scale-[1.04] sm:w-[118px]",
+                "relative flex flex-col items-center transition-all duration-300 group-hover:scale-[1.04]",
+                scrolled ? "w-[82px] sm:w-[96px]" : "w-[94px] sm:w-[112px]",
                 isDarkHeroTop &&
                   "drop-shadow-[0_0_10px_rgba(255,255,255,0.55)]"
               )}
@@ -164,8 +170,8 @@ export function StickyHeader({
               "flex items-center justify-between gap-3 rounded-full px-4 py-2 transition-all duration-300 sm:px-5 lg:gap-4",
               scrolled || mobileMenuOpen
                 ? "border border-border/90 bg-white/95 shadow-elevated backdrop-blur-xl"
-                : isHomeTop
-                ? "border border-border/75 bg-white/85 shadow-subtle backdrop-blur-md"
+                : isLightHeroTop
+                ? "border border-border/75 bg-white/90 shadow-subtle backdrop-blur-md"
                 : "border border-white/15 bg-navy/65 backdrop-blur-md"
             )}
           >

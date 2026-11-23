@@ -9,7 +9,7 @@ import {
 
 export default function NotFound() {
   return (
-    <section className="flex min-h-[80vh] items-center bg-navy py-28 text-cloud">
+    <section className="flex min-h-[80vh] items-center bg-navy pt-36 pb-24 text-cloud">
       <Container className="text-center">
         <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-iris/20 text-lavender">
           <Compass className="h-8 w-8" aria-hidden="true" />

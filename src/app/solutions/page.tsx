@@ -136,7 +136,7 @@ export default async function SolutionsPage() {
           SECTION 1: SOLUTIONS HERO
           Modern hero with animated abstract learning nodes & floating panels
          ===================================================================== */}
-      <section className="relative overflow-hidden border-b border-white/10 bg-navy pt-10 pb-20 text-cloud sm:pt-14 sm:pb-28">
+      <section className="relative overflow-hidden border-b border-white/10 bg-navy pt-32 pb-20 text-cloud sm:pt-40 sm:pb-28">
         <div
           className="pointer-events-none absolute inset-0 bg-neural-grid bg-[size:36px_36px] opacity-20"
           aria-hidden="true"

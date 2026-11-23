@@ -631,7 +631,7 @@ export default async function SolutionDetailPage({
           Supporting description, Primary "Enquire About This Solution" CTA,
           and Distinctive themed visual.
          ===================================================================== */}
-      <section className="relative overflow-hidden border-b border-white/10 bg-navy pt-12 pb-20 text-cloud sm:pt-16 sm:pb-28">
+      <section className="relative overflow-hidden border-b border-white/10 bg-navy pt-32 pb-20 text-cloud sm:pt-40 sm:pb-28">
         <div
           className="pointer-events-none absolute inset-0 bg-neural-grid bg-[size:36px_36px] opacity-20"
           aria-hidden="true"
