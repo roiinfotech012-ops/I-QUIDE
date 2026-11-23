@@ -427,7 +427,7 @@ export function ScrollZoomReviewsSection({
               style={{ scale: logoScale, opacity: logoOpacity, y: logoY }}
               className="absolute inset-0 z-30 flex flex-col items-center justify-center px-6 text-center"
             >
-              <div className="group relative rounded-[36px] border border-border/80 bg-white/95 px-10 py-8 shadow-elevated backdrop-blur-xl sm:px-14 sm:py-10">
+              <div className="group relative px-4 py-4">
                 {/* Animated Golden-Blue Flight Contrail curving behind the soaring paper airplane */}
                 <svg
                   viewBox="0 0 340 200"
@@ -591,7 +591,7 @@ export function ScrollZoomReviewsSection({
         </div>
 
         <div className="mt-10 flex flex-col items-center text-center">
-          <div className="rounded-3xl border border-border bg-white px-8 py-6 shadow-elevated">
+          <div className="px-4 py-2">
             <div className="mx-auto flex w-[170px] flex-col items-center">
               <motion.div
                 animate={

@@ -89,64 +89,61 @@ export function StickyHeader({
     >
       <Container>
         <div className="flex items-center justify-between gap-4">
-          {/* Standalone Bigger Brand Logo with Repeated Every-5-Second Kite/Plane Flying Animation */}
+          {/* Standalone Transparent PNG Brand Logo with Repeated Every-5-Second Kite/Plane Flying Animation */}
           <Link
             href="/"
-            className="group relative shrink-0 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-iris"
+            className="group relative shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-iris rounded-xl"
             aria-label={`${settings.brandName} Home`}
           >
             <div
               className={cn(
-                "relative flex items-center justify-center rounded-2xl px-3.5 py-2 transition-all duration-300 group-hover:scale-[1.03]",
-                scrolled || mobileMenuOpen || isDarkHeroTop
-                  ? "border border-border/80 bg-white/95 shadow-elevated backdrop-blur-xl ring-1 ring-gold/30"
-                  : "border border-border/60 bg-white/90 shadow-subtle backdrop-blur-md"
+                "relative flex w-[104px] flex-col items-center transition-transform duration-300 group-hover:scale-[1.04] sm:w-[128px]",
+                isDarkHeroTop &&
+                  "drop-shadow-[0_0_10px_rgba(255,255,255,0.55)]"
               )}
             >
-              <div className="relative flex w-[92px] flex-col items-center sm:w-[114px]">
-                {/* Kite / Paper Airplane flies a graceful loop every 5 seconds and lands cleanly back on the logo */}
-                <motion.div
-                  animate={
-                    prefersReducedMotion
-                      ? undefined
-                      : {
-                          x: [0, 18, 30, 10, -14, -4, 0, 0],
-                          y: [0, -14, -22, -16, -6, -2, 0, 0],
-                          rotate: [0, -16, -8, 12, 6, -3, 0, 0],
-                          scale: [1, 1.08, 1.04, 0.96, 1.02, 1, 1, 1],
-                        }
-                  }
-                  transition={{
-                    duration: 5,
-                    times: [0, 0.06, 0.13, 0.2, 0.27, 0.33, 0.38, 1],
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="relative z-10 w-full"
-                  style={{ willChange: "transform" }}
-                >
-                  <Image
-                    src="/brand/iguide-plane.png"
-                    alt="iGUIDE flying paper airplane"
-                    width={114}
-                    height={55}
-                    priority
-                    unoptimized
-                    className="h-auto w-full object-contain drop-shadow-[0_4px_8px_rgba(30,72,131,0.20)]"
-                  />
-                </motion.div>
-
-                {/* Anchored Horizon Lines + iGUIDE Wordmark */}
+              {/* Kite / Paper Airplane flies a graceful loop every 5 seconds and lands cleanly back on the logo */}
+              <motion.div
+                animate={
+                  prefersReducedMotion
+                    ? undefined
+                    : {
+                        x: [0, 18, 30, 10, -14, -4, 0, 0],
+                        y: [0, -14, -22, -16, -6, -2, 0, 0],
+                        rotate: [0, -16, -8, 12, 6, -3, 0, 0],
+                        scale: [1, 1.08, 1.04, 0.96, 1.02, 1, 1, 1],
+                      }
+                }
+                transition={{
+                  duration: 5,
+                  times: [0, 0.06, 0.13, 0.2, 0.27, 0.33, 0.38, 1],
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="relative z-10 w-full"
+                style={{ willChange: "transform" }}
+              >
                 <Image
-                  src="/brand/iguide-wordmark.png"
-                  alt={settings.brandName || "iGUIDE"}
-                  width={114}
-                  height={45}
+                  src="/brand/iguide-plane.png"
+                  alt="iGUIDE flying paper airplane"
+                  width={128}
+                  height={62}
                   priority
                   unoptimized
-                  className="-mt-1.5 h-auto w-full object-contain"
+                  className="h-auto w-full object-contain drop-shadow-[0_4px_8px_rgba(30,72,131,0.20)]"
                 />
-              </div>
+              </motion.div>
+
+              {/* Anchored Horizon Lines + iGUIDE Wordmark */}
+              <Image
+                src="/brand/iguide-wordmark.png"
+                alt={settings.brandName || "iGUIDE"}
+                width={128}
+                height={51}
+                priority
+                unoptimized
+                className="-mt-1.5 h-auto w-full object-contain"
+              />
             </div>
           </Link>
 

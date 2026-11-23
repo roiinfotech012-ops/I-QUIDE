@@ -60,15 +60,16 @@ export function GlobalFooter({
           <div className="lg:col-span-4">
             <Link
               href="/"
-              className="inline-flex items-center rounded-2xl bg-white px-4 py-2.5 shadow-subtle ring-1 ring-gold/40 transition hover:scale-[1.02]"
+              className="inline-flex items-center transition hover:scale-[1.03]"
               aria-label={`${settings.brandName} Home`}
             >
               <Image
                 src="/brand/iguide-logo.png"
                 alt={settings.brandName || "iGUIDE"}
-                width={132}
-                height={54}
-                className="h-12 w-auto object-contain"
+                width={152}
+                height={64}
+                unoptimized
+                className="h-16 w-auto object-contain drop-shadow-[0_0_14px_rgba(255,255,255,0.45)]"
               />
             </Link>
 
