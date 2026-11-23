@@ -1,8 +1,15 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+  type MotionValue,
+} from "framer-motion";
 import {
   ArrowRight,
   BarChart3,
@@ -359,162 +366,266 @@ const LEARNING_JOURNEY_STAGES = [
   },
 ];
 
+const STAGE_SCROLL_RANGES: [number, number][] = [
+  [0.05, 0.22],
+  [0.26, 0.44],
+  [0.48, 0.66],
+  [0.70, 0.88],
+];
+
+function JourneyScrollNode({
+  cx,
+  accent,
+  range,
+  progress,
+}: {
+  cx: number;
+  accent: string;
+  range: [number, number];
+  progress: MotionValue<number>;
+}) {
+  const [start, end] = range;
+  const nodeOpacity = useTransform(progress, [Math.max(0, start - 0.04), start + 0.06], [0.2, 1]);
+  const ringScale = useTransform(progress, [Math.max(0, start - 0.04), start + 0.08], [0.65, 1]);
+  const pulseOpacity = useTransform(progress, [start, end, Math.min(1, end + 0.12)], [0, 0.4, 0.15]);
+
+  return (
+    <motion.g style={{ opacity: nodeOpacity }}>
+      <motion.circle
+        cx={cx}
+        cy="55"
+        r="28"
+        fill={accent}
+        style={{ opacity: pulseOpacity, scale: ringScale, transformOrigin: `${cx}px 55px` }}
+      />
+      <motion.circle
+        cx={cx}
+        cy="55"
+        r="18"
+        fill="#FFFFFF"
+        stroke={accent}
+        strokeWidth="4"
+        style={{ scale: ringScale, transformOrigin: `${cx}px 55px` }}
+      />
+      <motion.circle
+        cx={cx}
+        cy="55"
+        r="7"
+        fill={accent}
+        style={{ scale: ringScale, transformOrigin: `${cx}px 55px` }}
+      />
+    </motion.g>
+  );
+}
+
+function JourneyScrollCard({
+  stage,
+  range,
+  progress,
+}: {
+  stage: (typeof LEARNING_JOURNEY_STAGES)[number];
+  range: [number, number];
+  progress: MotionValue<number>;
+}) {
+  const Icon = stage.icon;
+  const [start, end] = range;
+
+  const opacity = useTransform(progress, [start, end], [0, 1]);
+  const y = useTransform(progress, [start, end], [56, 0]);
+  const scale = useTransform(progress, [start, end], [0.92, 1]);
+
+  return (
+    <motion.div
+      style={{ opacity, y, scale, willChange: "transform, opacity" }}
+      className="group relative flex flex-col justify-between rounded-feature border border-border bg-white p-7 shadow-elevated transition-colors duration-300 hover:border-iris/45"
+    >
+      <div>
+        <div className="flex items-center justify-between">
+          <span className="font-heading text-xs font-extrabold uppercase tracking-widest text-iris">
+            Stage {stage.step}
+          </span>
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-iris-light text-iris">
+            <Icon className="h-5 w-5" aria-hidden="true" />
+          </div>
+        </div>
+        <h3 className="mt-4 font-heading text-2xl font-extrabold text-ink">
+          {stage.name}
+        </h3>
+        <p className="mt-1 text-xs font-semibold text-intelligence">
+          {stage.subtitle}
+        </p>
+        <p className="mt-3 text-sm leading-relaxed text-ink-secondary">
+          {stage.description}
+        </p>
+      </div>
+      <div
+        className="mt-6 h-1 w-12 rounded-full"
+        style={{ backgroundColor: stage.accent }}
+      />
+    </motion.div>
+  );
+}
+
 export function LearningJourneySection({
   heading = "From Curiosity to Capability.",
 }: {
   heading?: string;
 }) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 140,
+    damping: 26,
+    mass: 0.25,
+  });
+
+  const pathLength = useTransform(smoothProgress, [0.02, 0.86], [0, 1]);
+
   return (
-    <section className="overflow-hidden border-y border-border bg-subtle-gradient py-24 sm:py-32">
-      <Container>
-        <SectionHeading
-          eyebrow="THE LEARNING JOURNEY"
-          title={heading}
-          description="An explanatory look at the four conceptual stages of the iGUIDE Intelligence Path—illustrating how curiosity evolves into lasting capability."
-          align="center"
-        />
+    <section className="relative border-y border-border bg-subtle-gradient">
+      {/* DESKTOP: Sticky Scroll-Scrubbed Stage (Scroll down -> cards appear 1..4; Scroll up -> cards disappear 4..1) */}
+      {!prefersReducedMotion ? (
+        <div
+          ref={containerRef}
+          className="relative hidden lg:block lg:h-[260vh]"
+        >
+          <div className="sticky top-0 flex min-h-screen items-center overflow-x-clip py-20">
+            <Container>
+              <SectionHeading
+                eyebrow="THE LEARNING JOURNEY"
+                title={heading}
+                description="Scroll down to watch each stage of the iGUIDE Intelligence Path unfold step by step—from initial curiosity to lasting capability."
+                align="center"
+              />
 
-        {/* Desktop Horizontal Connected SVG Intelligence Path */}
-        <div className="relative mt-16 hidden lg:block">
-          <svg
-            viewBox="0 0 1200 110"
-            className="w-full overflow-visible"
-            fill="none"
-            aria-hidden="true"
-          >
-            <defs>
-              <linearGradient
-                id="journeyLineGrad"
-                x1="80"
-                y1="55"
-                x2="1120"
-                y2="55"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0%" stopColor="#2B64B0" />
-                <stop offset="35%" stopColor="#1E4883" />
-                <stop offset="70%" stopColor="#F0C32A" />
-                <stop offset="100%" stopColor="#16A085" />
-              </linearGradient>
-            </defs>
+              {/* Connected SVG Intelligence Path scrubbed cleanly to scroll */}
+              <div className="relative mt-12">
+                <svg
+                  viewBox="0 0 1200 110"
+                  className="w-full overflow-visible"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <defs>
+                    <linearGradient
+                      id="journeyLineGrad"
+                      x1="80"
+                      y1="55"
+                      x2="1120"
+                      y2="55"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0%" stopColor="#2B64B0" />
+                      <stop offset="35%" stopColor="#1E4883" />
+                      <stop offset="70%" stopColor="#F0C32A" />
+                      <stop offset="100%" stopColor="#16A085" />
+                    </linearGradient>
+                  </defs>
 
-            {/* Subtle background constellation wave */}
-            <path
-              d="M 120 55 C 280 15, 360 95, 480 55 C 600 15, 700 95, 840 55 C 960 15, 1020 75, 1080 55"
-              stroke="#1E4883"
-              strokeOpacity="0.18"
-              strokeWidth="2"
-              strokeDasharray="6 6"
+                  {/* Subtle dashed guide wave */}
+                  <path
+                    d="M 120 55 C 280 15, 360 95, 480 55 C 600 15, 700 95, 840 55 C 960 15, 1020 75, 1080 55"
+                    stroke="#1E4883"
+                    strokeOpacity="0.16"
+                    strokeWidth="2"
+                    strokeDasharray="6 6"
+                  />
+
+                  {/* Primary Scroll-Scrubbed Intelligence Path */}
+                  <motion.path
+                    d="M 120 55 C 250 90, 350 20, 480 55 C 610 90, 710 20, 840 55 C 950 85, 1020 35, 1080 55"
+                    stroke="url(#journeyLineGrad)"
+                    strokeWidth="4.5"
+                    strokeLinecap="round"
+                    style={{ pathLength }}
+                  />
+
+                  {[120, 440, 760, 1080].map((cx, idx) => (
+                    <JourneyScrollNode
+                      key={cx}
+                      cx={cx}
+                      accent={LEARNING_JOURNEY_STAGES[idx].accent}
+                      range={STAGE_SCROLL_RANGES[idx]}
+                      progress={smoothProgress}
+                    />
+                  ))}
+                </svg>
+
+                {/* 4 Scroll-Revealed / Scroll-Hidden Stage Cards */}
+                <div className="mt-4 grid grid-cols-4 gap-6">
+                  {LEARNING_JOURNEY_STAGES.map((stage, idx) => (
+                    <JourneyScrollCard
+                      key={stage.step}
+                      stage={stage}
+                      range={STAGE_SCROLL_RANGES[idx]}
+                      progress={smoothProgress}
+                    />
+                  ))}
+                </div>
+              </div>
+            </Container>
+          </div>
+        </div>
+      ) : null}
+
+      {/* MOBILE / TABLET & REDUCED-MOTION: Bidirectional whileInView Sequence (appears on scroll down, hides on scroll up) */}
+      <div className={cn("py-20 sm:py-24", !prefersReducedMotion && "lg:hidden")}>
+        <Container>
+          <SectionHeading
+            eyebrow="THE LEARNING JOURNEY"
+            title={heading}
+            description="An explanatory look at the four conceptual stages of the iGUIDE Intelligence Path—illustrating how curiosity evolves into lasting capability."
+            align="center"
+          />
+
+          <div className="relative mt-12 space-y-6">
+            <div
+              className="pointer-events-none absolute bottom-8 left-6 top-8 w-0.5 bg-gradient-to-b from-intelligence via-iris to-emerald-success"
+              aria-hidden="true"
             />
-
-            {/* Primary Animated Intelligence Path */}
-            <motion.path
-              d="M 120 55 C 250 90, 350 20, 480 55 C 610 90, 710 20, 840 55 C 950 85, 1020 35, 1080 55"
-              stroke="url(#journeyLineGrad)"
-              strokeWidth="4"
-              strokeLinecap="round"
-              initial={
-                prefersReducedMotion ? false : { pathLength: 0, opacity: 0.4 }
-              }
-              whileInView={{ pathLength: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-            />
-
-            {[120, 440, 760, 1080].map((cx, idx) => (
-              <g key={cx}>
-                <circle
-                  cx={cx}
-                  cy="55"
-                  r="18"
-                  fill="#FFFFFF"
-                  stroke={LEARNING_JOURNEY_STAGES[idx].accent}
-                  strokeWidth="4"
-                />
-                <circle
-                  cx={cx}
-                  cy="55"
-                  r="7"
-                  fill={LEARNING_JOURNEY_STAGES[idx].accent}
-                />
-              </g>
-            ))}
-          </svg>
-
-          <div className="mt-4 grid grid-cols-4 gap-6">
             {LEARNING_JOURNEY_STAGES.map((stage) => {
               const Icon = stage.icon;
               return (
-                <div
+                <motion.div
                   key={stage.step}
-                  className="group relative flex flex-col justify-between rounded-feature border border-border bg-white p-7 shadow-subtle transition-all duration-300 hover:-translate-y-1 hover:border-iris/40 hover:shadow-elevated"
+                  initial={prefersReducedMotion ? false : { opacity: 0, y: 36, scale: 0.96 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: false, amount: 0.35 }}
+                  transition={{ duration: 0.45, ease: "easeOut" }}
+                  className="relative flex items-start gap-5"
                 >
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <span className="font-heading text-xs font-extrabold uppercase tracking-widest text-iris">
-                        Stage {stage.step}
-                      </span>
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-iris-light text-iris">
-                        <Icon className="h-5 w-5" aria-hidden="true" />
-                      </div>
+                  <div
+                    className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-4 border-white text-xs font-extrabold text-white shadow-subtle"
+                    style={{ backgroundColor: stage.accent }}
+                  >
+                    {stage.step}
+                  </div>
+                  <div className="flex-1 rounded-feature border border-border bg-white p-6 shadow-subtle">
+                    <div className="flex items-center justify-between gap-2">
+                      <h3 className="font-heading text-xl font-extrabold text-ink">
+                        {stage.name}
+                      </h3>
+                      <Icon className="h-5 w-5 text-iris" aria-hidden="true" />
                     </div>
-                    <h3 className="mt-4 font-heading text-2xl font-extrabold text-ink">
-                      {stage.name}
-                    </h3>
                     <p className="mt-1 text-xs font-semibold text-intelligence">
                       {stage.subtitle}
                     </p>
-                    <p className="mt-3 text-sm leading-relaxed text-ink-secondary">
+                    <p className="mt-2.5 text-sm leading-relaxed text-ink-secondary">
                       {stage.description}
                     </p>
                   </div>
-                  <div
-                    className="mt-6 h-1 w-12 rounded-full"
-                    style={{ backgroundColor: stage.accent }}
-                  />
-                </div>
+                </motion.div>
               );
             })}
           </div>
-        </div>
-
-        {/* Mobile & Tablet Vertically Connected Sequence */}
-        <div className="relative mt-12 space-y-6 lg:hidden">
-          <div
-            className="pointer-events-none absolute bottom-8 left-6 top-8 w-0.5 bg-gradient-to-b from-intelligence via-iris to-emerald-success"
-            aria-hidden="true"
-          />
-          {LEARNING_JOURNEY_STAGES.map((stage) => {
-            const Icon = stage.icon;
-            return (
-              <div key={stage.step} className="relative flex items-start gap-5">
-                <div
-                  className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-4 border-white text-xs font-extrabold text-white shadow-subtle"
-                  style={{ backgroundColor: stage.accent }}
-                >
-                  {stage.step}
-                </div>
-                <div className="flex-1 rounded-feature border border-border bg-white p-6 shadow-subtle">
-                  <div className="flex items-center justify-between gap-2">
-                    <h3 className="font-heading text-xl font-extrabold text-ink">
-                      {stage.name}
-                    </h3>
-                    <Icon className="h-5 w-5 text-iris" aria-hidden="true" />
-                  </div>
-                  <p className="mt-1 text-xs font-semibold text-intelligence">
-                    {stage.subtitle}
-                  </p>
-                  <p className="mt-2.5 text-sm leading-relaxed text-ink-secondary">
-                    {stage.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </Container>
+        </Container>
+      </div>
     </section>
   );
 }
