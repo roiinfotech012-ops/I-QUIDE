@@ -479,7 +479,7 @@ export function ConnectedEcosystemDiagram({
           </div>
 
           {current && (
-            <div className="rounded-feature border border-white/12 bg-white/[0.05] p-6">
+            <div className="rounded-feature border border-white/15 bg-white/[0.05] p-6">
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-iris/25 text-lavender">
                   <DynamicIcon name={current.iconName} className="h-5 w-5" />

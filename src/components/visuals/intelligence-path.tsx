@@ -309,7 +309,7 @@ export function HeroLearningEcosystem({ caption }: { caption?: string }) {
 
         {/* Floating Educational Interface Panels & Subtle Progress Indicator */}
         <div className="grid gap-3.5 sm:grid-cols-12">
-          <div className="rounded-2xl border border-white/12 bg-white/[0.06] p-4 sm:col-span-7">
+          <div className="rounded-2xl border border-white/15 bg-white/[0.06] p-4 sm:col-span-7">
             <div className="flex items-center justify-between gap-2">
               <span className="text-[11px] font-semibold uppercase tracking-wider text-lavender">
                 {current.stage}
@@ -336,7 +336,7 @@ export function HeroLearningEcosystem({ caption }: { caption?: string }) {
             </div>
           </div>
 
-          <div className="flex flex-col justify-between gap-2.5 rounded-2xl border border-white/12 bg-gradient-to-br from-iris/25 to-intelligence/10 p-4 sm:col-span-5">
+          <div className="flex flex-col justify-between gap-2.5 rounded-2xl border border-white/15 bg-gradient-to-br from-iris/25 to-intelligence/10 p-4 sm:col-span-5">
             <div className="flex items-center justify-between text-xs font-semibold text-white">
               <span className="flex items-center gap-1.5">
                 <Sparkles className="h-4 w-4 text-lavender" aria-hidden="true" />

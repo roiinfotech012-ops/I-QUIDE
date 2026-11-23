@@ -609,7 +609,7 @@ export default async function AboutPage() {
 
             {/* MISSION CARD — Midnight Background + Delicate Blue AI-Network Visual */}
             <AnimatedReveal delay={0.1} className="lg:col-span-6">
-              <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-hero border border-white/12 bg-navy p-8 text-cloud shadow-navy sm:p-12">
+              <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-hero border border-white/15 bg-navy p-8 text-cloud shadow-navy sm:p-12">
                 <div
                   className="pointer-events-none absolute right-0 top-0 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(43,100,176,0.22)_0%,rgba(11,16,38,0)_70%)] blur-2xl"
                   aria-hidden="true"

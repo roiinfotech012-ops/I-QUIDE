@@ -121,7 +121,7 @@ export function FeaturedTestimonialsShowcase({
             </blockquote>
 
             {/* Reviewer Attribution Footer */}
-            <div className="mt-10 flex flex-wrap items-center justify-between gap-6 border-t border-white/12 pt-8">
+            <div className="mt-10 flex flex-wrap items-center justify-between gap-6 border-t border-white/15 pt-8">
               <div className="flex items-center gap-4">
                 {current.avatarUrl ? (
                   <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl border border-white/20 bg-navy-light">

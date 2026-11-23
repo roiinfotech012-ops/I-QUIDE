@@ -439,7 +439,7 @@ export function SafeArticleContent({
                   className="flex items-start gap-3.5 text-base leading-[1.8] text-ink-secondary sm:text-[17px]"
                 >
                   <span
-                    className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-iris/12 font-mono text-xs font-bold text-iris"
+                    className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-iris/15 font-mono text-xs font-bold text-iris"
                     aria-hidden="true"
                   >
                     {i + 1}

@@ -229,7 +229,7 @@ export function FeatureCard({
         "rounded-feature border p-6 transition-all duration-200 sm:p-8",
         theme === "light"
           ? "border-border bg-white shadow-subtle hover:border-iris/35 hover:shadow-elevated"
-          : "border-white/12 bg-white/[0.04] text-cloud hover:border-lavender/40",
+          : "border-white/15 bg-white/[0.04] text-cloud hover:border-lavender/40",
         className
       )}
     >

@@ -326,7 +326,7 @@ export default async function SolutionDetailPage({
                 {solution.architectureSteps.map((step, idx) => (
                   <div
                     key={step.step}
-                    className="relative flex flex-col justify-between rounded-hero border border-white/12 bg-white/[0.04] p-7 backdrop-blur-sm"
+                    className="relative flex flex-col justify-between rounded-hero border border-white/15 bg-white/[0.04] p-7 backdrop-blur-sm"
                   >
                     <div>
                       <div className="flex items-center justify-between gap-3">

@@ -309,7 +309,7 @@ export function OurApproachInteractive({
           className="flex flex-col justify-between overflow-hidden rounded-hero border border-border bg-navy p-7 text-cloud shadow-navy sm:p-10 lg:col-span-7"
         >
           {/* Synchronized Conceptual Visual */}
-          <div className="relative overflow-hidden rounded-2xl border border-white/12 bg-navy-light/90 p-6">
+          <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-navy-light/90 p-6">
             <div className="mb-4 flex items-center justify-between">
               <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-lavender">
                 Approach Architecture · {current.code || `0${activeIndex + 1}`}{" "}

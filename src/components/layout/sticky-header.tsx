@@ -231,8 +231,8 @@ export function StickyHeader({
 
                     {/* Six Solutions Mega Dropdown */}
                     {dropdownOpen && (
-                      <div className="absolute left-1/2 top-full w-[760px] -translate-x-1/2 pt-3">
-                        <div className="overflow-hidden rounded-feature border border-border/80 bg-white/98 p-6 shadow-elevated backdrop-blur-2xl">
+                      <div className="absolute left-1/2 top-full z-50 w-[760px] -translate-x-1/2 pt-3">
+                        <div className="overflow-hidden rounded-feature border border-border bg-white p-6 shadow-2xl ring-1 ring-navy/10">
                           <div className="mb-4 flex items-center justify-between border-b border-border/70 pb-3 px-1">
                             <div className="flex items-center gap-2">
                               <span className="flex h-2 w-2 rounded-full bg-emerald-success animate-pulse" />
