@@ -340,11 +340,11 @@ export function PrivacyConsciousLocationMap({
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border border-iris/20 bg-iris/10 px-3.5 py-1 font-mono text-[10px] font-semibold tracking-[0.16em] text-iris uppercase">
             <MapPin className="h-3 w-3" aria-hidden="true" />
-            <span>BENGALURU WORKSPACE</span>
+            <span>BENGALURU OFFICE</span>
           </span>
 
           <h3 className="mt-4 font-heading text-2xl font-extrabold tracking-tight text-ink">
-            Aspire Co-works, Koramangala
+            iGUIDE Office, Koramangala
           </h3>
 
           <p className="mt-3 text-sm leading-relaxed text-ink-secondary">
@@ -412,7 +412,7 @@ export function PrivacyConsciousLocationMap({
       <div className="relative min-h-[340px] overflow-hidden rounded-[32px] border border-border bg-gradient-to-br from-[#F4F3FF] via-white to-[#EEF4FF] shadow-subtle lg:col-span-7">
         {embedLoaded ? (
           <iframe
-            title="iGUIDE Location — Aspire Co-works, Koramangala, Bengaluru"
+            title="iGUIDE Location — Koramangala, Bengaluru"
             src={mapEmbedUrl}
             className="h-full min-h-[360px] w-full border-0"
             loading="lazy"
@@ -453,7 +453,7 @@ export function PrivacyConsciousLocationMap({
               </div>
 
               <h4 className="mt-4 font-heading text-lg font-bold text-ink">
-                Aspire Co-works, Koramangala, Bengaluru
+                iGUIDE — Koramangala, Bengaluru
               </h4>
 
               <p className="mt-1.5 text-xs leading-relaxed text-ink-secondary">

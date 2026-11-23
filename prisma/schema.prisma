@@ -69,8 +69,8 @@ model SiteSettings {
   whatsappNumber        String   @default("")
   whatsappVerified      Boolean  @default(false)
   whatsappDefaultMessage String  @default("Hello iGUIDE Team, I would like to enquire about your intelligent educational solutions.")
-  googleMapsUrl         String   @default("https://www.google.com/maps/search/?api=1&query=Aspire+Co-works,+Koramangala,+Bengaluru,+Karnataka,+India")
-  address               String   @default("Aspire Co-works, Koramangala, Bengaluru, Karnataka, India")
+  googleMapsUrl         String   @default("https://www.google.com/maps/search/?api=1&query=Koramangala,+Bengaluru,+Karnataka,+India")
+  address               String   @default("Koramangala, Bengaluru, Karnataka, India")
   officeHours           String   @default("Monday – Saturday, 9:30 AM – 6:30 PM IST")
   footerDescription     String   @db.Text
   copyrightText         String   @default("© 2026 iGUIDE Education Technology. All rights reserved.")

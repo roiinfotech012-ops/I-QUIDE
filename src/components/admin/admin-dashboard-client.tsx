@@ -4003,7 +4003,7 @@ export function AdminDashboardClient({
                       type="url"
                       value={
                         siteSettings.googleMapsUrl ||
-                        "https://www.google.com/maps/search/?api=1&query=Aspire+Co-works,+Koramangala,+Bengaluru,+Karnataka,+India"
+                        "https://www.google.com/maps/search/?api=1&query=Koramangala,+Bengaluru,+Karnataka,+India"
                       }
                       onChange={(e) =>
                         setSiteSettings({

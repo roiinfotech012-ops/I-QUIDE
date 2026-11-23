@@ -167,7 +167,7 @@ export function buildOrganizationJsonLd(settings: {
     telephone: settings.primaryPhone,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Aspire Co-works, Koramangala",
+      streetAddress: "Koramangala",
       addressLocality: "Bengaluru",
       addressRegion: "Karnataka",
       addressCountry: "IN",

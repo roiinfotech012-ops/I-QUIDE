@@ -299,8 +299,8 @@ export const INITIAL_CMS_DATA: CmsStoreData = {
     whatsappDefaultMessage:
       "Hello iGUIDE Team, I would like to enquire about your intelligent educational solutions.",
     googleMapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Aspire+Co-works,+Koramangala,+Bengaluru,+Karnataka,+India",
-    address: "Aspire Co-works, Koramangala, Bengaluru, Karnataka, India",
+      "https://www.google.com/maps/search/?api=1&query=Koramangala,+Bengaluru,+Karnataka,+India",
+    address: "Koramangala, Bengaluru, Karnataka, India",
     officeHours: "Monday – Saturday, 9:30 AM – 6:30 PM IST",
     footerDescription:
       "iGUIDE is an AI-powered education technology organisation dedicated to making learning adaptive, engaging, personalised, and accessible across academic and professional institutions.",
@@ -720,18 +720,18 @@ export const INITIAL_CMS_DATA: CmsStoreData = {
           "Reach out to the iGUIDE team to discuss adaptive learning solutions, institutional requirements, educator initiatives, or collaborative opportunities.",
         locationHeading: "Find Us in Bengaluru.",
         locationDescription:
-          "Our workspace is located at Aspire Co-works in Koramangala, Bengaluru, Karnataka, India.",
+          "Our office is located in Koramangala, Bengaluru, Karnataka, India.",
         mapSearchUrl:
-          "https://www.google.com/maps/search/?api=1&query=Aspire+Co-works,+Koramangala,+Bengaluru,+Karnataka,+India",
+          "https://www.google.com/maps/search/?api=1&query=Koramangala,+Bengaluru,+Karnataka,+India",
         mapEmbedUrl:
-          "https://www.google.com/maps?q=Aspire+Co-works,+Koramangala,+Bengaluru,+Karnataka,+India&output=embed",
+          "https://www.google.com/maps?q=Koramangala,+Bengaluru,+Karnataka,+India&output=embed",
         closingCtaHeading:
           "Let's Explore What Intelligent Learning Could Make Possible.",
       },
       seoTitle:
         "Contact iGUIDE — Great Learning Experiences Begin with a Conversation",
       seoDescription:
-        "Connect with iGUIDE at Aspire Co-works, Koramangala, Bengaluru, Karnataka, India (+91 8247654106, admin@advaita1.com) to explore AI-powered educational solutions.",
+        "Connect with iGUIDE in Koramangala, Bengaluru, Karnataka, India (+91 8247654106, admin@advaita1.com) to explore AI-powered educational solutions.",
       published: true,
       updatedAt: nowIso,
     },
@@ -786,7 +786,7 @@ For questions regarding this draft document or to request updates to enquiry det
 
 - **Email:** [admin@advaita1.com](mailto:admin@advaita1.com)
 - **Phone:** +91 8247654106
-- **Address:** Aspire Co-works, Koramangala, Bengaluru, Karnataka, India`,
+- **Address:** Koramangala, Bengaluru, Karnataka, India`,
       },
       seoTitle: "Privacy Policy (Draft for Review) | iGUIDE",
       seoDescription:
@@ -838,7 +838,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
 
 - **Email:** [admin@advaita1.com](mailto:admin@advaita1.com)
 - **Phone:** +91 8247654106
-- **Address:** Aspire Co-works, Koramangala, Bengaluru, Karnataka, India`,
+- **Address:** Koramangala, Bengaluru, Karnataka, India`,
       },
       seoTitle: "Terms & Conditions (Draft for Review) | iGUIDE",
       seoDescription:

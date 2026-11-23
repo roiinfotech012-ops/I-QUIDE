@@ -40,7 +40,7 @@ export async function generateMetadata() {
       "Contact iGUIDE — Great Learning Experiences Begin with a Conversation",
     description:
       page?.seoDescription ||
-      "Connect with iGUIDE at Aspire Co-works, Koramangala, Bengaluru, Karnataka, India (+91 8247654106, admin@advaita1.com) to explore AI-powered educational solutions.",
+      "Connect with iGUIDE in Koramangala, Bengaluru, Karnataka, India (+91 8247654106, admin@advaita1.com) to explore AI-powered educational solutions.",
     path: "/contact",
   });
 }
@@ -78,11 +78,11 @@ export default async function ContactPage() {
   const locationHeading = sections.locationHeading || "Find Us in Bengaluru.";
   const locationDescription =
     sections.locationDescription ||
-    "Our workspace is located at Aspire Co-works in Koramangala, Bengaluru, Karnataka, India.";
+    "Our office is located in Koramangala, Bengaluru, Karnataka, India.";
 
   const encodedAddress = encodeURIComponent(
     settings.address ||
-      "Aspire Co-works, Koramangala, Bengaluru, Karnataka, India"
+      "Koramangala, Bengaluru, Karnataka, India"
   );
   const mapSearchUrl =
     sections.mapSearchUrl ||
