@@ -1790,7 +1790,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Conceptual visual study illustrating how adaptive learning nodes dynamically respond to individual comprehension tempo.",
       category: "Technology & Innovation",
-      imageUrl: "/images/solution-personalised-learning.jpg",
+      imageUrl: "/images/gallery-moment-1.jpg",
       altText: "Adaptive Intelligence Path system topology study",
       location: "iGUIDE Innovation Studio",
       aspect: "landscape",
@@ -1805,7 +1805,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Visual framework exploring how Universal Design for Learning (UDL) principles combine with adaptive AI pathways.",
       category: "Educational Initiatives",
-      imageUrl: "/images/solution-ai-tutors.jpg",
+      imageUrl: "/images/gallery-moment-2.jpg",
       altText: "Human-centred pedagogical design initiative",
       location: "Educational Initiatives Desk",
       aspect: "portrait",
@@ -1820,7 +1820,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Conceptual blueprint for educator workshops focused on mapping subject concepts into connected knowledge graphs.",
       category: "Workshops & Training",
-      imageUrl: "/images/welcome-editorial.jpg",
+      imageUrl: "/images/gallery-moment-3.jpg",
       altText: "Curriculum architecture workshop visual blueprint",
       location: "Pedagogical Workshop Series",
       aspect: "landscape",
@@ -1835,7 +1835,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Design exploration of puzzle-inspired learning activities, riddles, and collaborative classroom challenges.",
       category: "Events & Activities",
-      imageUrl: "/images/solution-gamified-learning.jpg",
+      imageUrl: "/images/gallery-moment-4.jpg",
       altText: "Interactive challenge and curiosity activity study",
       location: "Interactive Learning Showcase",
       aspect: "square",
@@ -1850,7 +1850,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Architectural study of modern learning spaces where digital intelligence and human mentorship work in harmony.",
       category: "General Gallery",
-      imageUrl: "/images/solution-institutional-solutions.jpg",
+      imageUrl: "/images/gallery-moment-5.jpg",
       altText: "Collaborative learning commons conceptual visual",
       location: "iGUIDE Design Collection",
       aspect: "landscape",
@@ -1865,7 +1865,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Interface design study illustrating Socratic dialogue states—Question, Guidance, and Exploration.",
       category: "Technology & Innovation",
-      imageUrl: "/images/blog-educator-human-ai.jpg",
+      imageUrl: "/images/gallery-moment-1.jpg",
       altText: "Conversational tutoring and guided inquiry visual study",
       location: "AI Systems Architecture",
       aspect: "portrait",
@@ -1880,7 +1880,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Visual synthesis demonstrating how continuous skill assessment illuminates strengths and learning opportunities.",
       category: "Events & Activities",
-      imageUrl: "/images/about-vision.jpg",
+      imageUrl: "/images/gallery-moment-2.jpg",
       altText: "Knowledge-gap and competency mapping visual study",
       location: "Academic Research Series",
       aspect: "landscape",
@@ -1895,7 +1895,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Training framework designed to help educators translate learning analytics into supportive classroom action.",
       category: "Workshops & Training",
-      imageUrl: "/images/solution-learning-analytics.jpg",
+      imageUrl: "/images/gallery-moment-3.jpg",
       altText: "Educator enablement and analytics training visual",
       location: "Educator Training Track",
       aspect: "square",
@@ -1910,7 +1910,7 @@ For questions regarding this draft document or the iGUIDE website, please reach 
       caption:
         "Overview study uniting schools, colleges, universities, and training organisations around shared learning intelligence.",
       category: "Educational Initiatives",
-      imageUrl: "/images/solution-institutional-solutions.jpg",
+      imageUrl: "/images/gallery-moment-4.jpg",
       altText: "Connected institutional learning ecosystem visual",
       location: "Institutional Ecosystem Initiative",
       aspect: "landscape",
