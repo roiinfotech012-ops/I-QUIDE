@@ -35,6 +35,7 @@ function clearFailedAttempts(emailKey: string) {
 }
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  trustHost: process.env.AUTH_TRUST_HOST !== "false",
   secret:
     process.env.AUTH_SECRET ||
     "iguide-production-grade-secret-replace-in-production-env-98a7f6d5c4b3",

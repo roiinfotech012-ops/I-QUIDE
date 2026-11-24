@@ -43,11 +43,15 @@
 
 ---
 
-## 3. Environment Setup & External Integrations
+## 3. Environment Setup & Server Deployment
 
-Copy `.env.example` to `.env` and configure your credentials:
+Copy `.env.example` to `.env` and configure your server port, allowed hosts, and credentials:
 
 ```env
+PORT=3000
+HOSTNAME="0.0.0.0"
+ALLOWED_HOSTS="*"
+AUTH_TRUST_HOST="true"
 DATABASE_URL="postgresql://postgres:password@localhost:5432/iguide_cms?schema=public"
 AUTH_SECRET="replace-with-secure-random-secret"
 NEXTAUTH_URL="http://localhost:3000"
@@ -56,6 +60,14 @@ ADMIN_PASSWORD="iGuide@Admin2026!"
 RESEND_API_KEY=""
 ENQUIRY_NOTIFICATION_EMAIL="admin@advaita1.com"
 NEXT_PUBLIC_SITE_URL="https://iguide.edu.in"
+```
+
+### Production Server Deployment
+All port binding and allowed host settings are controlled exclusively via `.env`:
+```bash
+npm install
+npm run build
+npm start
 ```
 
 ### Connecting Live PostgreSQL & Seeding
